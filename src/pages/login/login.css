@@ -1,0 +1,73 @@
+@keyframes inputbBoxShow {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.backIcon{
+    /* border: 1px solid #fff; */
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    left: 1vw;
+    top: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #fff;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.backIcon:hover{
+    background-color: rgb(238, 64, 93);
+}
+.inputbBox {
+    /* border: 1px solid #fff; */
+    padding-top: 30vh;
+    animation: 3s inputbBoxShow;
+}
+
+.inputItem {
+    /* border: 1px solid #fff; */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputItem span {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.inputItem input {
+    width: 20vw;
+}
+
+.buttonGroup {
+    /* border: 1px solid #fff; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+}
+
+.buttonGroup button {
+    margin: 0 5vw;
+    width: 100px;
+    height: 40px;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.buttonGroup button:hover{
+    background-color: rgb(204, 78, 99);
+    color: #fff;
+}

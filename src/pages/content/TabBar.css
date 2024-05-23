@@ -1,0 +1,88 @@
+@keyframes tabBarBoxShow {
+    from {
+        left: 100%;
+        opacity: 0;
+    }
+
+    to {
+        left: 20%;
+        opacity: 1;
+    }
+}
+
+@keyframes backIconShow {
+    from {
+        margin-left: -10%;
+        opacity: 0;
+    }
+
+    to {
+        margin-left: 0.5%;
+        opacity: 1;
+    }
+}
+
+.tab-bar-box {
+    width: 100%;
+    height: 100px;
+    /* overflow: hidden; */
+    box-sizing: border-box;
+    /* border: 1px solid #fff; */
+    position: relative;
+    z-index: 99;
+}
+
+.tab-bar-main {
+    animation: 3s tabBarBoxShow;
+    width: 80%;
+    height: 56px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-top-left-radius: 30px;
+    border: 1px solid #fcadc7;
+    background-color: #fcadc7;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.tab-bar-main:hover {
+    box-shadow: 0px 5px 20px 5px #fcadc7;
+}
+
+.tab-bar-text-1 {
+    color: #966e7b;
+    text-decoration: none;
+    font-size: 24px;
+    transition: 0.3s;
+}
+
+.tab-bar-text-1:hover {
+    color: #333;
+}
+
+.tab-bar-text-1:active {
+    transform: scale(0.9);
+}
+
+.tab-bar-backIcon {
+    width: 50px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-left: 0.5%;
+    margin-top: 0.5%;
+    cursor: pointer;
+    animation: 2s backIconShow;
+}
+
+.tab-bar-backIcon:hover path {
+    color: #fff;
+}
+
+path {
+    transition: 0.3s;
+}
