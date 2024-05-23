@@ -29,12 +29,17 @@
     width: 80%;
     box-sizing: border-box;
     overflow: hidden;
-    background-color: #fff;
+    background-color: #ffffffbd;
     border-radius: 10px;
     animation: 2s showContent;
     position: relative;
     z-index: 10;
     padding: 20px;
+}
+.register-item{
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
 }
 .register-siderbar{
     height: 100%;

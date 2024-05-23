@@ -14,19 +14,19 @@ function Register() {
         <div className='register-box'>
             <Button color="secondary" className='register-siderbar left-animation' style={{ left: '10%', fontSize: '20px' }} onClick={() => { back() }}><ArrowBackIosNewIcon style={{ color: 'pink', fontSize: '20px', fontWeight: 'bold',cursor:'pointer' }} onClick={() => back()} /><span className='register-text-1'>BACK</span></Button>
             <div className='register-content'>
-                <div>
-                    <span>头像</span>
+                <div className='register-item'>
+                    <view></view>
                 </div>
-                <div>
+                <div className='register-item'>
                     <span>用户名</span>
                 </div>
-                <div>
+                <div className='register-item'>
                     <span>账号ID</span>
                 </div>
-                <div>
+                <div className='register-item'>
                     <span>密码</span>
                 </div>
-                <div>
+                <div className='register-item'>
                     <span>邀请码</span>
                 </div>
             </div>

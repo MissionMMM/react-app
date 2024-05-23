@@ -19,7 +19,7 @@ function Form() {
         setOpenErrorAlert(false)
     }
     const register = () => {
-        navigate('/Register')
+        navigate('/login/register')
     }
     const confirm = () => {
         // 测试账号 13888888888
