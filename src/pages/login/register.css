@@ -37,9 +37,37 @@
     padding: 20px;
 }
 .register-item{
-    border: 1px solid;
+    /* border: 1px solid; */
     display: flex;
     justify-content: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+.register-avactor{
+    width: 120px;
+    height: 120px;
+    /* border: 1px solid; */
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.register-input-box{
+    width: 370px;
+    height: 40px;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.register-input{
+    width: 250px;
+    height: 30px;
+    position: relative;
+    left: 26px;
 }
 .register-siderbar{
     height: 100%;
@@ -66,4 +94,17 @@
     animation: 2s rightOpen;
     animation-delay: 2s;
     animation-fill-mode: forwards;
+}
+.register-icon-1{
+    font-size: 30px;
+    color: gray;
+    position: absolute;
+    left: 20px;
+}
+.register-icon-2{
+    font-size: 20px;
+    color: gray;
+    position: absolute;
+    right: 30px;
+    cursor: pointer;
 }
