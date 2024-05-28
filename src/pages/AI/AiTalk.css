@@ -1,0 +1,86 @@
+@keyframes aitalkshow {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+.AiTalkBox{
+    animation: 3s aitalkshow;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.AiTalkContent{
+    width: 700px;
+    height: 96vh;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px 5px #fff;
+    display: flex;
+    flex-flow: column;
+    position: relative;
+}
+.AiTalk-inputBox{
+    width: 660px;
+    height: 50px;
+    margin-left: 8px;
+    position: fixed;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+.AiTalk-input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 2px solid rgb(189, 188, 188);
+}
+.sendIcon{
+    position: absolute;
+    right: 10px;
+    transform: rotateZ(-90deg);
+    font-size: 24px;
+    cursor: pointer;
+    background-color: rgb(189, 188, 188);
+    color: rgb(107, 107, 107);
+    border-radius: 4px;
+    padding: 4px;
+}
+.AiTalkMainBox{
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+    scroll-behavior:smooth;
+}
+.AiTalkMain-item{
+    width: 95%;
+    box-sizing: border-box;
+    display: flex;
+    margin-left: 2.5%;
+    margin-bottom: 10px;
+}
+.avator{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+.talkContent{
+    width: 650px;
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    /* border: 1px solid; */
+ 	word-break:break-word;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}

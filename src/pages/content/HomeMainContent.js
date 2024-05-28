@@ -17,6 +17,9 @@ function HomeMainContent() {
     const goInstrument = () => {
         navigate('/instrument')
     }
+    const goAiTalk = () => {
+        navigate('/aitalk')
+    }
     const checkBox6 = () => {
         let randomDemo = Math.random() * 5
         let random = Math.ceil(randomDemo)
@@ -59,7 +62,7 @@ function HomeMainContent() {
                     <CatchingPokemonIcon style={{ fontSize: '100px', color: '#fff' }} />
                 </div>
                 <div className="main-box-6 borderRadius" style={{ color: '#fff' }} onClick={() => checkBox6()}>{box6Content}</div>
-                <div className="main-box-7 borderRadius" style={{ color: '#fff' }}>
+                <div className="main-box-7 borderRadius" style={{ color: '#fff' }} onClick={() => goAiTalk()}>
                     <WebhookIcon style={{ fontSize: '100px', color: '#fff' }} />
                 </div>
                 <div className="main-box-8 borderRadius" style={{ color: '#fff' }}>BOX8</div>

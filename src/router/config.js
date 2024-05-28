@@ -6,6 +6,7 @@ import Home from "../pages/home/Home"
 import Login from "../pages/login/login"
 import Register from "../pages/login/register"
 import Instrument from "../pages/instrument/instrument";
+import AiTalk from "../pages/AI/AiTalk";
 
 // 创建router实例对象
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
     {
         path: '/instrument',
         element: <Instrument />
+    },
+    {
+        path: '/aitalk',
+        element: <AiTalk />
     },
 ])
 
