@@ -2,6 +2,10 @@
     0%{opacity: 0;}
     100%{opacity: 1;}
 }
+@keyframes showBox {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
 .AiTalkBox{
     animation: 3s aitalkshow;
     width: 100vw;
@@ -30,6 +34,7 @@
     bottom: 30px;
     display: flex;
     align-items: center;
+    background-color: #fff;
 }
 .AiTalk-input{
     width: 100%;
@@ -55,6 +60,8 @@
     overflow: hidden;
     overflow-y: auto;
     scroll-behavior:smooth;
+    position: relative;
+    animation: 2s showBox;
 }
 .AiTalkMain-item{
     width: 95%;
@@ -66,6 +73,7 @@
 .avator{
     width: 40px;
     height: 40px;
+    box-shadow: 0px 0px 3px 3px pink;
     border-radius: 50%;
     background-color: pink;
     display: flex;
@@ -75,11 +83,17 @@
 }
 .talkContent{
     width: 650px;
+    box-sizing: border-box;
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
     /* flex-direction: column; */
-    /* border: 1px solid; */
+    border: 2px solid rgb(165, 160, 160);
+    background-color: #fff;
+    border-radius: 10px;
  	word-break:break-word;
+    font-size: 16px;
+    line-height: 18px;
     position: relative;
     top: 10px;
     left: 10px;

@@ -1,6 +1,7 @@
-import LogoutIcon from '@mui/icons-material/Logout';
 import { useEffect, useState } from 'react'
 import ErrorAlert from '../alert/errorAlert';
+import LogoutIcon from '@mui/icons-material/Logout';
+import LinearProgress from '@mui/material/LinearProgress';
 import OpenAI from "openai"
 import './AiTalk.css'
 
@@ -10,13 +11,14 @@ const $OPENROUTER_API_KEY = "sk-or-v1-e646254ea45ab251255fd970c2780de83cffeed078
 
 function AiTalk() {
     const [talkList, setTalkList] = useState([
-        { role: 'ME', content: '芜湖~~~' },
+        /* { role: 'ME', content: '芜湖~~~' },
         { role: 'ME', content: '啦啦啦啦啦啦啦啦啦啦啦啦' },
-        { role: 'GPT', content: '瓦勒个去' },
+        { role: 'GPT', content: '瓦勒个去' }, */
     ])
     const [talkContent, setTalkContent] = useState("")
     const [openAlert, setOpenAlert] = useState(false)
     const [alertText, setAlertText] = useState("")
+    const [showLoading, setShowLoading] = useState(false)
 
     const openai = new OpenAI({
         baseURL: "https://openrouter.ai/api/v1",
@@ -29,12 +31,23 @@ function AiTalk() {
     })
     async function main() {
         const completion = await openai.chat.completions.create({
-            model: "nousresearch/nous-capybara-7b",
+            model: "openchat/openchat-7b:free",
             messages: [
-                { role: "user", content: "Say this is a test" }
+                { role: "user", content: talkContent }
             ],
         })
-        console.log(completion.choices[0].message)
+        // console.log(completion.choices[0].message)
+        let aiReply = completion.choices[0].message
+        let aiContentObj = {
+            role: "GPT",
+            content: aiReply.content
+        }
+        setTalkList((pre) => { return [...pre, aiContentObj] })
+        setShowLoading(false)
+        setTimeout(() => {
+            window.location.href = "#scrollBottom"
+            document.getElementById("myInput").focus()
+        }, 100);
     }
     const sendMessage = () => {
         if (!talkContent) {
@@ -45,15 +58,17 @@ function AiTalk() {
             role: "ME",
             content: talkContent
         }
-        setTalkList(talkList.concat(contentObj))
+        setTalkList([...talkList, contentObj])
         setTalkContent("")
-        window.location.href="#scrollBottom"
-        document.getElementById ("myInput").focus()
-        // main()
+        setTimeout(() => {
+            window.location.href = "#scrollBottom"
+            document.getElementById("myInput").focus()
+        }, 100);
+        setShowLoading(true)
+        main()
     }
     const changeTalkContent = (e) => {
         let value = e
-        console.log('我是输入内容:', e)
         // 识别emo表情并删除
         const reg = /[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF][\u200D|\uFE0F]|[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF]|[0-9|*|#]\uFE0F\u20E3|[0-9|#]\u20E3|[\u203C-\u3299]\uFE0F\u200D|[\u203C-\u3299]\uFE0F|[\u2122-\u2B55]|\u303D|[\A9|\AE]\u3030|\uA9|\uAE|\u3030/ig
         if (reg.test(value)) {
@@ -66,14 +81,14 @@ function AiTalk() {
     const closeSuccessAlert = () => {
         setOpenAlert(false)
     }
-    const inputKey=(e)=>{
-        if(e=="Enter"){
+    const inputKey = (e) => {
+        if (e == "Enter" || e == "NumpadEnter") {
             sendMessage()
         }
     }
     useEffect(() => {
-        
-    },[talkList])
+
+    }, [talkList])
     return (
         <div className='AiTalkBox'>
             <ErrorAlert alertOpen={openAlert} alertText={alertText} handleClose={closeSuccessAlert} />
@@ -83,20 +98,27 @@ function AiTalk() {
                         talkList.map((item, index) => {
                             return (
                                 <div className='AiTalkMain-item' key={index}>
-                                    <div className='avator' style={{ backgroundColor: item.role == "ME" ? 'pink' : 'rgb(134, 194, 132)' }}>{item.role}</div>
-                                    <div className='talkContent'>{item.content}</div>
+                                    <div className='avator' style={{ backgroundColor: item.role == "ME" ? 'pink' : 'rgb(134, 194, 132)', boxShadow: item.role == "ME" ? '0px 0px 3px 3px pink' : '0px 0px 3px 3px rgb(134, 194, 132)' }}>{item.role}</div>
+                                    <div className='talkContent'>
+                                        {item.content.split('\n').map((items,indexs)=>{
+                                            return (<div key={indexs}>{items}</div>)
+                                        })}
+                                    </div>
                                 </div>
                             )
                         })
                     }
-                    <div id='scrollBottom' style={{height:'120px'}}></div>
+                    {
+                        showLoading ? <LinearProgress color="inherit" style={{ width:'60%',marginTop: '20px',marginLeft:'20%' }} /> : ''
+                    }
+                    <div id='scrollBottom' style={{ height: '80px' }}></div>
                 </div>
                 <div className='AiTalk-inputBox'>
-                    <input id="myInput" type='text' placeholder='Message ChatGPT' className='AiTalk-input' value={talkContent} onChange={(e) => changeTalkContent(e.target.value)} onKeyDown={e=>inputKey(e.code)}/>
+                    <input id="myInput" type='text' placeholder='Message ChatGPT' className='AiTalk-input' value={talkContent} onChange={(e) => changeTalkContent(e.target.value)} onKeyDown={e => inputKey(e.code)} />
                     <LogoutIcon className='sendIcon' onClick={() => sendMessage()} />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
