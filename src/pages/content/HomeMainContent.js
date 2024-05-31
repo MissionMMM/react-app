@@ -11,11 +11,9 @@ function HomeMainContent() {
     const [box6Switch, setBox6Switch] = useState(1)
     const navigate = useNavigate()
 
-    const goLogin = () => {
-        navigate('/login')
-    }
     const goInstrument = () => {
-        navigate('/instrument')
+        // navigate('/instrument')
+        window.open('/instrument','_blank')
     }
     const goAiTalk = () => {
         navigate('/aitalk')
@@ -66,7 +64,7 @@ function HomeMainContent() {
                     <WebhookIcon style={{ fontSize: '100px', color: '#fff' }} />
                 </div>
                 <div className="main-box-8 borderRadius" style={{ color: '#fff' }}>BOX8</div>
-                <div className="main-box-9 borderRadius" style={{ color: '#fff' }} onClick={() => { goLogin() }}>BOX9-登录&注册模块</div>
+                <div className="main-box-9 borderRadius" style={{ color: '#fff' }}>BOX9</div>
             </div>
         </div>
     )

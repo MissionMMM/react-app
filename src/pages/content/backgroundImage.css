@@ -86,7 +86,7 @@
     justify-content: center;
     align-items: center;
     animation: 5s show;
-    background-color: #333;
+    background-color: #000000;
     user-select: none;
 }
 .backgroundImage-hide{

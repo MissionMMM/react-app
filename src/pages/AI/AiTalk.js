@@ -4,6 +4,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import LinearProgress from '@mui/material/LinearProgress';
 import OpenAI from "openai"
 import './AiTalk.css'
+import { useNavigate } from 'react-router-dom';
 
 const $YOUR_SITE_URL = "http://localhost:3000/"
 const $YOUR_SITE_NAME = "Misn"
@@ -19,6 +20,7 @@ function AiTalk() {
     const [openAlert, setOpenAlert] = useState(false)
     const [alertText, setAlertText] = useState("")
     const [showLoading, setShowLoading] = useState(false)
+    const navigate = useNavigate()
 
     const openai = new OpenAI({
         baseURL: "https://openrouter.ai/api/v1",
@@ -86,12 +88,16 @@ function AiTalk() {
             sendMessage()
         }
     }
+    const backPage=()=>{
+        navigate(-1)
+    }
     useEffect(() => {
 
     }, [talkList])
     return (
         <div className='AiTalkBox'>
             <ErrorAlert alertOpen={openAlert} alertText={alertText} handleClose={closeSuccessAlert} />
+            <div className='backIcon' onClick={()=>{backPage()}}>BACK</div>
             <div className='AiTalkContent'>
                 <div className='AiTalkMainBox'>
                     {

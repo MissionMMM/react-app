@@ -74,15 +74,22 @@
     display: flex;
     align-items: center;
     margin-left: 0.5%;
-    margin-top: 0.5%;
     cursor: pointer;
     animation: 2s backIconShow;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .tab-bar-backIcon:hover path {
-    color: #fff;
+    color: red;
 }
 
 path {
     transition: 0.3s;
+}
+.logoSize{
+    position: absolute;
+    left: 0;
+    top: 0;
 }

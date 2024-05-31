@@ -17,7 +17,7 @@ function Instrument() {
     const [alertText, setAlertText] = useState("") // alert弹窗文案
     const [colorContent, setColorcontent] = useState("") // 拾色器内的颜色
 
-    let navigate = useNavigate() // 路由跳转
+    const navigate = useNavigate() // 路由跳转
 
     // 拾色器
     const catchColor = () => {
@@ -55,9 +55,6 @@ function Instrument() {
         console.log(IDInfo)
         setDialogStatus(0)
         setOpenDialog(true)
-    }
-    const back = () => {
-        navigate('/home')
     }
     const clearInputInfo = () => {
         setIDcardNumber("")
@@ -193,8 +190,8 @@ function Instrument() {
         setAlertText("复制成功")
         setOpenAlert(true)
     }
-    const copyColor=async()=>{
-        if(!colorContent){
+    const copyColor = async () => {
+        if (!colorContent) {
             setAlertText("请先拾取颜色")
             setOpenInfoAlert(true)
             return
@@ -204,24 +201,77 @@ function Instrument() {
         setAlertText("颜色已复制")
         setOpenAlert(true)
     }
+    const jumpURLByHistory = (e) => {
+        let url = ""
+        switch (e) {
+            case 1:
+                url = "https://tools.fun/color.html"
+                break;
+            case 2:
+                url = "https://mui.com/material-ui/getting-started/"
+                break;
+            case 3:
+                url = "https://react.docschina.org/learn"
+                break;
+            case 4:
+                url = "https://openrouter.ai/docs#quick-start"
+                break;
+            case 5:
+                url = "https://tool.lu/timestamp/"
+                break;
+            case 6:
+                url = "https://starloom.ai/#/"
+                break;
+            case 7:
+                url = "https://bucd.pro/"
+                break;
+            case 8:
+                url = "https://www.runoob.com/w3c/w3c-intro.html"
+                break;
+            case 9:
+                url = "https://www.w3school.com.cn/"
+                break;
+            case 10:
+                url = "https://www.liblib.art/?from=aigc.cn"
+                break;
+            default:
+                break;
+        }
+        window.open(url, '_blank')
+    }
+
     useEffect(() => {
     })
+
     return (
         <div className="instrumentBox">
             <InfoAlert alertOpen={openInfoAlert} alertText={alertText} handleClose={closeInfoAlert} />
             <SuccessAlert alertOpen={openAlert} alertText={alertText} handleClose={closeSuccessAlert} />
-            <div className="instrumentBackIcon" onClick={() => back()}>Back</div>
             <div className="computeAge">
-                <h3>身份证相关信息计算</h3>
+                <h3 style={{ color: '#fff' }}>身份证相关信息计算</h3>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <input id="ageInput" className="ageInput" type="text" placeholder="请输入身份证号" value={IDcardNumber} onChange={(e) => setIDcardNumber(e.target.value.trim())} />
                     <button id="IDButton" className="IDButton" onClick={() => searchInfo()}>确 定</button>
                     <button id="clearButton" className="clearButton" onClick={() => clearInputInfo()}>清 空</button>
                 </div>
             </div>
-            <div style={{ display: 'flex' }}>
+            <div className="flexBox">
                 <div className="openTimestamps" onClick={dialogHandleClickOpen}>打开时间戳计算表</div>
                 <div className="openSvg" onClick={dialogHandleClickOpenSVG}>打开SVG练习板</div>
+            </div>
+            <div className="flexBox">
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(1) }}>在线工具</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(2) }}>MaterialUI</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(3) }}>React</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(4) }}>OpenRouter</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(5) }}>时间戳转换工具</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(6) }}>天机阁</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(8) }}>W3C菜鸟教程</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(9) }}>W3School</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(10) }}>LibLibAI生成</div>
+            </div>
+            <div className="flexBox">
+                <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(7) }}>Bucd梯子</div>
             </div>
             <Dialog onClose={() => dialogHandleClose()} open={openDialog}>
                 <SuccessAlert alertOpen={openAlert} alertText={alertText} handleClose={closeSuccessAlert} />
@@ -264,7 +314,7 @@ function Instrument() {
                     dialogStatus === 2 && (
                         <div className="dialog-box">
                             {/* 富圈圈LOGO */}
-                            <Test_1 style={{width:'100px',height:'100px',border:'3px solid pink',padding:'10px',borderRadius:'10px'}}/>
+                            <Test_1 style={{ width: '100px', height: '100px', border: '3px solid pink', padding: '10px', borderRadius: '10px' }} />
                         </div>
                     )
                 }
@@ -272,7 +322,7 @@ function Instrument() {
             <div className="colorContainer">
                 <div className="text-1" style={{ fontSize: '30px' }}>拾色器</div>
                 <div id="container" style={{ display: 'flex', flexFlow: 'column', marginTop: '30px', alignItems: 'center' }}>
-                    <span id="colorText" className="colorText" onClick={()=>copyColor()}>此处展示颜色</span>
+                    <span id="colorText" className="colorText" onClick={() => copyColor()}>此处展示颜色</span>
                     <button id="getColor" onClick={() => catchColor()}>拾 取</button>
                 </div>
             </div>

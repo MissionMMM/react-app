@@ -1,0 +1,35 @@
+@keyframes logoShow {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.logoBox {
+    /* position: absolute; */
+    /* left: 0; */
+    /* top: 0; */
+    /* border: 1px solid #fff; */
+    color: #fff;
+    font-size: 30px;
+    font-weight: 800;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    animation: 3s logoShow;
+}
+
+.importFont {
+    color: #ff0000;
+    background: linear-gradient(to bottom, #ff0000 25%, #ea00ff);
+    -webkit-background-clip: text;
+    /*将设置的背景颜色限制在文字中*/
+    -webkit-text-fill-color: transparent;
+    /*给文字设置成透明*/
+    width: 30px;
+    font-size: 33px;
+    text-align: center;
+}
