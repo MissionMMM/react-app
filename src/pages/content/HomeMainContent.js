@@ -16,7 +16,8 @@ function HomeMainContent() {
         window.open('/instrument','_blank')
     }
     const goAiTalk = () => {
-        navigate('/aitalk')
+        // navigate('/aitalk')
+        window.open('/aitalk','_blank')
     }
     const checkBox6 = () => {
         let randomDemo = Math.random() * 5

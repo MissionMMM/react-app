@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import './login.css'
 import { get } from "../../utils/request"
 import Logo from "../components/Logo"
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
 // import { useDispatch } from "react-redux"
 // import { fetchLogin } from "../../store/modules/user"
@@ -93,7 +94,9 @@ function Form() {
             </div>
             {/* 变化线 右侧 */}
             <div className="longLing-right">
-                <div/>
+                {/* <div/> */}
+                <div className="confirmBtn" onClick={() => confirm()}>Sign In</div>
+                <SettingsOutlinedIcon className="settingIcon"/>
             </div>
             <div className="inputItem">
                 <span>账号：</span>
@@ -104,8 +107,8 @@ function Form() {
                 <input type="password" value={keywords} onChange={(e) => { setKewords(e.target.value) }} />
             </div>
             <div className="buttonGroup">
-                <button onClick={() => confirm()}>提 交</button>
-                <button onClick={() => register()}>注 册</button>
+                <button>Forget Password</button>
+                <button onClick={() => register()}>Sign Up</button>
             </div>
         </div>
     )

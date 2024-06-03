@@ -166,10 +166,12 @@
 .main-box-5:hover{
     top: 35px;
     transform: scale(1.02);
+    cursor: pointer;
 }
 .main-box-6:hover{
     top: 215px;
     transform: scale(1.02);
+    cursor: pointer;
 }
 .main-box-6:active{
     /* top: 225px; */
@@ -178,6 +180,7 @@
 .main-box-7:hover{
     top: 35px;
     transform: scale(1.02);
+    cursor: pointer;
 }
 .main-box-8:hover{
     top: 35px;
