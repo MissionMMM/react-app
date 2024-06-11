@@ -38,8 +38,9 @@
     height: 56px;
     padding: 0 20px;
     box-sizing: border-box;
+    overflow: hidden;
     border-top-left-radius: 30px;
-    border: 1px solid #fcadc7;
+    /* border: 1px solid #fcadc7; */
     background-color: #fcadc7;
     position: absolute;
     right: 0;
@@ -88,8 +89,17 @@
 path {
     transition: 0.3s;
 }
-.logoSize{
+
+.logoSize {
     position: absolute;
     left: 0;
     top: 0;
+}
+
+.tab-bar-backImg {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: -80px;
+    z-index:1;
 }

@@ -1,0 +1,65 @@
+.weather-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.weather-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 99;
+    transition: 0.3s;
+}
+.weather-title:hover {
+    color: #fcadc7;
+}
+
+.weather-dateChoseBox {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.weather-content {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 24px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.weatherLogo{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px dotted #fff;
+    border-radius: 50%;
+    transform: rotateZ(15deg);
+}
+.weatherLogoLine{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+}
