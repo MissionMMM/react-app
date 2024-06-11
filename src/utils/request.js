@@ -5,10 +5,10 @@ import axios from 'axios'
 // 2、超时时间
 // 3、请求拦截器/响应拦截器
 
-let baseURL = 'http://localhost:3000'
+// let baseURL = 'http://localhost:3000'
 
 axios.defaults.timeout = 5000
-axios.defaults.baseURL = baseURL
+// axios.defaults.baseURL = baseURL
 
 // 添加请求拦截器
 // 在请求发送之前 做拦截 插入一些自定义配置 [参数的处理]
@@ -44,7 +44,7 @@ export function get(url, params = {}) {
         axios.get(url, {
             params: params,
         }).then((response) => {
-            resolve(response.data);
+            resolve(response);
         })
             .catch((error) => {
                 reject(error);
@@ -63,7 +63,8 @@ export function post(url, data) {
         axios.post(url, data).then(
             (response) => {
                 //关闭进度条
-                resolve(response.data);
+                // resolve(response.data);
+                resolve(response);
             },
             (err) => {
                 reject(err);
@@ -72,4 +73,7 @@ export function post(url, data) {
     });
 }
 
-// export { request }
+/* module.exports={
+    get,
+    post
+} */

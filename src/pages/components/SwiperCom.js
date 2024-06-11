@@ -26,8 +26,6 @@ function SwiperCom() {
             initialSlide={4}
             spaceBetween={0}
             slidesPerView={1}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
             style={{ width: "100%", height: "100%" }}
         >
             <SwiperSlide>

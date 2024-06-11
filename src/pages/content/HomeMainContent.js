@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 // icon 图标
 import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 import WebhookIcon from '@mui/icons-material/Webhook';
+import WeatherCom from "../components/WeatherCom";
 
 function HomeMainContent() {
     const [box6Content, setBox6Content] = useState("")
@@ -13,11 +14,11 @@ function HomeMainContent() {
 
     const goInstrument = () => {
         // navigate('/instrument')
-        window.open('/instrument','_blank')
+        window.open('/instrument', '_blank')
     }
     const goAiTalk = () => {
         // navigate('/aitalk')
-        window.open('/aitalk','_blank')
+        window.open('/aitalk', '_blank')
     }
     const checkBox6 = () => {
         let randomDemo = Math.random() * 5
@@ -43,7 +44,7 @@ function HomeMainContent() {
                 setBox6Content("Tips：按住Shift+滚轮可以左右滑动噢~")
                 break;
         }
-    })
+    },[box6Switch])
     return (
         <div className="parent-box">
             <div className="top-swallow"></div>
@@ -52,7 +53,7 @@ function HomeMainContent() {
             <div className="right-swallow"></div>
             <div className="main-box">
                 <div className="main-box-1 borderRadius" style={{ color: '#fff' }}>BOX1</div>
-                <div className="main-box-2 borderRadius" style={{ color: '#fff' }}>BOX2</div>
+                <div className="main-box-2 borderRadius" style={{ color: '#fff' }}><WeatherCom/></div>
                 <div className="main-box-3 borderRadius" style={{ color: '#fff' }}>BOX3</div>
                 <div className="main-box-4 borderRadius" style={{ color: '#fff' }}>
                     <SwiperCom />
