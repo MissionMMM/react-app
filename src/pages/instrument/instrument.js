@@ -237,6 +237,9 @@ function Instrument() {
             case 11:
                 url = "https://www.mxnzp.com/doc/detail?id=7"
                 break;
+            case 12:
+                url = "https://tool.chinaz.com/"
+                break;
             default:
                 break;
         }
@@ -273,6 +276,7 @@ function Instrument() {
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(9) }}>W3School</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(10) }}>LibLibAI生成</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(11) }}>ROLL天气查询API</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(12) }}>站长工具</div>
             </div>
             <div className="flexBox">
                 <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(7) }}>Bucd梯子</div>

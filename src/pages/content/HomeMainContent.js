@@ -6,6 +6,7 @@ import { useEffect, useState, useRef } from "react"
 import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 import WebhookIcon from '@mui/icons-material/Webhook';
 import WeatherCom from "../components/WeatherCom";
+import NewCom from "../components/NewCom"
 import Dialog from '@mui/material/Dialog';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -14,7 +15,6 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import bcImage from '../../static/AICreate/1.png'
-import zIndex from "@mui/material/styles/zIndex";
 
 function HomeMainContent() {
     const [box6Content, setBox6Content] = useState("")
@@ -30,7 +30,6 @@ function HomeMainContent() {
         { label: '珠海' },
         { label: '惠州' },
         { label: '汕头' },
-        { label: '潮汕' },
         { label: '东莞' },
         { label: '清远' },
         { label: '海口' },
@@ -113,8 +112,8 @@ function HomeMainContent() {
             <div className="main-box">
                 <div className="main-box-1 borderRadius" style={{ color: '#fff' }}>BOX1</div>
                 <div className="main-box-2 borderRadius" style={{ color: '#fff' }}>
-                    <img src={bcImage} className="weatherBackgroundImage"/>
-                    <WeatherCom ref={childRef} clickFun={openWeatherChose}/>
+                    <img src={bcImage} className="weatherBackgroundImage" />
+                    <WeatherCom ref={childRef} clickFun={openWeatherChose} />
                 </div>
                 <div className="main-box-3 borderRadius" style={{ color: '#fff' }}>BOX3</div>
                 <div className="main-box-4 borderRadius" style={{ color: '#fff' }}>
@@ -128,7 +127,7 @@ function HomeMainContent() {
                     <WebhookIcon style={{ fontSize: '100px', color: '#fff' }} />
                 </div>
                 <div className="main-box-8 borderRadius" style={{ color: '#fff' }}>BOX8</div>
-                <div className="main-box-9 borderRadius" style={{ color: '#fff' }}>BOX9</div>
+                <div className="main-box-9 borderRadius" style={{ color: '#fff' }}><NewCom /></div>
             </div>
             <Dialog onClose={() => dialogHandleClose()} open={openDialog}>
                 <div className="weatherChoseWin">

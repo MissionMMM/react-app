@@ -3,6 +3,7 @@ import { get } from "../../utils/request";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { app_id, app_secret } from "../../utils/api/ROLLcode.js"
 import './WeatherCom.css';
 
 const theme = createTheme({
@@ -26,14 +27,20 @@ const WeatherCom = forwardRef((props, ref) => {
 
     const [weatherInfo, setWeatherInfo] = useState({})
     const [weatherDetailInfo, setWeatherDetailInfo] = useState({})
+    const [weatherInfoLoading, setWeatherInfoLoading] = useState(false)
+    const app_id_mirror = app_id
+    const app_secret_mirror = app_secret
+
     const getWeather = (e) => {
+        setWeatherInfoLoading(true)
         let city = e || "深圳市"
-        let app_id = 'ihhxoekgltmhsext'
-        let app_secret = 'deDxMPCqNNFmkbG4ULw2LDjVVBS7JIhM'
+        let app_id = app_id_mirror
+        let app_secret = app_secret_mirror
         get(`https://www.mxnzp.com/api/weather/forecast/${city}`, { app_id: app_id, app_secret: app_secret }).then(res => {
             if (res.code == 1) {
                 setWeatherInfo(res.data)
                 setWeatherDetailInfo(res.data.forecasts[0])
+                setWeatherInfoLoading(false)
             }
         })
     }
@@ -73,8 +80,8 @@ const WeatherCom = forwardRef((props, ref) => {
                     <div>晚上温度：{weatherDetailInfo.nightTemp}</div>
                 </div>
             }
-            <div className="weatherLogoLine">
-                <div className="weatherLogo">氣象</div>
+            <div className={`weatherLogoLine ${weatherInfoLoading ? 'weatherLogoAni' : ''}`}>
+                <div className="weatherLogo">{weatherInfoLoading ? '加载' : '氣象'}</div>
             </div>
         </div>
     )

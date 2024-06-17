@@ -6,6 +6,10 @@
     0%{opacity: 0;}
     100%{opacity: 1;}
 }
+@keyframes showTalkItem {
+    0%{top: 30px;opacity: 0;}
+    100%{top: 0px;opacity: 1;}
+}
 .AiTalkBox{
     animation: 3s aitalkshow;
     width: 100vw;
@@ -69,6 +73,8 @@
     display: flex;
     margin-left: 2.5%;
     margin-bottom: 10px;
+    position: relative;
+    animation: 1s showTalkItem;
 }
 .avator{
     width: 40px;
