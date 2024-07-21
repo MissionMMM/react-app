@@ -4,6 +4,7 @@ import './login.css'
 import { get } from "../../utils/request"
 import Logo from "../components/Logo"
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import backMusic from "../../static/Music/Coffee Date,GameChops - Great Fairy Fountain.mp3"
 
 // import { useDispatch } from "react-redux"
 // import { fetchLogin } from "../../store/modules/user"
@@ -52,6 +53,9 @@ function Form() {
             <div className="contentLogoBox">
                 <Logo />
             </div>
+            {/* 音频 */}
+            <audio className="loginAudio" src={backMusic} controls preload="auto" loop>
+            </audio>
             {/* 相机线 */}
             <div className="line" style={{ top: '10px', left: '10px' }} />
             <div className="line" style={{ top: '2px', left: '18px', transform: 'rotate(90deg)' }} />
@@ -60,43 +64,43 @@ function Form() {
             <div className="line" style={{ bottom: '10px', left: '10px' }} />
             <div className="line" style={{ bottom: '2px', left: '18px', transform: 'rotate(90deg)' }} />
             <div className="line" style={{ bottom: '2px', right: '18px', transform: 'rotate(90deg)' }} />
-            <div className="line" style={{ bottom: '10px', right: '10px' }}/>
+            <div className="line" style={{ bottom: '10px', right: '10px' }} />
             {/* 变化线 左侧*/}
-            <div className="longLine-left" style={{left:'-100px',top:'10px'}}>
-                <div/>
+            <div className="longLine-left" style={{ left: '-100px', top: '10px' }}>
+                <div />
             </div>
-            <div className="longLine-left-2" style={{left:'-120px',top:'30px'}}>
-                <div/>
+            <div className="longLine-left-2" style={{ left: '-120px', top: '30px' }}>
+                <div />
             </div>
-            <div className="longLine-left-3" style={{left:'-140px',top:'50px'}}>
-                <div/>
+            <div className="longLine-left-3" style={{ left: '-140px', top: '50px' }}>
+                <div />
             </div>
-            <div className="longLine-left-4" style={{left:'-160px',top:'70px'}}>
-                <div/>
+            <div className="longLine-left-4" style={{ left: '-160px', top: '70px' }}>
+                <div />
             </div>
-            <div className="longLine-left-5" style={{left:'-180px',top:'90px'}}>
-                <div/>
+            <div className="longLine-left-5" style={{ left: '-180px', top: '90px' }}>
+                <div />
             </div>
-            <div className="longLine-left-6" style={{left:'-160px',top:'110px'}}>
-                <div/>
+            <div className="longLine-left-6" style={{ left: '-160px', top: '110px' }}>
+                <div />
             </div>
-            <div className="longLine-left-7" style={{left:'-140px',top:'130px'}}>
-                <div/>
+            <div className="longLine-left-7" style={{ left: '-140px', top: '130px' }}>
+                <div />
             </div>
-            <div className="longLine-left-8" style={{left:'-120px',top:'150px'}}>
-                <div/>
+            <div className="longLine-left-8" style={{ left: '-120px', top: '150px' }}>
+                <div />
             </div>
-            <div className="longLine-left-9" style={{left:'-100px',top:'170px'}}>
-                <div/>
+            <div className="longLine-left-9" style={{ left: '-100px', top: '170px' }}>
+                <div />
             </div>
-            <div className="longLine-left-10" style={{left:'-80px',top:'190px'}}>
-                <div/>
+            <div className="longLine-left-10" style={{ left: '-80px', top: '190px' }}>
+                <div />
             </div>
             {/* 变化线 右侧 */}
             <div className="longLing-right">
                 {/* <div/> */}
                 <div className="confirmBtn" onClick={() => confirm()}>Sign In</div>
-                <SettingsOutlinedIcon className="settingIcon"/>
+                <SettingsOutlinedIcon className="settingIcon" />
             </div>
             <div className="inputItem">
                 <span>账号：</span>

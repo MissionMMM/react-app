@@ -61,6 +61,11 @@
     50%{transform: rotateZ(180deg);}
     100%{transform: rotateZ(360deg);}
 }
+.loginAudio{
+    position: fixed;
+    right: 20px;
+    top: 20px;
+}
 .contentLogoBox{
     /* background-color: #000; */
     position: absolute;
