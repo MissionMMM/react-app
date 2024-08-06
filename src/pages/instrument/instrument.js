@@ -46,6 +46,28 @@ function Instrument() {
             setOpenInfoAlert(true)
             return
         }
+        if (IDcardNumber.length !== 18) {
+            setAlertText("身份证号码有误")
+            setOpenInfoAlert(true)
+            return
+        }
+        const weights = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+        const checkcodes = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'];
+        let sum = 0;
+        for (let i = 0; i < 17; i++) {
+            sum += weights[i] * parseInt(IDcardNumber.charAt(i), 10);
+        }
+        const mod = sum % 11;
+        const checkcode = checkcodes[mod];
+        const isValid = checkcode === IDcardNumber.charAt(17).toUpperCase();
+        if (isValid) {
+            // setAlertText("身份证号码有效")
+            // setOpenInfoAlert(true)
+        } else {
+            setAlertText("身份证号码无效")
+            setOpenInfoAlert(true)
+            return
+        }
         let IDage = getAge(IDcardNumber)
         let IDAddress = getAddressInfo(IDcardNumber)
         let IDSex = getSex(IDcardNumber)
