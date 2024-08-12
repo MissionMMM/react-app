@@ -262,6 +262,9 @@ function Instrument() {
             case 12:
                 url = "https://tool.chinaz.com/"
                 break;
+            case 13:
+                url = "https://console.ucloud.cn/"
+                break;
             default:
                 break;
         }
@@ -302,6 +305,7 @@ function Instrument() {
             </div>
             <div className="flexBox">
                 <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(7) }}>Bucd梯子</div>
+                <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(13) }}>UCloud控制台</div>
             </div>
             <Dialog onClose={() => dialogHandleClose()} open={openDialog}>
                 <SuccessAlert alertOpen={openAlert} alertText={alertText} handleClose={closeSuccessAlert} />
