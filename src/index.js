@@ -10,22 +10,22 @@ import router from './router/config'
 import { RouterProvider } from "react-router-dom";
 import './index.css'
 
-document.oncontextmenu = function () {
-    // alert("右键被禁用");
-    return false;
-};
+// document.oncontextmenu = function () {
+//     // alert("右键被禁用");
+//     return false;
+// };
 // 禁止F12打开调试控制台
-document.onkeydown =
-    document.onkeyup =
-    document.onkeypress =
-    function (event) {
-        let e =
-            event || window.event || arguments.callee.caller.arguments[0];
-        if (e && e.keyCode == 123 || e.key == "Shift" || e.key == "I") {
-            e.returnValue = false;
-            return false;
-        }
-    };
+// document.onkeydown =
+//     document.onkeyup =
+//     document.onkeypress =
+//     function (event) {
+//         let e =
+//             event || window.event || arguments.callee.caller.arguments[0];
+//         if (e && e.keyCode == 123 || e.key == "Shift" || e.key == "I") {
+//             e.returnValue = false;
+//             return false;
+//         }
+//     };
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

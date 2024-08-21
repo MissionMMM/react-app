@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./instrument.css"
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import cityCode from "./cityCode.js"
 import Dialog from '@mui/material/Dialog';
 import SuccessAlert from '../alert/successAlert.js'
@@ -17,7 +17,7 @@ function Instrument() {
     const [alertText, setAlertText] = useState("") // alert弹窗文案
     const [colorContent, setColorcontent] = useState("") // 拾色器内的颜色
 
-    const navigate = useNavigate() // 路由跳转
+    // const navigate = useNavigate() // 路由跳转
 
     // 拾色器
     const catchColor = () => {
@@ -46,7 +46,7 @@ function Instrument() {
             setOpenInfoAlert(true)
             return
         }
-        if (IDcardNumber.length !== 18) {
+        if (IDcardNumber.length != 18) {
             setAlertText("身份证号码有误")
             setOpenInfoAlert(true)
             return

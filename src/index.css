@@ -19,3 +19,24 @@ body {
     background-color: #ACB1BF;
     border-radius: 4px;
 }
+
+/* 全局样式调整 */
+input {
+    border: 0;
+    outline:none;
+    background-color: rgb(230, 228, 228);
+    width: 70%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 10px;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+input:focus{
+    box-shadow: 0px 5px 10px 2px #333;
+}
+input:hover {
+    border: 2px solid rgb(97, 97, 97);
+
+    /* box-shadow: 5px 5px 10px 5px rgb(97, 97, 97); */
+}
