@@ -73,11 +73,11 @@ const WeatherCom = forwardRef((props, ref) => {
             }
             {Object.keys(weatherDetailInfo).length > 0 &&
                 <div className="weather-content">
-                    <div>天气预报日期：{weatherDetailInfo.date}</div>
-                    <div>白天天气描述：{weatherDetailInfo.dayWeather}</div>
-                    <div>白天温度：{weatherDetailInfo.dayTemp}</div>
-                    <div>晚上天气描述：{weatherDetailInfo.nightWeather}</div>
-                    <div>晚上温度：{weatherDetailInfo.nightTemp}</div>
+                    <div className="contentText">天气预报日期：{weatherDetailInfo.date}</div>
+                    <div className="contentText">白天天气描述：{weatherDetailInfo.dayWeather}</div>
+                    <div className="contentText">白天温度：{weatherDetailInfo.dayTemp}</div>
+                    <div className="contentText">晚上天气描述：{weatherDetailInfo.nightWeather}</div>
+                    <div className="contentText">晚上温度：{weatherDetailInfo.nightTemp}</div>
                 </div>
             }
             <div className={`weatherLogoLine ${weatherInfoLoading ? 'weatherLogoAni' : ''}`}>

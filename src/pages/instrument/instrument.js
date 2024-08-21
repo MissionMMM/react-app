@@ -265,6 +265,9 @@ function Instrument() {
             case 13:
                 url = "https://console.ucloud.cn/"
                 break;
+            case 14:
+                url = "https://home.console.aliyun.com/home/dashboard/ProductAndService?spm=5176.29379033.J_4VYgf18xNlTAyFFbOuOQe.d_console.775c75967ffXZJ"
+                break;
             default:
                 break;
         }
@@ -306,6 +309,7 @@ function Instrument() {
             <div className="flexBox">
                 <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(7) }}>Bucd梯子</div>
                 <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(13) }}>UCloud控制台</div>
+                <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(14) }}>阿里云域名控制台</div>
             </div>
             <Dialog onClose={() => dialogHandleClose()} open={openDialog}>
                 <SuccessAlert alertOpen={openAlert} alertText={alertText} handleClose={closeSuccessAlert} />

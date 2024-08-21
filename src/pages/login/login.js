@@ -39,8 +39,8 @@ function Form() {
             return
         }
         let form = {
-            mobile: value,
-            code: keywords
+            id: value,
+            password: keywords
         }
         navigate('/home')
         // let res = get('/', form)
