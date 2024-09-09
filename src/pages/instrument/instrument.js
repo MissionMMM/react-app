@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./instrument.css"
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import cityCode from "./cityCode.js"
 import Dialog from '@mui/material/Dialog';
 import SuccessAlert from '../alert/successAlert.js'
@@ -17,7 +17,7 @@ function Instrument() {
     const [alertText, setAlertText] = useState("") // alert弹窗文案
     const [colorContent, setColorcontent] = useState("") // 拾色器内的颜色
 
-    const navigate = useNavigate() // 路由跳转
+    // const navigate = useNavigate() // 路由跳转
 
     // 拾色器
     const catchColor = () => {
@@ -43,6 +43,28 @@ function Instrument() {
     const searchInfo = () => {
         if (IDcardNumber == "") {
             setAlertText("请输入身份证号后再操作")
+            setOpenInfoAlert(true)
+            return
+        }
+        if (IDcardNumber.length != 18) {
+            setAlertText("身份证号码有误")
+            setOpenInfoAlert(true)
+            return
+        }
+        const weights = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+        const checkcodes = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'];
+        let sum = 0;
+        for (let i = 0; i < 17; i++) {
+            sum += weights[i] * parseInt(IDcardNumber.charAt(i), 10);
+        }
+        const mod = sum % 11;
+        const checkcode = checkcodes[mod];
+        const isValid = checkcode === IDcardNumber.charAt(17).toUpperCase();
+        if (isValid) {
+            // setAlertText("身份证号码有效")
+            // setOpenInfoAlert(true)
+        } else {
+            setAlertText("身份证号码无效")
             setOpenInfoAlert(true)
             return
         }
@@ -240,6 +262,12 @@ function Instrument() {
             case 12:
                 url = "https://tool.chinaz.com/"
                 break;
+            case 13:
+                url = "https://console.ucloud.cn/"
+                break;
+            case 14:
+                url = "https://home.console.aliyun.com/home/dashboard/ProductAndService?spm=5176.29379033.J_4VYgf18xNlTAyFFbOuOQe.d_console.775c75967ffXZJ"
+                break;
             default:
                 break;
         }
@@ -280,6 +308,8 @@ function Instrument() {
             </div>
             <div className="flexBox">
                 <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(7) }}>Bucd梯子</div>
+                <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(13) }}>UCloud控制台</div>
+                <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(14) }}>阿里云域名控制台</div>
             </div>
             <Dialog onClose={() => dialogHandleClose()} open={openDialog}>
                 <SuccessAlert alertOpen={openAlert} alertText={alertText} handleClose={closeSuccessAlert} />
