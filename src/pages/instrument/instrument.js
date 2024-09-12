@@ -16,6 +16,7 @@ function Instrument() {
     const [dialogStatus, setDialogStatus] = useState(0) // 设置dialog窗口类型  1 时间戳表 / 0 身份证信息
     const [alertText, setAlertText] = useState("") // alert弹窗文案
     const [colorContent, setColorcontent] = useState("") // 拾色器内的颜色
+    const [colorSelectShow, setColorSelectShow] = useState(false) // 拾色器展示
 
     // const navigate = useNavigate() // 路由跳转
 
@@ -275,6 +276,19 @@ function Instrument() {
     }
 
     useEffect(() => {
+        if (window.EyeDropper && window.EyeDropper.prototype.open) {
+            // const eyeDropper = new window.EyeDropper({
+            //   oncancel: () => console.log('Color picker was cancelled'),
+            //   oncolorchange: (event) => console.log(event.color)
+            // });
+            // eyeDropper.open();
+            console.log(1)
+            setColorSelectShow(true)
+        } else {
+            // 提供备选方案
+            console.log(2)
+            setColorSelectShow(false)
+        }
     })
 
     return (
@@ -357,13 +371,13 @@ function Instrument() {
                     )
                 }
             </Dialog>
-            <div className="colorContainer">
+            {colorSelectShow && (<div className="colorContainer">
                 <div className="text-1" style={{ fontSize: '30px' }}>拾色器</div>
                 <div id="container" style={{ display: 'flex', flexFlow: 'column', marginTop: '30px', alignItems: 'center' }}>
                     <span id="colorText" className="colorText" onClick={() => copyColor()}>此处展示颜色</span>
                     <button id="getColor" onClick={() => catchColor()}>拾 取</button>
                 </div>
-            </div>
+            </div>)}
         </div>
     );
 }
