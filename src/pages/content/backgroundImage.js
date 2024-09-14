@@ -41,7 +41,6 @@ function BackgroundImage() {
     const [moveStatus10_on, setMoveStatus10_on] = useState(true)
     const onMouse = (e) => {
         // console.log('我是鼠标移动：', e.target.innerHTML)
-        console.log('我是鼠标移动：', e.target.id)
         if (e.target.id === 'page1' && moveStatus1_on) {
             setMoveStatus1_on(false)
             setMoveStatus1(true)
@@ -143,7 +142,7 @@ function BackgroundImage() {
     }
     useEffect(() => {
         // console.log('我是状态1：', moveStatus1)
-        console.log('点击啦：', startStatus)
+        // console.log('点击啦：', startStatus)
     })
     return (
         <div className="backgroundImage">

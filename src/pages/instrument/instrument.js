@@ -269,6 +269,9 @@ function Instrument() {
             case 14:
                 url = "https://home.console.aliyun.com/home/dashboard/ProductAndService?spm=5176.29379033.J_4VYgf18xNlTAyFFbOuOQe.d_console.775c75967ffXZJ"
                 break;
+            case 15:
+                url = "https://mui.com/material-ui/material-icons/"
+                break;
             default:
                 break;
         }
@@ -310,6 +313,7 @@ function Instrument() {
             <div className="flexBox">
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(1) }}>在线工具</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(2) }}>MaterialUI</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(15) }}>MaterialUI-Icon</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(3) }}>React</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(4) }}>OpenRouter</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(5) }}>时间戳转换工具</div>

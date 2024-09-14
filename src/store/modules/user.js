@@ -4,17 +4,21 @@ import { createSlice } from "@reduxjs/toolkit";
 const userStore = createSlice({
     name: "user",
     initialState: {
-        token: ''
+        token: '',
+        isMobile: false,
     },
     reducers: {
         setToken(state, action) {
             state.token = action.payload
+        },
+        watchSystem(state, action) {
+            state.isMobile = action.payload
         }
     }
 })
 
 // 解构出actionCreater
-const { setToken } = userStore.actions
+const { setToken, watchSystem } = userStore.actions
 
 // 获取reducer函数
 const userReducer = userStore.reducer
@@ -30,6 +34,6 @@ const userReducer = userStore.reducer
 } */
 
 // export { setToken, fetchLogin }
-export { setToken }
+export { setToken, watchSystem }
 
 export default userReducer
