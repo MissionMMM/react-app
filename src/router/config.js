@@ -7,6 +7,7 @@ import Login from "../pages/login/login"
 import Register from "../pages/login/register"
 import Instrument from "../pages/instrument/instrument";
 import AiTalk from "../pages/AI/AiTalk";
+import ThreeDTest from "../pages/ThreeDContent/ThreeDTest";
 
 // 创建router实例对象
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
     {
         path: '/aitalk',
         element: <AiTalk />
+    },
+    {
+        path: '/threeDContent',
+        element: <ThreeDTest />
     },
 ])
 

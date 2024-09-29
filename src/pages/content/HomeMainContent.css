@@ -123,12 +123,18 @@
 .main-box-1 {
     width: 200px;
     height: 200px;
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
+    background-image: linear-gradient(to right bottom,#095e50 30%,#c7b300);
+    background-color: #095e50;
     position: absolute;
     left: 200px;
     top: 40px;
     transition: 0.3s;
     animation: 2s mainBox1Show;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .main-box-2 {

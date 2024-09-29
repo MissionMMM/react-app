@@ -61,8 +61,8 @@ const WeatherCom = forwardRef((props, ref) => {
                     <div className="weather-dateChoseBox">
                         {weatherInfo.forecasts.map((item, index) => {
                             return (
-                                <ThemeProvider theme={theme}>
-                                    <Button color="ochre" variant="outlined" startIcon={<CalendarMonthIcon />} key={index} style={{ margin: '5px 0' }} onClick={() => changeDate(index)}>
+                                <ThemeProvider theme={theme} key={index}>
+                                    <Button color="ochre" variant="outlined" startIcon={<CalendarMonthIcon />} style={{ margin: '5px 0' }} onClick={() => changeDate(index)}>
                                         {item.date}
                                     </Button>
                                 </ThemeProvider>

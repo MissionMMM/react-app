@@ -1,10 +1,12 @@
 import "./HomeMainContent.css"
 import SwiperCom from "../components/SwiperCom"
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import { useEffect, useState, useRef } from "react"
 // icon 图标
 import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 import WebhookIcon from '@mui/icons-material/Webhook';
+import ThreeDRotationIcon from '@mui/icons-material/ThreeDRotation';
+
 import WeatherCom from "../components/WeatherCom";
 import NewCom from "../components/NewCom"
 import Dialog from '@mui/material/Dialog';
@@ -57,13 +59,18 @@ function HomeMainContent() {
         { label: '西藏' },
     ]
 
-    const goInstrument = () => {
-        // navigate('/instrument')
-        window.open('/instrument', '_blank')
-    }
-    const goAiTalk = () => {
-        // navigate('/aitalk')
-        window.open('/aitalk', '_blank')
+    const jumpHistoryPage = (e) => {
+        switch (e) {
+            case 0:
+                window.open('/instrument', '_blank')
+                break;
+            case 1:
+                window.open('/aitalk', '_blank')
+                break;
+            case 2:
+                window.open('/threeDContent', '_blank')
+                break;
+        }
     }
     const checkBox6 = () => {
         let randomDemo = Math.random() * 5
@@ -110,7 +117,9 @@ function HomeMainContent() {
             <div className="left-swallow"></div>
             <div className="right-swallow"></div>
             <div className="main-box">
-                <div className="main-box-1 borderRadius" style={{ color: '#fff' }}>BOX1</div>
+                <div className="main-box-1 borderRadius" style={{ color: '#fff' }} onClick={()=>jumpHistoryPage(2)}>
+                    <ThreeDRotationIcon style={{ fontSize: '130px', color: '#fff' }} />
+                </div>
                 <div className="main-box-2 borderRadius" style={{ color: '#fff' }}>
                     <img src={bcImage} className="weatherBackgroundImage" />
                     <WeatherCom ref={childRef} clickFun={openWeatherChose} />
@@ -119,11 +128,11 @@ function HomeMainContent() {
                 <div className="main-box-4 borderRadius" style={{ color: '#fff' }}>
                     <SwiperCom />
                 </div>
-                <div className="main-box-5 borderRadius" style={{ color: '#fff' }} onClick={() => goInstrument()}>
+                <div className="main-box-5 borderRadius" style={{ color: '#fff' }} onClick={() => jumpHistoryPage(0)}>
                     <CatchingPokemonIcon style={{ fontSize: '100px', color: '#fff' }} />
                 </div>
                 <div className="main-box-6 borderRadius" style={{ color: '#fff' }} onClick={() => checkBox6()}>{box6Content}</div>
-                <div className="main-box-7 borderRadius" style={{ color: '#fff' }} onClick={() => goAiTalk()}>
+                <div className="main-box-7 borderRadius" style={{ color: '#fff' }} onClick={() => jumpHistoryPage(1)}>
                     <WebhookIcon style={{ fontSize: '100px', color: '#fff' }} />
                 </div>
                 <div className="main-box-8 borderRadius" style={{ color: '#fff' }}>BOX8</div>
@@ -144,7 +153,6 @@ function HomeMainContent() {
                             >
                                 {cityList.map((item, index) => {
                                     return (
-
                                         <MenuItem value={item.label} key={index}>{item.label}</MenuItem>
                                     )
                                 })}
