@@ -152,14 +152,14 @@ function MinesweeperGame() {
         }
         // 中等难度
         else if (gameDifficulty === 1) {
-            setMineCount(50)
+            setMineCount(80)
             setRows(18)
             setCols(20)
             setSystemWinWidth('800px')
         }
         // 困难难度
         else if (gameDifficulty === 2) {
-            setMineCount(120)
+            setMineCount(180)
             setRows(24)
             setCols(48)
             setSystemWinWidth('1700px')
