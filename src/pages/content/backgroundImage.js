@@ -1,6 +1,7 @@
 import './backgroundImage.css'
 // 背景图
-import image from '../../static/myPhone/22.jpg'
+// import image from '../../static/myPhone/22.jpg'
+import image from '../../static/myPC/1.jpg'
 // import image from '../../static/LoadingImage/bg1.png'
 // import image from '../../static/LoadingImage/finalBg.jpg'
 // import image from '../../static/LoadingImage/magic.jpg'
