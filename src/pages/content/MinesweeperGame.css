@@ -24,6 +24,7 @@
     opacity: 0;
     animation: 1s MinesweeperGameMainShow;
     animation-fill-mode: forwards;
+    padding-bottom: 60px;
 }
 .showText{
     font-size: 18px;
@@ -38,6 +39,7 @@
     /* opacity: 0; */
     width: 30px;
     height: 30px;
+    overflow: hidden;
     line-height: 30px;
     text-align: center;
     border: 2px solid #fff;

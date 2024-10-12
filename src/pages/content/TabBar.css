@@ -55,14 +55,16 @@
 }
 
 .tab-bar-text-1 {
-    color: #966e7b;
+    color: #333;
     text-decoration: none;
     font-size: 24px;
     transition: 0.3s;
+    position: relative;
+    z-index: 2;
 }
 
 .tab-bar-text-1:hover {
-    color: #333;
+    color: #f3467c;
 }
 
 .tab-bar-text-1:active {
@@ -83,7 +85,7 @@
 }
 
 .tab-bar-backIcon:hover path {
-    color: red;
+    color: #f3467c;
 }
 
 path {

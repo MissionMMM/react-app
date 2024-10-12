@@ -3,6 +3,7 @@ import HdrStrongIcon from '@mui/icons-material/HdrStrong';
 import { useNavigate } from 'react-router-dom'
 import Logo from "../components/Logo";
 import BackgroundAIImg from "../../static/AICreate/3.png"
+import { Link } from "react-router-dom";
 
 function TabBar() {
     const navigate = useNavigate()
@@ -19,7 +20,7 @@ function TabBar() {
             </div>
             <div className="tab-bar-main">
                 <img src={BackgroundAIImg} className="tab-bar-backImg"/>
-                {/* <Link className="tab-bar-text-1" to="/">跳到入口</Link> */}
+                <Link className="tab-bar-text-1" to='/login'>LOGIN</Link>
             </div>
         </div>
     )

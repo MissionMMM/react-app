@@ -10,6 +10,7 @@ function MinesweeperGame() {
     const [cols, setCols] = useState(10);
     const [mineFlag, setMineFlag] = useState(0) // 插旗数量
     const [gameDifficulty, setGameDifficulty] = useState(0) // 游戏难度
+    const [systemWinWidth, setSystemWinWidth] = useState('500px') // 屏幕最小宽度
 
     // 初始化游戏板
     const generateEmptyBoard = (rows, cols) => {
@@ -111,15 +112,13 @@ function MinesweeperGame() {
     const toggleFlag = (row, col) => {
         if (gameOver || won) return;
         if (row < 0 || row >= rows || col < 0 || col >= cols) return;
-
         board[row][col].flag = !board[row][col].flag;
-
         if (board[row][col].flag) {
+            if (mineFlag >= mineCount) return
             setMineFlag(mineFlag + 1)
         } else {
             setMineFlag(mineFlag - 1)
         }
-
         setBoard([...board]);
     };
 
@@ -150,18 +149,21 @@ function MinesweeperGame() {
             setMineCount(10)
             setRows(10)
             setCols(10)
+            setSystemWinWidth('500px')
         }
         // 中等难度
         else if (gameDifficulty === 1) {
             setMineCount(50)
             setRows(18)
             setCols(20)
+            setSystemWinWidth('800px')
         }
         // 困难难度
         else if (gameDifficulty === 2) {
             setMineCount(120)
-            setRows(21)
+            setRows(24)
             setCols(48)
+            setSystemWinWidth('1700px')
         }
     }, [gameDifficulty])
     // 在组件挂载时初始化游戏板
@@ -170,20 +172,20 @@ function MinesweeperGame() {
     }, [addMines, calculateAdjacentMines, cols, mineCount, rows]);
 
     return (
-        <div className='MinesweeperGameMain'>
+        <div className='MinesweeperGameMain' style={{ minWidth: systemWinWidth }}>
             <h1>扫雷游戏 MineSweeper</h1>
             <div className='showText'>💣数量：{mineCount}</div>
             <div className='showText'>🚩插旗：{mineFlag}</div>
             <div className='gameButtontGroup'>
                 <div className='gameResetbutton' onClick={resetGame}>RESET</div>
                 <div className={[gameDifficulty === 0 ? 'gameDifficultChoseBoxChose' : 'gameDifficultChoseBoxNotChose']} onClick={() => choseDifficulty(0)}>
-                    <div className='gameDifficultChose'>DIFFICULTY - EASY</div>
+                    <div className='gameDifficultChose'>EASY</div>
                 </div>
                 <div className={[gameDifficulty === 1 ? 'gameDifficultChoseBoxChose' : 'gameDifficultChoseBoxNotChose']} onClick={() => choseDifficulty(1)}>
-                    <div className='gameDifficultChose'>DIFFICULTY - MIDDLE</div>
+                    <div className='gameDifficultChose'>MIDDLE</div>
                 </div>
                 <div className={[gameDifficulty === 2 ? 'gameDifficultChoseBoxChose' : 'gameDifficultChoseBoxNotChose']} onClick={() => choseDifficulty(2)}>
-                    <div className='gameDifficultChose'>DIFFICULTY - HARD</div>
+                    <div className='gameDifficultChose'>HARD</div>
                 </div>
             </div>
             <table style={{ borderCollapse: 'collapse', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
