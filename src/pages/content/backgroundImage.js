@@ -137,7 +137,7 @@ function BackgroundImage() {
             setStartShow(0)
         }, 2000);
         setTimeout(() => {
-            navigate('/login')
+            navigate('/home')
         }, 3500);
     }
     useEffect(() => {

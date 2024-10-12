@@ -17,7 +17,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
-import bcImage from '../../static/AICreate/1.png'
+import bcImage from '../../static/AICreate/2.png'
 
 function HomeMainContent() {
     const [box6Content, setBox6Content] = useState("")
