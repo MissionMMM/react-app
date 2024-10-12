@@ -114,7 +114,6 @@ function MinesweeperGame() {
         if (row < 0 || row >= rows || col < 0 || col >= cols) return;
         board[row][col].flag = !board[row][col].flag;
         if (board[row][col].flag) {
-            if (mineFlag >= mineCount) return
             setMineFlag(mineFlag + 1)
         } else {
             setMineFlag(mineFlag - 1)
