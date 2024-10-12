@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import img1 from '../../static/myPhone/13.jpg'
+import img1 from '../../static/myPhone/14.jpg'
 import img2 from '../../static/myPhone/9.jpg'
 import img3 from '../../static/myPhone/25.jpg'
 

@@ -193,7 +193,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #b61f1f;
+    /* background-color: #b61f1f; */
 }
 
 .main-box-7 {
@@ -207,18 +207,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(107, 52, 107);
+    /* background-color: rgb(107, 52, 107); */
 }
 
 .main-box-8 {
+    cursor: pointer;
     width: 150px;
     height: 150px;
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     position: absolute;
     left: 1160px;
     top: 40px;
     transition: 0.3s;
     animation: 4s mainBox5Show;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-box-6 {

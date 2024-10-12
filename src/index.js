@@ -10,10 +10,10 @@ import router from './router/config'
 import { RouterProvider } from "react-router-dom";
 import './index.css'
 
-// document.oncontextmenu = function () {
-//     // alert("右键被禁用");
-//     return false;
-// };
+document.oncontextmenu = function () {
+    // alert("右键被禁用");
+    return false;
+};
 // 禁止F12打开调试控制台
 // document.onkeydown =
 //     document.onkeyup =

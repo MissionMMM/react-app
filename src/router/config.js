@@ -8,6 +8,7 @@ import Register from "../pages/login/register"
 import Instrument from "../pages/instrument/instrument";
 import AiTalk from "../pages/AI/AiTalk";
 import ThreeDTest from "../pages/ThreeDContent/ThreeDTest";
+import MinesweeperGame from "../pages/content/MinesweeperGame";
 
 // 创建router实例对象
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
     {
         path: '/threeDContent',
         element: <ThreeDTest />
+    },
+    {
+        path: '/mineSweeper',
+        element: <MinesweeperGame />
     },
 ])
 
