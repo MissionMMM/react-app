@@ -18,7 +18,7 @@ function Instrument() {
     const [alertText, setAlertText] = useState("") // alert弹窗文案
     const [colorContent, setColorcontent] = useState("") // 拾色器内的颜色
     const [colorSelectShow, setColorSelectShow] = useState(false) // 拾色器展示
-    const [personSearchBoxShow, setPersonSearchBoxShow] = useState(true) // 身份证信息弹出窗开关
+    const [personSearchBoxShow, setPersonSearchBoxShow] = useState(false) // 身份证信息弹出窗开关
 
     // const navigate = useNavigate() // 路由跳转
 
