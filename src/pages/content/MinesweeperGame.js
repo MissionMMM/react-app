@@ -224,8 +224,8 @@ function MinesweeperGame() {
                                 <td key={colIndex}
                                     onClick={() => revealSquare(rowIndex, colIndex)}
                                     onContextMenu={(e) => { e.preventDefault(); toggleFlag(rowIndex, colIndex); }}
-                                    onTouchStart={(e) => { e.preventDefault(); handleTouchStart() }}
-                                    onTouchEnd={(e) => { e.preventDefault(); handleTouchEnd(rowIndex, colIndex) }}
+                                    onTouchStart={(e) => { handleTouchStart() }}
+                                    onTouchEnd={(e) => { handleTouchEnd(rowIndex, colIndex) }}
                                     className={[cell.revealed ? 'boxRevealed' : 'notRevealed', 'beseBox'].join(' ')}
                                 >
                                     {cell.revealed ? (cell.hasMine ? '💣' : cell.mineCount > 0 ? cell.mineCount : '') : (cell.flag ? '🚩' : '')}
