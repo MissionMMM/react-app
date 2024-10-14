@@ -6,6 +6,7 @@ import Dialog from '@mui/material/Dialog';
 import SuccessAlert from '../alert/successAlert.js'
 import InfoAlert from '../alert/infoAlert.js'
 import { ReactComponent as Test_1 } from './Components/test_1.svg'
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 
 function Instrument() {
     const [IDcardNumber, setIDcardNumber] = useState("") // 身份证号码
@@ -17,6 +18,7 @@ function Instrument() {
     const [alertText, setAlertText] = useState("") // alert弹窗文案
     const [colorContent, setColorcontent] = useState("") // 拾色器内的颜色
     const [colorSelectShow, setColorSelectShow] = useState(false) // 拾色器展示
+    const [personSearchBoxShow, setPersonSearchBoxShow] = useState(true) // 身份证信息弹出窗开关
 
     // const navigate = useNavigate() // 路由跳转
 
@@ -24,13 +26,11 @@ function Instrument() {
     const catchColor = () => {
         const eyeDropper = new window.EyeDropper();
         eyeDropper.open().then(res => {
-            console.log(res)
             setColorcontent(res.sRGBHex)
             document.getElementById('colorText').innerHTML = res.sRGBHex;
             document.getElementById('colorText').style.backgroundColor = res.sRGBHex;
             document.getElementById('colorText').style.color = "#fff";
         }).catch(err => {
-            console.log('用户取消拾取');
         });
     }
 
@@ -75,7 +75,6 @@ function Instrument() {
         let IDAnimal = getAnimals(IDcardNumber)
         let IDConstellation = getConstellation(IDcardNumber)
         setIDInfo({ age: IDage, address: IDAddress, sex: IDSex, animal: IDAnimal, constellation: IDConstellation })
-        console.log(IDInfo)
         setDialogStatus(0)
         setOpenDialog(true)
     }
@@ -220,7 +219,6 @@ function Instrument() {
             return
         }
         await navigator.clipboard.writeText(colorContent);
-        console.log('1')
         setAlertText("颜色已复制")
         setOpenAlert(true)
     }
@@ -277,7 +275,14 @@ function Instrument() {
         }
         window.open(url, '_blank')
     }
-
+    // 计算身份证信息弹出窗口
+    const computedPerson = () => {
+        console.log('我是你爹：')
+        setPersonSearchBoxShow(!personSearchBoxShow)
+    }
+    useEffect(() => {
+        console.log('personSearchBoxShow变化啦!:', personSearchBoxShow)
+    }, [personSearchBoxShow])
     useEffect(() => {
         if (window.EyeDropper && window.EyeDropper.prototype.open) {
             // const eyeDropper = new window.EyeDropper({
@@ -285,11 +290,9 @@ function Instrument() {
             //   oncolorchange: (event) => console.log(event.color)
             // });
             // eyeDropper.open();
-            console.log(1)
             setColorSelectShow(true)
         } else {
             // 提供备选方案
-            console.log(2)
             setColorSelectShow(false)
         }
     })
@@ -298,10 +301,15 @@ function Instrument() {
         <div className="instrumentBox">
             <InfoAlert alertOpen={openInfoAlert} alertText={alertText} handleClose={closeInfoAlert} />
             <SuccessAlert alertOpen={openAlert} alertText={alertText} handleClose={closeSuccessAlert} />
-            <div className="computeAge">
-                <h3 style={{ color: '#fff' }}>身份证相关信息计算</h3>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <input id="ageInput" className="ageInput" type="text" placeholder="请输入身份证号" value={IDcardNumber} onChange={(e) => setIDcardNumber(e.target.value.trim())} />
+            <div style={{ display: 'flex', alignItems: 'center',margin:'20px 0' }}>
+                <div className="personSwitchBox" style={{ width: personSearchBoxShow ? '100px' : '90px' }} onClick={() => computedPerson()}>
+                    <CoPresentIcon style={{ color: '#fff', fontSize: '30px', marginLeft: '10px' }} />
+                    <div className="person-rightOn personLogo1">{personSearchBoxShow?'<':'>'}</div>
+                    <div className="person-rightOn personLogo2">{personSearchBoxShow?'<':'>'}</div>
+                    <div className="person-rightOn personLogo3">{personSearchBoxShow?'<':'>'}</div>
+                </div>
+                <div className={[personSearchBoxShow ? "rightContentShow" : "rightContentHide", "rightContent"].join(' ')}>
+                    <input id="ageInput" className="ageInput" type="text" placeholder="身份证号信息计算" value={IDcardNumber} onChange={(e) => setIDcardNumber(e.target.value.trim())} />
                     <button id="IDButton" className="IDButton" onClick={() => searchInfo()}>确 定</button>
                     <button id="clearButton" className="clearButton" onClick={() => clearInputInfo()}>清 空</button>
                 </div>
