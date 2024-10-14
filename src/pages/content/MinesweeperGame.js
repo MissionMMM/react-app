@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import './MinesweeperGame.css'
 
 function MinesweeperGame() {
@@ -107,7 +107,22 @@ function MinesweeperGame() {
         }
         return true;
     };
+    // 按压事件
+    const touchStartRef = useRef(null);
+    const handleTouchStart = () => {
+        touchStartRef.current = Date.now();
+    };
 
+    const handleTouchEnd = (row, col) => {
+        if (touchStartRef.current) {
+            const duration = Date.now() - touchStartRef.current;
+            if (duration > 500) { // 如果按压时间超过500毫秒
+                // 在这里执行你的长按操作逻辑
+                toggleFlag(row, col)
+            }
+            touchStartRef.current = null; // 重置引用
+        }
+    };
     // 标记/取消标记方块
     const toggleFlag = (row, col) => {
         if (gameOver || won) return;
@@ -209,6 +224,8 @@ function MinesweeperGame() {
                                 <td key={colIndex}
                                     onClick={() => revealSquare(rowIndex, colIndex)}
                                     onContextMenu={(e) => { e.preventDefault(); toggleFlag(rowIndex, colIndex); }}
+                                    onTouchStart={()=>handleTouchStart()}
+                                    onTouchEnd={()=>handleTouchEnd(rowIndex, colIndex)}
                                     className={[cell.revealed ? 'boxRevealed' : 'notRevealed', 'beseBox'].join(' ')}
                                 >
                                     {cell.revealed ? (cell.hasMine ? '💣' : cell.mineCount > 0 ? cell.mineCount : '') : (cell.flag ? '🚩' : '')}
