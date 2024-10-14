@@ -12,7 +12,7 @@ import './index.css'
 import VConsole from "vconsole";
 
 // 移动端监听console
-new VConsole()
+// new VConsole()
 
 document.oncontextmenu = function () {
     // alert("右键被禁用");
