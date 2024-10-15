@@ -2,6 +2,7 @@ import './backgroundImage.css'
 // 背景图
 // import image from '../../static/myPhone/22.jpg'
 import image from '../../static/myPC/1.jpg'
+import imagePhone from '../../static/myPC/2.jpg'
 // import image from '../../static/LoadingImage/bg1.png'
 // import image from '../../static/LoadingImage/finalBg.jpg'
 // import image from '../../static/LoadingImage/magic.jpg'
@@ -40,6 +41,24 @@ function BackgroundImage() {
     const [moveStatus9_on, setMoveStatus9_on] = useState(true)
     const [moveStatus10, setMoveStatus10] = useState(false)
     const [moveStatus10_on, setMoveStatus10_on] = useState(true)
+    const [systemWidth, setSystemWidth] = useState(null)
+    const [backgrounImg, setBackgrounImg] = useState(null)
+    const resizeUpdate = (e) => {
+        setSystemWidth(e.target.innerWidth)
+    }
+    useEffect(() => {
+        setSystemWidth(window.innerWidth)
+        if (systemWidth <= 750) {
+            setBackgrounImg(imagePhone)
+        } else {
+            setBackgrounImg(image)
+        }
+        window.addEventListener('resize', resizeUpdate)
+        return () => {
+            window.removeEventListener('resize', resizeUpdate)
+        }
+    }, [])
+
     const onMouse = (e) => {
         // console.log('我是鼠标移动：', e.target.innerHTML)
         if (e.target.id === 'page1' && moveStatus1_on) {
@@ -166,34 +185,34 @@ function BackgroundImage() {
             {/* D:\React\my-app\src\static\Bueatyfull-Girl\rectangle-x\9.jpg */}
             <div className={[startStatus == 1 ? "backgroundImage-hide" : ""]} style={{ position: 'absolute', top: '0', left: '0', width: '100vw', height: '100vh', display: 'flex' }}>
                 <div className={moveStatus1 ? 'pageItem pageItem-hover' : 'pageItem'} onMouseMove={(e) => onMouse(e)}>
-                    <img id='page1' src={image} />
+                    <img id='page1' src={backgrounImg} />
                 </div>
                 <div className={moveStatus2 ? 'pageItem pageItem-hover' : 'pageItem'} onMouseMove={(e) => onMouse(e)}>
-                    <img id="page2" style={{ left: '-100%' }} src={image} />
+                    <img id="page2" style={{ left: '-100%' }} src={backgrounImg} />
                 </div>
                 <div className={moveStatus3 ? 'pageItem pageItem-hover' : 'pageItem'} onMouseMove={(e) => onMouse(e)}>
-                    <img id="page3" style={{ left: '-200%' }} src={image} />
+                    <img id="page3" style={{ left: '-200%' }} src={backgrounImg} />
                 </div>
                 <div className={moveStatus4 ? 'pageItem pageItem-hover' : 'pageItem'} onMouseMove={(e) => onMouse(e)}>
-                    <img id="page4" style={{ left: '-300%' }} src={image} />
+                    <img id="page4" style={{ left: '-300%' }} src={backgrounImg} />
                 </div>
                 <div className={moveStatus5 ? 'pageItem pageItem-hover' : 'pageItem'} onMouseMove={(e) => onMouse(e)}>
-                    <img id="page5" style={{ left: '-400%' }} src={image} />
+                    <img id="page5" style={{ left: '-400%' }} src={backgrounImg} />
                 </div>
                 <div className={moveStatus6 ? 'pageItem pageItem-hover' : 'pageItem'} onMouseMove={(e) => onMouse(e)}>
-                    <img id="page6" style={{ left: '-500%' }} src={image} />
+                    <img id="page6" style={{ left: '-500%' }} src={backgrounImg} />
                 </div>
                 <div className={moveStatus7 ? 'pageItem pageItem-hover' : 'pageItem'} onMouseMove={(e) => onMouse(e)}>
-                    <img id="page7" style={{ left: '-600%' }} src={image} />
+                    <img id="page7" style={{ left: '-600%' }} src={backgrounImg} />
                 </div>
                 <div className={moveStatus8 ? 'pageItem pageItem-hover' : 'pageItem'} onMouseMove={(e) => onMouse(e)}>
-                    <img id="page8" style={{ left: '-700%' }} src={image} />
+                    <img id="page8" style={{ left: '-700%' }} src={backgrounImg} />
                 </div>
                 <div className={moveStatus9 ? 'pageItem pageItem-hover' : 'pageItem'} onMouseMove={(e) => onMouse(e)}>
-                    <img id="page9" style={{ left: '-800%' }} src={image} />
+                    <img id="page9" style={{ left: '-800%' }} src={backgrounImg} />
                 </div>
                 <div className={moveStatus10 ? 'pageItem pageItem-hover' : 'pageItem'} onMouseMove={(e) => onMouse(e)}>
-                    <img id="page10" style={{ left: '-900%' }} src={image} />
+                    <img id="page10" style={{ left: '-900%' }} src={backgrounImg} />
                 </div>
             </div>
         </div>
