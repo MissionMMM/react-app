@@ -5,6 +5,7 @@ import { get } from "../../utils/request"
 import Logo from "../components/Logo"
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import backMusic from "../../static/Music/Coffee Date,GameChops - Great Fairy Fountain.mp3"
+import HomeIcon from '@mui/icons-material/Home';
 
 // import { useDispatch } from "react-redux"
 // import { fetchLogin } from "../../store/modules/user"
@@ -61,10 +62,16 @@ function Form() {
         // let res = get('/', form)
         // dispatch(fetchLogin(form))
     }
+    const backHome = () => {
+        navigate('/home')
+    }
     return (
         systemWidth >= 750 ? (
             <div className="inputbBox">
                 <ErrorAlert alertOpen={openErrorAlert} alertText={alertText} handleClose={closeErrorAlert} />
+                <div className="loginBackBtn" onClick={() => backHome()}>
+                    <HomeIcon style={{ fontSize: '30px' }} />
+                </div>
                 <div className="contentLogoBox">
                     <Logo />
                 </div>
@@ -133,6 +140,9 @@ function Form() {
         ) : (
             <div className="phoneBox">
                 <ErrorAlert alertOpen={openErrorAlert} alertText={alertText} handleClose={closeErrorAlert} />
+                <div className="loginBackBtn" onClick={() => backHome()}>
+                    <HomeIcon style={{ fontSize: '30px' }} />
+                </div>
                 <div className="phoneLogoBox">
                     <Logo />
                 </div>
