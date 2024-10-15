@@ -124,7 +124,7 @@
     width: 200px;
     height: 200px;
     /* border: 1px solid #fff; */
-    background-image: linear-gradient(to right bottom,#095e50 30%,#c7b300);
+    background-image: linear-gradient(to right bottom, #095e50 30%, #c7b300);
     background-color: #095e50;
     position: absolute;
     left: 200px;
@@ -254,6 +254,19 @@
     animation: 2s mainBox9Show;
 }
 
+.main-box-10 {
+    width: 340px;
+    height: 300px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 20px;
+    /* border: 6px solid #fff; */
+    position: absolute;
+    right: 610px;
+    bottom: 30px;
+    transition: 0.3s;
+}
+
 .main-box-1:hover {
     top: 35px;
 }
@@ -295,6 +308,10 @@
 
 .main-box-9:hover {
     top: 35px;
+}
+
+.main-box-10:hover {
+    box-shadow: 0px 0px 10px 2px #885b32;
 }
 
 .borderRadius {

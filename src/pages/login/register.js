@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react';
 import './register.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -12,13 +14,16 @@ import PolylineIcon from '@mui/icons-material/Polyline';
 import PhoneIcon from '@mui/icons-material/Phone';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
-import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react';
+import AddReactionIcon from '@mui/icons-material/AddReaction';
+import ErrorAlert from '../alert/errorAlert';
+
+// 引入简体切繁体组件
 
 function Register() {
     const navigate = useNavigate()
     const [userId, setUserId] = useState('')
     const [userPassword, setUserPassword] = useState('')
+    const [userNickname, setUserNickname] = useState('')
     const [userPhone, setUserPhone] = useState('')
     const [userEmail, setUserEmail] = useState('')
     const [inviteNum, setInviteNum] = useState('')
@@ -32,7 +37,11 @@ function Register() {
     const [inputActived5, setInputActived5] = useState(false)
     const [inputActived6, setInputActived6] = useState(false)
     const [inputActived7, setInputActived7] = useState(false)
+    const [inputActived8, setInputActived8] = useState(false)
     const [systemWidth, setSystemWidth] = useState("") // 响应式处理
+    const [openErrorAlert, setOpenErrorAlert] = useState(false) // 报错弹窗
+    const [errorAlertText, setErrorAlertText] = useState("") // 报错弹窗文案
+
     const resizeUpdate = (e) => {
         setSystemWidth(e.target.innerWidth)
     }
@@ -43,9 +52,9 @@ function Register() {
             window.removeEventListener('resize', resizeUpdate)
         }
     }, [])
-    useEffect(() => {
-        console.log('我是系统宽度：', systemWidth)
-    }, [systemWidth])
+    // useEffect(() => {
+    //     console.log('我是系统宽度：', systemWidth)
+    // }, [systemWidth])
     const back = () => {
         navigate('/login')
     }
@@ -79,6 +88,9 @@ function Register() {
             case 7:
                 setInputActived7(true)
                 break;
+            case 8:
+                setInputActived8(true)
+                break;
         }
     }
     const inputBlur = (e) => {
@@ -104,12 +116,32 @@ function Register() {
             case 7:
                 setInputActived7(false)
                 break;
+            case 8:
+                setInputActived8(false)
+                break;
         }
     }
-
+    const confirm = () => {
+        console.log('我是用户名：', userId)
+        console.log('我是密码：', userPassword)
+        console.log('我是昵称：', userNickname)
+        console.log('我是手机号：', userPhone)
+        console.log('我是生日：', birthDate)
+        console.log('我是地区：', city)
+        console.log('我是邮箱：', userEmail)
+        console.log('我是邀请码：', inviteNum)
+        if (!userId) {
+            setErrorAlertText("请输入用户名")
+            setOpenErrorAlert(true)
+        }
+    }
+    const closeErrorAlert = () => {
+        setOpenErrorAlert(false)
+    }
     return (
         systemWidth >= 750 ? (
             <div className='register-box'>
+                <ErrorAlert alertOpen={openErrorAlert} alertText={errorAlertText} handleClose={closeErrorAlert} />
                 <Button color="secondary" className='register-siderbar left-animation' style={{ left: '10%', fontSize: '20px' }} onClick={() => { back() }}><ArrowBackIosNewIcon style={{ color: 'pink', fontSize: '20px', fontWeight: 'bold', cursor: 'pointer' }} onClick={() => back()} /><span className='register-text-1'>BACK</span></Button>
                 <div className='register-content'>
                     <div className='register-item'>
@@ -135,6 +167,12 @@ function Register() {
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
+                            <AddReactionIcon className='register-icon-1' style={{ color: inputActived8 ? '#333' : 'gray' }} />
+                            <input className='register-input' type='text' placeholder='请输入昵称' maxLength={10} value={userNickname} onChange={(e) => { setUserNickname(e.target.value) }} onClick={() => inputClick(8)} onBlur={() => inputBlur(8)} />
+                        </div>
+                    </div>
+                    <div className='register-item'>
+                        <div className='register-input-box'>
                             <PhoneIcon className='register-icon-1' style={{ color: inputActived3 ? '#333' : 'gray' }} />
                             <input className='register-input' placeholder='请输入11位手机号' maxLength={11} value={userPhone} onChange={(e) => { setUserPhone(e.target.value) }} onClick={() => inputClick(3)} onBlur={() => inputBlur(3)} />
                         </div>
@@ -148,7 +186,7 @@ function Register() {
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <LocationCityIcon className='register-icon-1' style={{ color: inputActived7 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='请输入所在地区：省份城市区' value={city} onChange={(e) => { setCity(e.target.value) }} onClick={() => inputClick(7)} onBlur={() => inputBlur(7)} />
+                            <input className='register-input' placeholder='省份城市区/国家名' maxLength={12} value={city} onChange={(e) => { setCity(e.target.value) }} onClick={() => inputClick(7)} onBlur={() => inputBlur(7)} />
                         </div>
                     </div>
                     <div className='register-item'>
@@ -164,7 +202,7 @@ function Register() {
                         </div>
                     </div>
                 </div>
-                <Button color="secondary" className='register-siderbar right-animation' style={{ right: '10%' }}><span className='register-text-1'>NEXT</span><ArrowForwardIosIcon style={{ color: 'pink', fontSize: '20px', fontWeight: 'bold', cursor: 'pointer' }} /></Button>
+                <Button color="secondary" className='register-siderbar right-animation' style={{ right: '10%' }} onClick={() => { confirm() }}><span className='register-text-1'>NEXT</span><ArrowForwardIosIcon style={{ color: 'pink', fontSize: '20px', fontWeight: 'bold', cursor: 'pointer' }} /></Button>
             </div>
         ) : (
             <div className='phoneBox'>
@@ -190,6 +228,12 @@ function Register() {
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
+                            <AddReactionIcon className='register-icon-1' style={{ color: inputActived8 ? '#333' : 'gray' }} />
+                            <input className='register-input' placeholder='请输入昵称' maxLength={10} value={userNickname} onChange={(e) => { setUserNickname(e.target.value) }} onClick={() => inputClick(8)} onBlur={() => inputBlur(8)} />
+                        </div>
+                    </div>
+                    <div className='register-item'>
+                        <div className='register-input-box'>
                             <PhoneIcon className='register-icon-1' style={{ color: inputActived3 ? '#333' : 'gray' }} />
                             <input className='register-input' placeholder='请输入11位手机号' maxLength={11} value={userPhone} onChange={(e) => { setUserPhone(e.target.value) }} onClick={() => inputClick(3)} onBlur={() => inputBlur(3)} />
                         </div>
@@ -203,7 +247,7 @@ function Register() {
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <LocationCityIcon className='register-icon-1' style={{ color: inputActived7 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='请输入所在地区：省份城市区' value={city} onChange={(e) => { setCity(e.target.value) }} onClick={() => inputClick(7)} onBlur={() => inputBlur(7)} />
+                            <input className='register-input' placeholder='省份城市区/国家名' maxLength={12} value={city} onChange={(e) => { setCity(e.target.value) }} onClick={() => inputClick(7)} onBlur={() => inputBlur(7)} />
                         </div>
                     </div>
                     <div className='register-item'>

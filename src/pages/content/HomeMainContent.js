@@ -10,6 +10,7 @@ import LensBlurIcon from '@mui/icons-material/LensBlur';
 
 import WeatherCom from "../components/WeatherCom";
 import NewCom from "../components/NewCom"
+import MessageBorad from "../components/MessageBorad";
 import Dialog from '@mui/material/Dialog';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -98,10 +99,10 @@ function HomeMainContent() {
         switch (box6Switch) {
             case 1:
             case 2:
-                setBox6Content("Tips：按住Shift+滚轮可以左右滑动噢~")
+                setBox6Content("Tips：按住Shift+滾輪可以左右滑動噢~")
                 break;
             case 3:
-                setBox6Content("Tips：下班不积极，脑袋有问题~")
+                setBox6Content("Tips：下班不積極，腦袋有問題~")
                 break;
             case 4:
                 setBox6Content("Tips：让我看看是哪个小煞笔在疯狂点击呢？")
@@ -143,6 +144,9 @@ function HomeMainContent() {
                     <LensBlurIcon style={{ fontSize: '100px', color: '#fff' }} />
                 </div>
                 <div className="main-box-9 borderRadius" style={{ color: '#fff' }}><NewCom /></div>
+                <div className="main-box-10 borderRadius">
+                    <MessageBorad />
+                </div>
             </div>
             <Dialog onClose={() => dialogHandleClose()} open={openDialog}>
                 <div className="weatherChoseWin">
