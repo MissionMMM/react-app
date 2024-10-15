@@ -135,8 +135,8 @@ function HomeMainContent() {
     const closeErrorAlert = () => {
         setOpenErrorAlert(false)
     }
-    const openMessageBorad=()=>{
-        if(!localStorage.getItem('token')){
+    const openMessageBorad = () => {
+        if (!localStorage.getItem('token')) {
             setErrorAlertText("请先登陆")
             setOpenErrorAlert(true)
         }
@@ -148,31 +148,33 @@ function HomeMainContent() {
             <div className="bottom-swallow"></div>
             <div className="left-swallow"></div>
             <div className="right-swallow"></div>
-            <div className="main-box">
-                <div className="main-box-1 borderRadius" style={{ color: '#fff' }} onClick={() => jumpHistoryPage(2)}>
-                    <ThreeDRotationIcon style={{ fontSize: '130px', color: '#fff' }} />
-                </div>
-                <div className="main-box-2 borderRadius" style={{ color: '#fff' }}>
-                    <img src={bcImage} className="weatherBackgroundImage" />
-                    <WeatherCom ref={childRef} clickFun={openWeatherChose} />
-                </div>
-                <div className="main-box-3 borderRadius" style={{ color: '#fff' }}>BOX3</div>
-                <div className="main-box-4 borderRadius" style={{ color: '#fff' }}>
-                    <SwiperCom />
-                </div>
-                <div className="main-box-5 borderRadius" style={{ color: '#fff' }} onClick={() => jumpHistoryPage(0)}>
-                    <CatchingPokemonIcon style={{ fontSize: '100px', color: '#fff' }} />
-                </div>
-                <div className="main-box-6 borderRadius" style={{ color: '#fff' }} onClick={() => checkBox6()}>{box6Content}</div>
-                <div className="main-box-7 borderRadius" style={{ color: '#fff' }} onClick={() => jumpHistoryPage(1)}>
-                    <WebhookIcon style={{ fontSize: '100px', color: '#fff' }} />
-                </div>
-                <div className="main-box-8 borderRadius" style={{ color: '#fff' }} onClick={() => jumpHistoryPage(3)}>
-                    <LensBlurIcon style={{ fontSize: '100px', color: '#fff' }} />
-                </div>
-                <div className="main-box-9 borderRadius" style={{ color: '#fff' }}><NewCom /></div>
-                <div className="main-box-10 borderRadius" onClick={() => openMessageBorad()}>
-                    <MessageBorad />
+            <div className="main-box-srollBox">
+                <div className="main-box">
+                    <div className="main-box-1 borderRadius" style={{ color: '#fff' }} onClick={() => jumpHistoryPage(2)}>
+                        <ThreeDRotationIcon style={{ fontSize: '130px', color: '#fff' }} />
+                    </div>
+                    <div className="main-box-2 borderRadius" style={{ color: '#fff' }}>
+                        <img src={bcImage} className="weatherBackgroundImage" />
+                        <WeatherCom ref={childRef} clickFun={openWeatherChose} />
+                    </div>
+                    <div className="main-box-3 borderRadius" style={{ color: '#fff' }}>BOX3</div>
+                    <div className="main-box-4 borderRadius" style={{ color: '#fff' }}>
+                        <SwiperCom />
+                    </div>
+                    <div className="main-box-5 borderRadius" style={{ color: '#fff' }} onClick={() => jumpHistoryPage(0)}>
+                        <CatchingPokemonIcon style={{ fontSize: '100px', color: '#fff' }} />
+                    </div>
+                    <div className="main-box-6 borderRadius" style={{ color: '#fff' }} onClick={() => checkBox6()}>{box6Content}</div>
+                    <div className="main-box-7 borderRadius" style={{ color: '#fff' }} onClick={() => jumpHistoryPage(1)}>
+                        <WebhookIcon style={{ fontSize: '100px', color: '#fff' }} />
+                    </div>
+                    <div className="main-box-8 borderRadius" style={{ color: '#fff' }} onClick={() => jumpHistoryPage(3)}>
+                        <LensBlurIcon style={{ fontSize: '100px', color: '#fff' }} />
+                    </div>
+                    <div className="main-box-9 borderRadius" style={{ color: '#fff' }}><NewCom /></div>
+                    <div className="main-box-10 borderRadius" onClick={() => openMessageBorad()}>
+                        <MessageBorad />
+                    </div>
                 </div>
             </div>
             <Dialog onClose={() => dialogHandleClose()} open={openDialog}>

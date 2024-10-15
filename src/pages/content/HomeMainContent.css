@@ -124,7 +124,13 @@
     overflow-y: auto;
     position: relative;
 }
-
+.main-box-srollBox{
+    width: 100vw;
+    height: 680px;
+    box-sizing: border-box;
+    overflow: hidden;
+    overflow-x: auto;
+}
 .main-box {
     width: 1920px;
     height: 680px;
