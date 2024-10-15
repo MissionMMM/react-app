@@ -48,16 +48,18 @@ function BackgroundImage() {
     }
     useEffect(() => {
         setSystemWidth(window.innerWidth)
-        if (systemWidth <= 750) {
-            setBackgrounImg(imagePhone)
-        } else {
-            setBackgrounImg(image)
-        }
         window.addEventListener('resize', resizeUpdate)
         return () => {
             window.removeEventListener('resize', resizeUpdate)
         }
     }, [])
+    useEffect(()=>{
+        if (systemWidth <= 750) {
+            setBackgrounImg(imagePhone)
+        } else {
+            setBackgrounImg(image)
+        }
+    },[systemWidth])
 
     const onMouse = (e) => {
         // console.log('我是鼠标移动：', e.target.innerHTML)
@@ -160,10 +162,6 @@ function BackgroundImage() {
             navigate('/home')
         }, 3500);
     }
-    useEffect(() => {
-        // console.log('我是状态1：', moveStatus1)
-        // console.log('点击啦：', startStatus)
-    })
     return (
         <div className="backgroundImage">
             {
