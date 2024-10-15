@@ -184,6 +184,7 @@ function HomeMainContent() {
                     <Button variant="contained" color="secondary" style={{ position: 'absolute', bottom: '10px' }} onClick={() => confirmCityWeather()}>CONFIRM</Button>
                 </div>
             </Dialog>
+            <div className="home-bottom-text">Created at 2024-05-23 ShenZhen,China</div>
         </div>
     )
 }
