@@ -248,14 +248,16 @@
     top: 220px;
     transition: 0.3s;
     animation: 2s mainBox6Show;
-    padding: 20px;
+    padding: 0 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     background-color: #fabc4a;
     font-size: 20px;
     font-weight: bold;
     user-select: none;
+    text-align: center;
 }
 
 .main-box-9 {

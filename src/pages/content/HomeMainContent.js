@@ -21,6 +21,8 @@ import Button from '@mui/material/Button';
 import bcImage from '../../static/AICreate/2.png'
 import ErrorAlert from "../alert/errorAlert";
 
+import { traditionalized } from "../../utils/simpleTraditionalizedExchange";
+
 function HomeMainContent() {
     const [box6Content, setBox6Content] = useState("")
     const [box6Switch, setBox6Switch] = useState(1)
@@ -81,7 +83,7 @@ function HomeMainContent() {
         }
     }
     const checkBox6 = () => {
-        let randomDemo = Math.random() * 5
+        let randomDemo = Math.random() * 8
         let random = Math.ceil(randomDemo)
         setBox6Switch(random)
     }
@@ -101,6 +103,8 @@ function HomeMainContent() {
     useEffect(() => {
         switch (box6Switch) {
             case 1:
+                setBox6Content(traditionalized("Tips：结果不如意不如换方法而不是改变结果降低标准"))
+                break;
             case 2:
                 setBox6Content("Tips：按住Shift+滾輪可以左右滑動噢~")
                 break;
@@ -108,8 +112,19 @@ function HomeMainContent() {
                 setBox6Content("Tips：人生只有一種英雄那就是知道了生活的真相卻依舊選擇熱愛生活的人~")
                 break;
             case 4:
-            case 5:
                 setBox6Content("Tips：嗎嘍的命也是命!!!")
+                break;
+            case 5:
+                setBox6Content(traditionalized("Tips：愿你的信仰经得起考验"))
+                break;
+            case 6:
+                setBox6Content(traditionalized("Tips：成长往往伴随着失败、挫折，人生难免跌倒，首先需要接纳其次再是站起来"))
+                break;
+            case 7:
+                setBox6Content(traditionalized("Tips：自信不是自负，客观看待自己，保持自信，保持和谐，承认失败不代表质疑自己，勇敢面对一切吧~"))
+                break;
+            case 8:
+                setBox6Content(traditionalized("Tips：迷茫的时候就去做梦吧，梦里有你想要的答案，答案只有一个，方向也只有一个(前进、后退)"))
                 break;
             default:
                 setBox6Content("Tips：按住Shift+滚轮可以左右滑动噢~")
@@ -184,7 +199,7 @@ function HomeMainContent() {
                     <Button variant="contained" color="secondary" style={{ position: 'absolute', bottom: '10px' }} onClick={() => confirmCityWeather()}>CONFIRM</Button>
                 </div>
             </Dialog>
-            <div className="home-bottom-text">Created at 2024-05-23 ShenZhen,China</div>
+            <div className="home-bottom-text">Created at May 23th,2024 in ShenZhen,China</div>
         </div>
     )
 }
