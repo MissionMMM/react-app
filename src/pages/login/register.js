@@ -152,13 +152,13 @@ function Register() {
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <AccountBoxIcon className='register-icon-1' style={{ color: inputActived1 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='请输入注册用户名' value={userId} onChange={(e) => { setUserId(e.target.value) }} onClick={() => inputClick(1)} onBlur={() => inputBlur(1)} />
+                            <input className='register-input' placeholder='請輸入注冊用戶名' value={userId} onChange={(e) => { setUserId(e.target.value) }} onClick={() => inputClick(1)} onBlur={() => inputBlur(1)} />
                         </div>
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <KeyIcon className='register-icon-1' style={{ color: inputActived2 ? '#333' : 'gray' }} />
-                            <input className='register-input' type={showPassword ? 'text' : 'password'} placeholder='请输入密码' value={userPassword} onChange={(e) => { setUserPassword(e.target.value) }} onClick={() => inputClick(2)} onBlur={() => inputBlur(2)} />
+                            <input className='register-input' type={showPassword ? 'text' : 'password'} placeholder='請輸入密碼' value={userPassword} onChange={(e) => { setUserPassword(e.target.value) }} onClick={() => inputClick(2)} onBlur={() => inputBlur(2)} />
                             {showPassword ?
                                 <RemoveRedEyeIcon className='register-icon-2' onClick={() => hidePw()} /> : <VisibilityOffIcon className='register-icon-2' onClick={() => showPw()} />
                             }
@@ -168,37 +168,37 @@ function Register() {
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <AddReactionIcon className='register-icon-1' style={{ color: inputActived8 ? '#333' : 'gray' }} />
-                            <input className='register-input' type='text' placeholder='请输入昵称' maxLength={10} value={userNickname} onChange={(e) => { setUserNickname(e.target.value) }} onClick={() => inputClick(8)} onBlur={() => inputBlur(8)} />
+                            <input className='register-input' type='text' placeholder='請輸入昵稱' maxLength={10} value={userNickname} onChange={(e) => { setUserNickname(e.target.value) }} onClick={() => inputClick(8)} onBlur={() => inputBlur(8)} />
                         </div>
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <PhoneIcon className='register-icon-1' style={{ color: inputActived3 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='请输入11位手机号' maxLength={11} value={userPhone} onChange={(e) => { setUserPhone(e.target.value) }} onClick={() => inputClick(3)} onBlur={() => inputBlur(3)} />
+                            <input className='register-input' placeholder='請輸入11位手機號' maxLength={11} value={userPhone} onChange={(e) => { setUserPhone(e.target.value) }} onClick={() => inputClick(3)} onBlur={() => inputBlur(3)} />
                         </div>
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <CakeIcon className='register-icon-1' style={{ color: inputActived6 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='请输入生日日期用 - 号连接' value={birthDate} onChange={(e) => { setBirthDate(e.target.value) }} onClick={() => inputClick(6)} onBlur={() => inputBlur(6)} />
+                            <input className='register-input' placeholder='請輸入生日日期用 - 號連接' value={birthDate} onChange={(e) => { setBirthDate(e.target.value) }} onClick={() => inputClick(6)} onBlur={() => inputBlur(6)} />
                         </div>
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <LocationCityIcon className='register-icon-1' style={{ color: inputActived7 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='省份城市区/国家名' maxLength={12} value={city} onChange={(e) => { setCity(e.target.value) }} onClick={() => inputClick(7)} onBlur={() => inputBlur(7)} />
+                            <input className='register-input' placeholder='省份城市區/國家名' maxLength={12} value={city} onChange={(e) => { setCity(e.target.value) }} onClick={() => inputClick(7)} onBlur={() => inputBlur(7)} />
                         </div>
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <AlternateEmailIcon className='register-icon-1' style={{ color: inputActived4 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='请输入邮箱' value={userEmail} onChange={(e) => { setUserEmail(e.target.value) }} onClick={() => inputClick(4)} onBlur={() => inputBlur(4)} />
+                            <input className='register-input' placeholder='請輸入郵箱' value={userEmail} onChange={(e) => { setUserEmail(e.target.value) }} onClick={() => inputClick(4)} onBlur={() => inputBlur(4)} />
                         </div>
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <PolylineIcon className='register-icon-1' style={{ color: inputActived5 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='请输入邀请码' value={inviteNum} onChange={(e) => { setInviteNum(e.target.value) }} onClick={() => inputClick(5)} onBlur={() => inputBlur(5)} />
+                            <input className='register-input' placeholder='請輸入邀請碼' value={inviteNum} onChange={(e) => { setInviteNum(e.target.value) }} onClick={() => inputClick(5)} onBlur={() => inputBlur(5)} />
                         </div>
                     </div>
                 </div>
@@ -213,13 +213,13 @@ function Register() {
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <AccountBoxIcon className='register-icon-1' style={{ color: inputActived1 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='请输入注册用户名' value={userId} onChange={(e) => { setUserId(e.target.value) }} onClick={() => inputClick(1)} onBlur={() => inputBlur(1)} />
+                            <input className='register-input' placeholder='請輸入注冊用戶名' value={userId} onChange={(e) => { setUserId(e.target.value) }} onClick={() => inputClick(1)} onBlur={() => inputBlur(1)} />
                         </div>
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <KeyIcon className='register-icon-1' style={{ color: inputActived2 ? '#333' : 'gray' }} />
-                            <input className='register-input' type={showPassword ? 'text' : 'password'} placeholder='请输入密码' value={userPassword} onChange={(e) => { setUserPassword(e.target.value) }} onClick={() => inputClick(2)} onBlur={() => inputBlur(2)} />
+                            <input className='register-input' type={showPassword ? 'text' : 'password'} placeholder='請輸入密碼' value={userPassword} onChange={(e) => { setUserPassword(e.target.value) }} onClick={() => inputClick(2)} onBlur={() => inputBlur(2)} />
                             {showPassword ?
                                 <RemoveRedEyeIcon className='register-icon-2' onClick={() => hidePw()} /> : <VisibilityOffIcon className='register-icon-2' onClick={() => showPw()} />
                             }
@@ -229,37 +229,37 @@ function Register() {
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <AddReactionIcon className='register-icon-1' style={{ color: inputActived8 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='请输入昵称' maxLength={10} value={userNickname} onChange={(e) => { setUserNickname(e.target.value) }} onClick={() => inputClick(8)} onBlur={() => inputBlur(8)} />
+                            <input className='register-input' placeholder='請輸入昵稱' maxLength={10} value={userNickname} onChange={(e) => { setUserNickname(e.target.value) }} onClick={() => inputClick(8)} onBlur={() => inputBlur(8)} />
                         </div>
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <PhoneIcon className='register-icon-1' style={{ color: inputActived3 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='请输入11位手机号' maxLength={11} value={userPhone} onChange={(e) => { setUserPhone(e.target.value) }} onClick={() => inputClick(3)} onBlur={() => inputBlur(3)} />
+                            <input className='register-input' placeholder='請輸入11位手機號' maxLength={11} value={userPhone} onChange={(e) => { setUserPhone(e.target.value) }} onClick={() => inputClick(3)} onBlur={() => inputBlur(3)} />
                         </div>
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <CakeIcon className='register-icon-1' style={{ color: inputActived6 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='请输入生日日期用 - 号连接' value={birthDate} onChange={(e) => { setBirthDate(e.target.value) }} onClick={() => inputClick(6)} onBlur={() => inputBlur(6)} />
+                            <input className='register-input' placeholder='請輸入生日日期用 - 號連接' value={birthDate} onChange={(e) => { setBirthDate(e.target.value) }} onClick={() => inputClick(6)} onBlur={() => inputBlur(6)} />
                         </div>
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <LocationCityIcon className='register-icon-1' style={{ color: inputActived7 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='省份城市区/国家名' maxLength={12} value={city} onChange={(e) => { setCity(e.target.value) }} onClick={() => inputClick(7)} onBlur={() => inputBlur(7)} />
+                            <input className='register-input' placeholder='省份城市區/國家名' maxLength={12} value={city} onChange={(e) => { setCity(e.target.value) }} onClick={() => inputClick(7)} onBlur={() => inputBlur(7)} />
                         </div>
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <AlternateEmailIcon className='register-icon-1' style={{ color: inputActived4 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='请输入邮箱' value={userEmail} onChange={(e) => { setUserEmail(e.target.value) }} onClick={() => inputClick(4)} onBlur={() => inputBlur(4)} />
+                            <input className='register-input' placeholder='請輸入郵箱' value={userEmail} onChange={(e) => { setUserEmail(e.target.value) }} onClick={() => inputClick(4)} onBlur={() => inputBlur(4)} />
                         </div>
                     </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <PolylineIcon className='register-icon-1' style={{ color: inputActived5 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='请输入邀请码' value={inviteNum} onChange={(e) => { setInviteNum(e.target.value) }} onClick={() => inputClick(5)} onBlur={() => inputBlur(5)} />
+                            <input className='register-input' placeholder='請輸入邀請碼' value={inviteNum} onChange={(e) => { setInviteNum(e.target.value) }} onClick={() => inputClick(5)} onBlur={() => inputBlur(5)} />
                         </div>
                     </div>
                 </div>

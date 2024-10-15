@@ -309,33 +309,33 @@ function Instrument() {
                     <div className="person-rightOn personLogo3">{personSearchBoxShow?'<':'>'}</div>
                 </div>
                 <div className={[personSearchBoxShow ? "rightContentShow" : "rightContentHide", "rightContent"].join(' ')}>
-                    <input id="ageInput" className="ageInput" type="text" placeholder="身份证号信息计算" value={IDcardNumber} onChange={(e) => setIDcardNumber(e.target.value.trim())} />
-                    <button id="IDButton" className="IDButton" onClick={() => searchInfo()}>确 定</button>
+                    <input id="ageInput" className="ageInput" type="text" placeholder="身份證信息計算" value={IDcardNumber} onChange={(e) => setIDcardNumber(e.target.value.trim())} />
+                    <button id="IDButton" className="IDButton" onClick={() => searchInfo()}>確 定</button>
                     <button id="clearButton" className="clearButton" onClick={() => clearInputInfo()}>清 空</button>
                 </div>
             </div>
             <div className="flexBox">
-                <div className="openTimestamps" onClick={dialogHandleClickOpen}>打开时间戳计算表</div>
-                <div className="openSvg" onClick={dialogHandleClickOpenSVG}>打开SVG练习板</div>
+                <div className="openTimestamps" onClick={dialogHandleClickOpen}>打開時間戳計算表</div>
+                <div className="openSvg" onClick={dialogHandleClickOpenSVG}>打開SVG練習板</div>
             </div>
             <div className="flexBox">
-                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(1) }}>在线工具</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(1) }}>在綫工具</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(2) }}>MaterialUI</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(15) }}>MaterialUI-Icon</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(3) }}>React</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(4) }}>OpenRouter</div>
-                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(5) }}>时间戳转换工具</div>
-                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(6) }}>天机阁</div>
-                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(8) }}>W3C菜鸟教程</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(5) }}>時間戳轉換工具</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(6) }}>天機閣</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(8) }}>W3C菜鳥教程</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(9) }}>W3School</div>
-                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(10) }}>LibLibAI生成</div>
-                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(11) }}>ROLL天气查询API</div>
-                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(12) }}>站长工具</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(10) }}>LibLib</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(11) }}>ROLL天氣查詢API</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(12) }}>站長工具</div>
             </div>
             <div className="flexBox">
                 <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(7) }}>Bucd梯子</div>
-                <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(13) }}>UCloud控制台</div>
-                <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(14) }}>阿里云域名控制台</div>
+                <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(13) }}>UCloud控制臺</div>
+                <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(14) }}>阿里雲域名控制臺</div>
             </div>
             <Dialog onClose={() => dialogHandleClose()} open={openDialog}>
                 <SuccessAlert alertOpen={openAlert} alertText={alertText} handleClose={closeSuccessAlert} />
@@ -343,19 +343,19 @@ function Instrument() {
                     <div className="dialog-box">
                         <div className="resultBox">
                             <div className="itemBox">
-                                <div className="text-1">年龄：</div>
+                                <div className="text-1">年齡：</div>
                                 <div className="text2 text-2">{IDInfo.age ? IDInfo.age : '(此处显示年龄)'}</div>
                             </div>
                             <div className="itemBox">
-                                <div className="text-1">身份证所在地址：</div>
+                                <div className="text-1">籍貫：</div>
                                 <div className="text2 text-2">{IDInfo.address ? IDInfo.address : '(此处显示地址)'}</div>
                             </div>
                             <div className="itemBox">
-                                <div className="text-1">性别：</div>
+                                <div className="text-1">性別：</div>
                                 <div className="text2 text-2">{IDInfo.sex ? IDInfo.sex : '(此处显示性别)'}</div>
                             </div>
                             <div className="itemBox">
-                                <div className="text-1">生肖：</div>
+                                <div className="text-1">屬相：</div>
                                 <div className="text2 text-2">{IDInfo.animal ? IDInfo.animal : '(此处显示生肖)'}</div>
                             </div>
                             <div className="itemBox">
@@ -386,7 +386,7 @@ function Instrument() {
             {colorSelectShow && (<div className="colorContainer">
                 <div className="text-1" style={{ fontSize: '30px' }}>拾色器</div>
                 <div id="container" style={{ display: 'flex', flexFlow: 'column', marginTop: '30px', alignItems: 'center' }}>
-                    <span id="colorText" className="colorText" onClick={() => copyColor()}>此处展示颜色</span>
+                    <span id="colorText" className="colorText" onClick={() => copyColor()}>此處展示顔色</span>
                     <button id="getColor" onClick={() => catchColor()}>拾 取</button>
                 </div>
             </div>)}

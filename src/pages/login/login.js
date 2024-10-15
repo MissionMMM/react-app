@@ -118,11 +118,11 @@ function Form() {
                     <SettingsOutlinedIcon className="settingIcon" />
                 </div>
                 <div className="inputItem">
-                    <span>账号：</span>
+                    <span>賬號：</span>
                     <input type="text" value={value} onChange={(e) => { setValue(e.target.value) }} />
                 </div>
                 <div className="inputItem">
-                    <span>密码：</span>
+                    <span>密碼：</span>
                     <input type="password" value={keywords} onChange={(e) => { setKewords(e.target.value) }} />
                 </div>
                 <div className="buttonGroup">
@@ -137,11 +137,11 @@ function Form() {
                     <Logo />
                 </div>
                 <div className="inputItem">
-                    <span>账号：</span>
+                    <span>賬號：</span>
                     <input type="text" value={value} onChange={(e) => { setValue(e.target.value) }} />
                 </div>
                 <div className="inputItem">
-                    <span>密码：</span>
+                    <span>密碼：</span>
                     <input type="password" value={keywords} onChange={(e) => { setKewords(e.target.value) }} />
                 </div>
                 <div className="buttonGroup">

@@ -19,17 +19,21 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import bcImage from '../../static/AICreate/2.png'
+import ErrorAlert from "../alert/errorAlert";
 
 function HomeMainContent() {
     const [box6Content, setBox6Content] = useState("")
     const [box6Switch, setBox6Switch] = useState(1)
     const [openDialog, setOpenDialog] = useState(false) // 打开dialog窗口
+    const [openErrorAlert, setOpenErrorAlert] = useState(false) // 打开报错弹窗
+    const [errorAlertText, setErrorAlertText] = useState("") // 报错弹窗提示文字
     const [city, setCity] = useState("")
     // const navigate = useNavigate()
     let childRef = useRef(null)
 
     const cityList = [
         { label: '深圳' },
+        { label: '吉安' },
         { label: '香港' },
         { label: '珠海' },
         { label: '惠州' },
@@ -37,7 +41,6 @@ function HomeMainContent() {
         { label: '东莞' },
         { label: '清远' },
         { label: '海口' },
-        { label: '吉安' },
         { label: '岳阳' },
         { label: '长沙' },
         { label: '株洲' },
@@ -102,21 +105,30 @@ function HomeMainContent() {
                 setBox6Content("Tips：按住Shift+滾輪可以左右滑動噢~")
                 break;
             case 3:
-                setBox6Content("Tips：下班不積極，腦袋有問題~")
+                setBox6Content("Tips：人生只有一種英雄那就是知道了生活的真相卻依舊選擇熱愛生活的人~")
                 break;
             case 4:
-                setBox6Content("Tips：让我看看是哪个小煞笔在疯狂点击呢？")
-                break;
             case 5:
-                setBox6Content("Tips：吗楼的命也是命!!!")
+                setBox6Content("Tips：嗎嘍的命也是命!!!")
                 break;
             default:
                 setBox6Content("Tips：按住Shift+滚轮可以左右滑动噢~")
                 break;
         }
     }, [box6Switch])
+
+    const closeErrorAlert = () => {
+        setOpenErrorAlert(false)
+    }
+    const openMessageBorad=()=>{
+        if(!localStorage.getItem('token')){
+            setErrorAlertText("请先登陆")
+            setOpenErrorAlert(true)
+        }
+    }
     return (
         <div className="parent-box">
+            <ErrorAlert alertOpen={openErrorAlert} alertText={errorAlertText} handleClose={closeErrorAlert} />
             <div className="top-swallow"></div>
             <div className="bottom-swallow"></div>
             <div className="left-swallow"></div>
@@ -144,7 +156,7 @@ function HomeMainContent() {
                     <LensBlurIcon style={{ fontSize: '100px', color: '#fff' }} />
                 </div>
                 <div className="main-box-9 borderRadius" style={{ color: '#fff' }}><NewCom /></div>
-                <div className="main-box-10 borderRadius">
+                <div className="main-box-10 borderRadius" onClick={() => openMessageBorad()}>
                     <MessageBorad />
                 </div>
             </div>
