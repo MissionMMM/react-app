@@ -19,6 +19,7 @@ function Instrument() {
     const [colorContent, setColorcontent] = useState("") // 拾色器内的颜色
     const [colorSelectShow, setColorSelectShow] = useState(false) // 拾色器展示
     const [personSearchBoxShow, setPersonSearchBoxShow] = useState(false) // 身份证信息弹出窗开关
+    const [personSearchShowOnce, setPersonSearchShowOnce] = useState(false) // 身份证弹出首次
 
     // const navigate = useNavigate() // 路由跳转
 
@@ -277,7 +278,7 @@ function Instrument() {
     }
     // 计算身份证信息弹出窗口
     const computedPerson = () => {
-        console.log('我是你爹：')
+        setPersonSearchShowOnce(true)
         setPersonSearchBoxShow(!personSearchBoxShow)
     }
     useEffect(() => {
@@ -295,20 +296,20 @@ function Instrument() {
             // 提供备选方案
             setColorSelectShow(false)
         }
-    })
+    }, [colorSelectShow])
 
     return (
         <div className="instrumentBox">
             <InfoAlert alertOpen={openInfoAlert} alertText={alertText} handleClose={closeInfoAlert} />
             <SuccessAlert alertOpen={openAlert} alertText={alertText} handleClose={closeSuccessAlert} />
-            <div style={{ display: 'flex', alignItems: 'center',margin:'20px 0' }}>
+            <div style={{ display: 'flex', alignItems: 'center', margin: '20px 0' }}>
                 <div className="personSwitchBox" style={{ width: personSearchBoxShow ? '100px' : '90px' }} onClick={() => computedPerson()}>
                     <CoPresentIcon style={{ color: '#fff', fontSize: '30px', marginLeft: '10px' }} />
-                    <div className="person-rightOn personLogo1">{personSearchBoxShow?'<':'>'}</div>
-                    <div className="person-rightOn personLogo2">{personSearchBoxShow?'<':'>'}</div>
-                    <div className="person-rightOn personLogo3">{personSearchBoxShow?'<':'>'}</div>
+                    <div className="person-rightOn personLogo1">{personSearchBoxShow ? '<' : '>'}</div>
+                    <div className="person-rightOn personLogo2">{personSearchBoxShow ? '<' : '>'}</div>
+                    <div className="person-rightOn personLogo3">{personSearchBoxShow ? '<' : '>'}</div>
                 </div>
-                <div className={[personSearchBoxShow ? "rightContentShow" : "rightContentHide", "rightContent"].join(' ')}>
+                <div className={[personSearchBoxShow ? "rightContentShow" : "rightContentHide", "rightContent"].join(' ')} style={{ display: personSearchShowOnce ? '' : 'none' }}>
                     <input id="ageInput" className="ageInput" type="text" placeholder="身份證信息計算" value={IDcardNumber} onChange={(e) => setIDcardNumber(e.target.value.trim())} />
                     <button id="IDButton" className="IDButton" onClick={() => searchInfo()}>確 定</button>
                     <button id="clearButton" className="clearButton" onClick={() => clearInputInfo()}>清 空</button>
