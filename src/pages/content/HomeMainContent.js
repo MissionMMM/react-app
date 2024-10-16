@@ -83,7 +83,7 @@ function HomeMainContent() {
         }
     }
     const checkBox6 = () => {
-        let randomDemo = Math.random() * 8
+        let randomDemo = Math.random() * 9
         let random = Math.ceil(randomDemo)
         setBox6Switch(random)
     }
@@ -125,6 +125,9 @@ function HomeMainContent() {
                 break;
             case 8:
                 setBox6Content(traditionalized("Tips：迷茫的时候就去做梦吧，梦里有你想要的答案，答案只有一个，方向也只有一个(前进、后退)"))
+                break;
+            case 9:
+                setBox6Content(traditionalized("Tips：能击败你的永远只有你自己"))
                 break;
             default:
                 setBox6Content("Tips：按住Shift+滚轮可以左右滑动噢~")
