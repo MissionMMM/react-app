@@ -1,20 +1,35 @@
+.instrument-chose-box-button:hover{
+    background-color: rgb(219, 158, 168);
+    border-color: rgb(219, 158, 168);
+}
+.instrument-chose-box-button{
+    width: 90%;
+    height: 40px;
+    margin: 10px 5%;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.3s;
+}
+.instrument-chose-box-title{
+    font-size: 18px;
+    font-weight: bold;
+    color: #dbd9d9;
+    text-shadow: 0px 0px 3px #dbd9d9;
+    width: 100%;
+    text-align: center;
+}
+.instrument-chose-box{
+    width: 220px;
+    padding: 5px 0;
+    background-color: gray;
+}
 @keyframes bottomTextShow {
     0%{opacity: 0;transform: scale(3);}
     100%{opacity: 1;transform: scale(1);}
-}
-.home-bottom-text{
-    width: 100vw;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: sans-serif;
-    color: #999797;
-    text-shadow: 0px 0px 6px #999797;
-    margin-top: 30px;
-    position: absolute;
-    z-index: 10;
-    bottom: 0px;
-    animation: 1s bottomTextShow;
 }
 @keyframes mainBox1Show {
     from {

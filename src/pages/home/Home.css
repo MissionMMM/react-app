@@ -1,3 +1,17 @@
+.home-bottom-text{
+    width: 100vw;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #999797;
+    text-shadow: 0px 0px 6px #999797;
+    margin-top: 30px;
+    position: absolute;
+    z-index: 10;
+    bottom: 20px;
+    animation: 1s bottomTextShow;
+}
 .box{
     width: 100vw;
     height: 100vh;

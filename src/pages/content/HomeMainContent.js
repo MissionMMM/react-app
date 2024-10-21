@@ -8,6 +8,8 @@ import WebhookIcon from '@mui/icons-material/Webhook';
 import ThreeDRotationIcon from '@mui/icons-material/ThreeDRotation';
 import LensBlurIcon from '@mui/icons-material/LensBlur';
 
+import ApiIcon from '@mui/icons-material/Api';
+import LinkIcon from '@mui/icons-material/Link';
 import WeatherCom from "../components/WeatherCom";
 import NewCom from "../components/NewCom"
 import MessageBorad from "../components/MessageBorad";
@@ -19,7 +21,10 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import bcImage from '../../static/AICreate/2.png'
+
+// 引入提示框
 import ErrorAlert from "../alert/errorAlert";
+import InfoAlert from "../alert/infoAlert";
 
 import { traditionalized } from "../../utils/simpleTraditionalizedExchange";
 
@@ -27,8 +32,11 @@ function HomeMainContent() {
     const [box6Content, setBox6Content] = useState("")
     const [box6Switch, setBox6Switch] = useState(1)
     const [openDialog, setOpenDialog] = useState(false) // 打开dialog窗口
+    const [openDialog2, setOpenDialog2] = useState(false) // 打开dialog窗口
     const [openErrorAlert, setOpenErrorAlert] = useState(false) // 打开报错弹窗
+    const [openInfoAlert, setOpenInfoAlert] = useState(false) // 打开提示弹窗
     const [errorAlertText, setErrorAlertText] = useState("") // 报错弹窗提示文字
+    const [infoAlertText, setInfoAlertText] = useState("") // 提示弹窗提示文字
     const [city, setCity] = useState("")
     // const navigate = useNavigate()
     let childRef = useRef(null)
@@ -65,7 +73,9 @@ function HomeMainContent() {
         { label: '新疆' },
         { label: '西藏' },
     ]
-
+    const handleOpenDialog2 = () => {
+        setOpenDialog2(true)
+    }
     const jumpHistoryPage = (e) => {
         switch (e) {
             case 0:
@@ -79,6 +89,10 @@ function HomeMainContent() {
                 break;
             case 3:
                 window.open('/mineSweeper', '_blank')
+                break;
+            default:
+                setInfoAlertText('该模块正在构建中...')
+                setOpenInfoAlert(true)
                 break;
         }
     }
@@ -99,6 +113,9 @@ function HomeMainContent() {
     const confirmCityWeather = () => {
         childRef.current.getWeather(city)
         dialogHandleClose()
+    }
+    const dialogHandleClose2 = () => {
+        setOpenDialog2(false)
     }
     useEffect(() => {
         switch (box6Switch) {
@@ -138,6 +155,9 @@ function HomeMainContent() {
     const closeErrorAlert = () => {
         setOpenErrorAlert(false)
     }
+    const closeInfoAlert = () => {
+        setOpenInfoAlert(false)
+    }
     const openMessageBorad = () => {
         if (!localStorage.getItem('token')) {
             setErrorAlertText("请先登陆")
@@ -147,6 +167,7 @@ function HomeMainContent() {
     return (
         <div className="parent-box">
             <ErrorAlert alertOpen={openErrorAlert} alertText={errorAlertText} handleClose={closeErrorAlert} />
+            <InfoAlert alertOpen={openInfoAlert} alertText={infoAlertText} handleClose={closeInfoAlert} />
             <div className="top-swallow"></div>
             <div className="bottom-swallow"></div>
             <div className="left-swallow"></div>
@@ -164,7 +185,7 @@ function HomeMainContent() {
                     <div className="main-box-4 borderRadius" style={{ color: '#fff' }}>
                         <SwiperCom />
                     </div>
-                    <div className="main-box-5 borderRadius" style={{ color: '#fff' }} onClick={() => jumpHistoryPage(0)}>
+                    <div className="main-box-5 borderRadius" style={{ color: '#fff' }} onClick={() => handleOpenDialog2()}>
                         <CatchingPokemonIcon style={{ fontSize: '100px', color: '#fff' }} />
                     </div>
                     <div className="main-box-6 borderRadius" style={{ color: '#fff' }} onClick={() => checkBox6()}>{box6Content}</div>
@@ -204,7 +225,13 @@ function HomeMainContent() {
                     <Button variant="contained" color="secondary" style={{ position: 'absolute', bottom: '10px' }} onClick={() => confirmCityWeather()}>CONFIRM</Button>
                 </div>
             </Dialog>
-            <div className="home-bottom-text">Created at May 23th,2024 in ShenZhen,China</div>
+            <Dialog onClose={() => dialogHandleClose2()} open={openDialog2}>
+                <div className="instrument-chose-box">
+                    <div className="instrument-chose-box-title">Chose Your Aim</div>
+                    <div className="instrument-chose-box-button" onClick={() => { jumpHistoryPage(0) }}><LinkIcon style={{ color: '#fff', margin: '0 5px' }} />Instrument-URL</div>
+                    <div className="instrument-chose-box-button" onClick={() => { jumpHistoryPage(99) }}><ApiIcon style={{ color: '#fff', margin: '0 5px' }} />Instrument-Module</div>
+                </div>
+            </Dialog>
         </div>
     )
 }
