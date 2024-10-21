@@ -3,7 +3,6 @@ import { get } from "../../utils/request";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { app_id, app_secret } from "../../utils/api/ROLLcode.js"
 import './WeatherCom.css';
 
 const theme = createTheme({
@@ -28,18 +27,15 @@ const WeatherCom = forwardRef((props, ref) => {
     const [weatherInfo, setWeatherInfo] = useState({})
     const [weatherDetailInfo, setWeatherDetailInfo] = useState({})
     const [weatherInfoLoading, setWeatherInfoLoading] = useState(false)
-    const app_id_mirror = app_id
-    const app_secret_mirror = app_secret
 
     const getWeather = (e) => {
         setWeatherInfoLoading(true)
         let city = e || "深圳市"
-        let app_id = app_id_mirror
-        let app_secret = app_secret_mirror
-        get(`https://www.mxnzp.com/api/weather/forecast/${city}`, { app_id: app_id, app_secret: app_secret }).then(res => {
-            if (res.code == 1) {
-                setWeatherInfo(res.data)
-                setWeatherDetailInfo(res.data.forecasts[0])
+        get(`/instrument/weather/`, { city: city }).then(res => {
+            console.log('我是res1235', res)
+            if (res.address && res.address.length > 0) {
+                setWeatherInfo(res)
+                setWeatherDetailInfo(res.forecasts[0])
                 setWeatherInfoLoading(false)
             }
         })
