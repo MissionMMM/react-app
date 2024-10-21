@@ -9,7 +9,7 @@ function MessageBorad() {
 
     const requestList = () => {
         get('users/', { type: 'all' })
-            .then(res => { console.log('我是res:', res) })
+            .then(res => { })
             .catch(error => {
                 if (error.response) {
                     // 请求已发出但服务器响应的状态码不在2xx范围内
@@ -26,7 +26,7 @@ function MessageBorad() {
             })
     }
     useEffect(() => {
-        requestList()
+        // requestList()
     }, [])
     return (
         <div className="message-borad-box">

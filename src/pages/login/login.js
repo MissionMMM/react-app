@@ -30,7 +30,7 @@ function Form() {
         }
     }, [])
     useEffect(() => {
-        console.log('我是系统宽度：', systemWidth)
+        // console.log('我是系统宽度：', systemWidth)
     }, [systemWidth])
     // 关闭错误弹窗的函数
     const closeErrorAlert = () => {
@@ -42,8 +42,6 @@ function Form() {
     const confirm = () => {
         // 测试账号 13888888888
         // 测试密码 246810
-        console.log('我是账号：', value)
-        console.log('我是密码：', keywords)
         if (!value) {
             setAlertText("请输入账号")
             setOpenErrorAlert(true)

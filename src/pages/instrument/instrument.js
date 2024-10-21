@@ -281,9 +281,9 @@ function Instrument() {
         setPersonSearchShowOnce(true)
         setPersonSearchBoxShow(!personSearchBoxShow)
     }
-    useEffect(() => {
-        console.log('personSearchBoxShow变化啦!:', personSearchBoxShow)
-    }, [personSearchBoxShow])
+    // useEffect(() => {
+    //     console.log('personSearchBoxShow变化啦!:', personSearchBoxShow)
+    // }, [personSearchBoxShow])
     useEffect(() => {
         if (window.EyeDropper && window.EyeDropper.prototype.open) {
             // const eyeDropper = new window.EyeDropper({

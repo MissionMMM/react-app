@@ -32,7 +32,6 @@ const WeatherCom = forwardRef((props, ref) => {
         setWeatherInfoLoading(true)
         let city = e || "深圳市"
         get(`/instrument/weather/`, { city: city }).then(res => {
-            console.log('我是res1235', res)
             if (res.address && res.address.length > 0) {
                 setWeatherInfo(res)
                 setWeatherDetailInfo(res.forecasts[0])

@@ -122,14 +122,14 @@ function Register() {
         }
     }
     const confirm = () => {
-        console.log('我是用户名：', userId)
-        console.log('我是密码：', userPassword)
-        console.log('我是昵称：', userNickname)
-        console.log('我是手机号：', userPhone)
-        console.log('我是生日：', birthDate)
-        console.log('我是地区：', city)
-        console.log('我是邮箱：', userEmail)
-        console.log('我是邀请码：', inviteNum)
+        // console.log('我是用户名：', userId)
+        // console.log('我是密码：', userPassword)
+        // console.log('我是昵称：', userNickname)
+        // console.log('我是手机号：', userPhone)
+        // console.log('我是生日：', birthDate)
+        // console.log('我是地区：', city)
+        // console.log('我是邮箱：', userEmail)
+        // console.log('我是邀请码：', inviteNum)
         if (!userId) {
             setErrorAlertText("请输入用户名")
             setOpenErrorAlert(true)
