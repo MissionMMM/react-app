@@ -19,17 +19,17 @@ document.oncontextmenu = function () {
     return false;
 };
 // 禁止F12打开调试控制台
-// document.onkeydown =
-//     document.onkeyup =
-//     document.onkeypress =
-//     function (event) {
-//         let e =
-//             event || window.event || arguments.callee.caller.arguments[0];
-//         if (e && e.keyCode == 123 || e.key == "Shift" || e.key == "I") {
-//             e.returnValue = false;
-//             return false;
-//         }
-//     };
+document.onkeydown =
+    document.onkeyup =
+    document.onkeypress =
+    function (event) {
+        let e =
+            event || window.event || arguments.callee.caller.arguments[0];
+        if (e && e.keyCode == 123 || e.key == "Shift" || e.key == "I") {
+            e.returnValue = false;
+            return false;
+        }
+    };
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

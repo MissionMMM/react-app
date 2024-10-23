@@ -1,12 +1,11 @@
-.instrument-chose-box-button:hover{
+/* .instrument-chose-box-button:hover{
     background-color: rgb(219, 158, 168);
     border-color: rgb(219, 158, 168);
-}
+} */
 .instrument-chose-box-button{
     width: 90%;
     height: 40px;
-    margin: 10px 5%;
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -25,7 +24,7 @@
 .instrument-chose-box{
     width: 220px;
     padding: 5px 0;
-    background-color: gray;
+    background-color: #383838;
 }
 @keyframes bottomTextShow {
     0%{opacity: 0;transform: scale(3);}

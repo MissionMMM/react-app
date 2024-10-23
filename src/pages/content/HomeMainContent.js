@@ -97,7 +97,7 @@ function HomeMainContent() {
         }
     }
     const checkBox6 = () => {
-        let randomDemo = Math.random() * 9
+        let randomDemo = Math.random() * 10
         let random = Math.ceil(randomDemo)
         setBox6Switch(random)
     }
@@ -135,7 +135,7 @@ function HomeMainContent() {
                 setBox6Content(traditionalized("Tips：愿你的信仰经得起考验"))
                 break;
             case 6:
-                setBox6Content(traditionalized("Tips：成长往往伴随着失败、挫折，人生难免跌倒，首先需要接纳其次再是站起来"))
+                setBox6Content(traditionalized("Tips：除了死亡，一切的失败只存在于心理层面"))
                 break;
             case 7:
                 setBox6Content(traditionalized("Tips：自信不是自负，客观看待自己，保持自信，保持和谐，承认失败不代表质疑自己，勇敢面对一切吧~"))
@@ -145,6 +145,9 @@ function HomeMainContent() {
                 break;
             case 9:
                 setBox6Content(traditionalized("Tips：能击败你的永远只有你自己"))
+                break;
+            case 10:
+                setBox6Content(traditionalized("Tips：除了死亡，一切的失败只存在于心理层面"))
                 break;
             default:
                 setBox6Content("Tips：按住Shift+滚轮可以左右滑动噢~")
@@ -228,8 +231,8 @@ function HomeMainContent() {
             <Dialog onClose={() => dialogHandleClose2()} open={openDialog2}>
                 <div className="instrument-chose-box">
                     <div className="instrument-chose-box-title">Chose Your Aim</div>
-                    <div className="instrument-chose-box-button" onClick={() => { jumpHistoryPage(0) }}><LinkIcon style={{ color: '#fff', margin: '0 5px' }} />Instrument-URL</div>
-                    <div className="instrument-chose-box-button" onClick={() => { jumpHistoryPage(99) }}><ApiIcon style={{ color: '#fff', margin: '0 5px' }} />Instrument-Module</div>
+                    <Button className="instrument-chose-box-button" style={{ margin: '10px 5%', marginBottom: '3px' }} variant="contained" color="secondary" onClick={() => jumpHistoryPage(0)}>Instrument-URL</Button>
+                    <Button className="instrument-chose-box-button" style={{ margin: '10px 5%', marginBottom: '3px' }} variant="contained" color="secondary" onClick={() => jumpHistoryPage(99)}>Instrument-Module</Button>
                 </div>
             </Dialog>
         </div>
