@@ -5,7 +5,8 @@ body {
 }
 
 /* dialog组件默认样式调整 */
-.css-uhb5lp {
+.css-uhb5lp,
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
     background-color: transparent !important;
 }
 
