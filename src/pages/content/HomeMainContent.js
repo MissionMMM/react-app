@@ -8,8 +8,6 @@ import WebhookIcon from '@mui/icons-material/Webhook';
 import ThreeDRotationIcon from '@mui/icons-material/ThreeDRotation';
 import LensBlurIcon from '@mui/icons-material/LensBlur';
 
-import ApiIcon from '@mui/icons-material/Api';
-import LinkIcon from '@mui/icons-material/Link';
 import WeatherCom from "../components/WeatherCom";
 import NewCom from "../components/NewCom"
 import MessageBorad from "../components/MessageBorad";
@@ -198,7 +196,7 @@ function HomeMainContent() {
                     <div className="main-box-8 borderRadius" style={{ color: '#fff' }} onClick={() => jumpHistoryPage(3)}>
                         <LensBlurIcon style={{ fontSize: '100px', color: '#fff' }} />
                     </div>
-                    <div className="main-box-9 borderRadius" style={{ color: '#fff' }}><NewCom /></div>
+                    <div className="main-box-9 borderRadius"><NewCom /></div>
                     <div className="main-box-10 borderRadius" onClick={() => openMessageBorad()}>
                         <MessageBorad />
                     </div>

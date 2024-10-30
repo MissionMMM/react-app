@@ -85,7 +85,7 @@
 }
 
 .tab-bar-backIcon:hover path {
-    color: #f3467c;
+    color: #f12350;
 }
 
 path {
@@ -94,7 +94,7 @@ path {
 
 .logoSize {
     position: absolute;
-    left: 0;
+    left: 6px;
     top: 0;
 }
 

@@ -288,7 +288,7 @@
 .main-box-9 {
     width: 460px;
     height: 500px;
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     position: absolute;
     right: 115px;
     top: 40px;
@@ -360,10 +360,6 @@
 }
 
 .main-box-8:hover {
-    top: 35px;
-}
-
-.main-box-9:hover {
     top: 35px;
 }
 

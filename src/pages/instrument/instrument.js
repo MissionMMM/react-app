@@ -271,6 +271,9 @@ function Instrument() {
             case 15:
                 url = "https://mui.com/material-ui/material-icons/"
                 break;
+            case 16:
+                url = "https://dashboard.juhe.cn/data/index/apply/235"
+                break;
             default:
                 break;
         }
@@ -337,6 +340,7 @@ function Instrument() {
                 <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(7) }}>Bucd梯子</div>
                 <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(13) }}>UCloud控制臺</div>
                 <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(14) }}>阿里雲域名控制臺</div>
+                <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(16) }}>聚合數據</div>
             </div>
             <Dialog onClose={() => dialogHandleClose()} open={openDialog}>
                 <SuccessAlert alertOpen={openAlert} alertText={alertText} handleClose={closeSuccessAlert} />
