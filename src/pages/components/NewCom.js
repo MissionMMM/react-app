@@ -13,6 +13,7 @@ const NewCom = () => {
     const [listHide, setListHide] = useState(0) // 列表隐藏开关
     const [listCheck, setListCheck] = useState(0)
     const [newsType, setNewsType] = useState("") // 保存请求的新闻类型
+    const [newsAllowRequest, setNewsAllowRequest] = useState(false) // 允许开始请求
     const [newsList, setNewsList] = useState([]) // 新闻列表
     const [page, setPage] = useState(1) // 新闻列表页码
     const [newsDebounce, setNewsDebounce] = useState(false)
@@ -26,6 +27,7 @@ const NewCom = () => {
     // 添加滚动事件监听器
     useEffect(() => {
         const handleScroll = (event) => {
+            setNewsAllowRequest(true)
             let element = event.target
             // 计算到底部的距离
             let distanceToBottom = element.scrollHeight - element.scrollTop - element.clientHeight
@@ -34,11 +36,7 @@ const NewCom = () => {
                 setInfoAlertOpen(true)
             }
             if (distanceToBottom == 0 && !newsDebounce) {
-                setNewsDebounce(true)
                 setPage(prevItems => prevItems + 1)
-                setTimeout(() => {
-                    getNewList(newsType)
-                }, 200);
             }
         };
         const element = listScrollRef.current;
@@ -51,8 +49,16 @@ const NewCom = () => {
                 element.removeEventListener('scroll', handleScroll);
             }
         };
-    }, [listScrollRef, listCheck]); // 依赖于listScrollRef
-
+    }, [listScrollRef, listCheck, newsDebounce]); // 依赖于listScrollRef
+    // 监听page变化 滚动加载
+    useEffect(() => {
+        if (!newsAllowRequest) return
+        if (!newsDebounce) {
+            setNewsDebounce(true)
+            getNewList(newsType)
+        }
+        console.log('我是page:', page)
+    }, [page])
     const getNewList = (type) => {
         // type[String]: top/推荐，默认 | guonei/国内 | guoji/国际 | yule/娱乐 | tiyu/体育 | junshi/军事 | keji/科技 | caijing/财经 | youxi/游戏 | qiche/汽车 | jiankang/健康
         // page[Number]:当前页数,默认1,最大50
@@ -66,25 +72,24 @@ const NewCom = () => {
                     setNewsList(prevItems => [...prevItems, ...res.data.result.data])
                 }
                 setTimeout(() => {
-                    // 防抖
+                    // 防抖关闭
                     setNewsDebounce(false)
-                }, 3000);
+                }, 5000);
             }
         })
     }
     const backClassify = () => {
+        setNewsAllowRequest(false)
         setListHide(1)
-        setTimeout(() => {
-            setNewsDebounce(false) // 关闭防抖
-            setPage(1)
-            setNewsList([])
-        }, 1500);
+        setNewsDebounce(false) // 关闭防抖
     }
     useEffect(() => {
         if (listHide == 1) {
             setTimeout(() => {
                 setClassifyHide(0)
                 setListCheck(0)
+                setPage(1)
+                setNewsList([])
             }, 1500);
         }
     }, [listHide])
@@ -133,7 +138,7 @@ const NewCom = () => {
                     {
                         newsList.length == 0 &&
                         <div className="news-list-nothing">
-                            <DoDisturbAltIcon style={{fontSize:'80px',marginBottom:'10px'}}/>
+                            <DoDisturbAltIcon style={{ fontSize: '80px', marginBottom: '10px' }} />
                             {traditionalized("数据请求次数已用尽")}
                         </div>
                     }
