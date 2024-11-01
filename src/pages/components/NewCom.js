@@ -27,7 +27,6 @@ const NewCom = () => {
     // 添加滚动事件监听器
     useEffect(() => {
         const handleScroll = (event) => {
-            setNewsAllowRequest(true)
             let element = event.target
             // 计算到底部的距离
             let distanceToBottom = element.scrollHeight - element.scrollTop - element.clientHeight
@@ -94,6 +93,7 @@ const NewCom = () => {
         }
     }, [listHide])
     const classifyCheck = (classify) => {
+        setNewsAllowRequest(true)
         setClassifyHide(1)
         getNewList(classify) // 拉取新闻数据
     }
