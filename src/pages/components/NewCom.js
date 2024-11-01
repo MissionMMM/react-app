@@ -30,11 +30,11 @@ const NewCom = () => {
             let element = event.target
             // 计算到底部的距离
             let distanceToBottom = element.scrollHeight - element.scrollTop - element.clientHeight
+            console.log('我是滚动事件监听，距离底部：',distanceToBottom)
             if (distanceToBottom == 0 && newsDebounce) {
                 setInfoAlertText("请勿频繁请求~")
                 setInfoAlertOpen(true)
-            }
-            if (distanceToBottom == 0 && !newsDebounce) {
+            } else if (distanceToBottom == 0 && !newsDebounce) {
                 setPage(prevItems => prevItems + 1)
             }
         };
