@@ -274,6 +274,9 @@ function Instrument() {
             case 16:
                 url = "https://dashboard.juhe.cn/data/index/apply/235"
                 break;
+            case 17:
+                url = "https://www.ypppt.com/moban/zongjie/list-2.html"
+                break;
             default:
                 break;
         }
@@ -335,6 +338,7 @@ function Instrument() {
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(10) }}>LibLib</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(11) }}>ROLL天氣查詢API</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(12) }}>站長工具</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(17) }}>免費PPT模板</div>
             </div>
             <div className="flexBox">
                 <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(7) }}>Bucd梯子</div>
