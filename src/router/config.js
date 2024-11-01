@@ -8,6 +8,7 @@ import Register from "../pages/login/register"
 import Instrument from "../pages/instrument/instrument";
 import AiTalk from "../pages/AI/AiTalk";
 import ThreeDTest from "../pages/ThreeDContent/ThreeDTest";
+import ThreeDDemo from "../pages/ThreeDContent/ThreeDDemo";
 import MinesweeperGame from "../pages/content/MinesweeperGame";
 
 // 创建router实例对象
@@ -37,8 +38,17 @@ const router = createBrowserRouter([
         element: <AiTalk />
     },
     {
-        path: '/threeDContent',
-        element: <ThreeDTest />
+        path: '/threeDContent/',
+        children: [
+            {
+                path: 'test',
+                element: <ThreeDTest />
+            },
+            {
+                path: 'demo',
+                element: <ThreeDDemo />
+            },
+        ]
     },
     {
         path: '/mineSweeper',

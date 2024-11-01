@@ -35,6 +35,7 @@ function HomeMainContent() {
     const [openInfoAlert, setOpenInfoAlert] = useState(false) // 打开提示弹窗
     const [errorAlertText, setErrorAlertText] = useState("") // 报错弹窗提示文字
     const [infoAlertText, setInfoAlertText] = useState("") // 提示弹窗提示文字
+    const [threeDJumpList, setThreeDJumpList] = useState(false)
     const [city, setCity] = useState("")
     // const navigate = useNavigate()
     let childRef = useRef(null)
@@ -71,7 +72,12 @@ function HomeMainContent() {
         { label: '新疆' },
         { label: '西藏' },
     ]
-    const handleOpenDialog2 = () => {
+    const handleOpenDialog2 = (e = "") => {
+        if (e == "threeDJump") {
+            setThreeDJumpList(true)
+        } else {
+            setThreeDJumpList(false)
+        }
         setOpenDialog2(true)
     }
     const jumpHistoryPage = (e) => {
@@ -83,10 +89,13 @@ function HomeMainContent() {
                 window.open('/aitalk', '_blank')
                 break;
             case 2:
-                window.open('/threeDContent', '_blank')
+                window.open('/threeDContent/test', '_blank')
                 break;
             case 3:
                 window.open('/mineSweeper', '_blank')
+                break;
+            case 4:
+                window.open('/threeDContent/demo', '_blank')
                 break;
             default:
                 setInfoAlertText('该模块正在构建中...')
@@ -175,7 +184,7 @@ function HomeMainContent() {
             <div className="right-swallow"></div>
             <div className="main-box-srollBox">
                 <div className="main-box">
-                    <div className="main-box-1 borderRadius" style={{ color: '#fff' }} onClick={() => jumpHistoryPage(2)}>
+                    <div className="main-box-1 borderRadius" style={{ color: '#fff' }} onClick={() => handleOpenDialog2("threeDJump")}>
                         <ThreeDRotationIcon style={{ fontSize: '130px', color: '#fff' }} />
                     </div>
                     <div className="main-box-2 borderRadius" style={{ color: '#fff' }}>
@@ -227,11 +236,24 @@ function HomeMainContent() {
                 </div>
             </Dialog>
             <Dialog onClose={() => dialogHandleClose2()} open={openDialog2}>
-                <div className="instrument-chose-box">
-                    <div className="instrument-chose-box-title">Chose Your Aim</div>
-                    <Button className="instrument-chose-box-button" style={{ margin: '10px 5%', marginBottom: '3px' }} variant="contained" color="secondary" onClick={() => jumpHistoryPage(0)}>Instrument-URL</Button>
-                    <Button className="instrument-chose-box-button" style={{ margin: '10px 5%', marginBottom: '3px' }} variant="contained" color="secondary" onClick={() => jumpHistoryPage(99)}>Instrument-Module</Button>
-                </div>
+                {
+                    threeDJumpList ?
+                        (
+                            <div className="instrument-chose-box">
+                                <div className="instrument-chose-box-title">Chose Your Aim</div>
+                                <Button className="instrument-chose-box-button" style={{ margin: '10px 5%', marginBottom: '3px' }} variant="contained" color="secondary" onClick={() => jumpHistoryPage(2)}>Demo-AutoCube</Button>
+                                <Button className="instrument-chose-box-button" style={{ margin: '10px 5%', marginBottom: '3px' }} variant="contained" color="secondary" onClick={() => jumpHistoryPage(4)}>Demo-Else</Button>
+                            </div>
+                        )
+                        :
+                        (
+                            <div className="instrument-chose-box">
+                                <div className="instrument-chose-box-title">Chose Your Aim</div>
+                                <Button className="instrument-chose-box-button" style={{ margin: '10px 5%', marginBottom: '3px' }} variant="contained" color="secondary" onClick={() => jumpHistoryPage(0)}>Instrument-URL</Button>
+                                <Button className="instrument-chose-box-button" style={{ margin: '10px 5%', marginBottom: '3px' }} variant="contained" color="secondary" onClick={() => jumpHistoryPage(99)}>Instrument-Module</Button>
+                            </div>
+                        )
+                }
             </Dialog>
         </div>
     )
