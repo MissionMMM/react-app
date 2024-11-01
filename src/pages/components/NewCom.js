@@ -63,7 +63,7 @@ const NewCom = () => {
         // page[Number]:当前页数,默认1,最大50
         // pageSize[Number]:每条返回条数,默认30,最大30
         setNewsType(type)
-        get("/instrument/news/", { type: type, page: page, pageSize: 10 }).then(res => {
+        get("/instrument/news/", { type: type, page: page, pageSize: 20 }).then(res => {
             if (res.code == 200) {
                 if (newsList.length == 0) {
                     setNewsList(res.data.result.data)
