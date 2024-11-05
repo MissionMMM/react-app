@@ -1,5 +1,5 @@
 import "./NewCom.css"
-import { get, post } from "../../utils/request";
+import { get } from "../../utils/request";
 import { useEffect, useRef, useState } from "react";
 import { traditionalized } from "../../utils/simpleTraditionalizedExchange";
 import ReplyAllIcon from '@mui/icons-material/ReplyAll';
@@ -7,19 +7,73 @@ import ShareIcon from '@mui/icons-material/Share';
 import ImageNotSupportedIcon from '@mui/icons-material/ImageNotSupported';
 import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
 import InfoAlert from "../alert/infoAlert";
+import Drawer from '@mui/material/Drawer';
+import RichTextEditor from "./RichTextEditor";
+import RecommendIcon from '@mui/icons-material/Recommend';
+import PublicIcon from '@mui/icons-material/Public';
+import LocalActivityIcon from '@mui/icons-material/LocalActivity';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
+import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import MedicationLiquidIcon from '@mui/icons-material/MedicationLiquid';
+import CircularProgress from '@mui/material/CircularProgress'; // 加载动态框
 
 const NewCom = () => {
+    const [loadingBox, setLoadingBox] = useState(false)
     const [classifyHide, setClassifyHide] = useState(0) // 分类隐藏开关
     const [listHide, setListHide] = useState(0) // 列表隐藏开关
     const [listCheck, setListCheck] = useState(0)
     const [newsType, setNewsType] = useState("") // 保存请求的新闻类型
     const [newsAllowRequest, setNewsAllowRequest] = useState(false) // 允许开始请求
+    const [openDrawer, setOpenDrawer] = useState(false) // 新闻详情弹窗盒子
+    const [newsDetail, setNewsDetails] = useState({}) // 新闻详情数据
     const [newsList, setNewsList] = useState([]) // 新闻列表
     const [page, setPage] = useState(1) // 新闻列表页码
-    const [newsDebounce, setNewsDebounce] = useState(false)
+    const [newsDebounce, setNewsDebounce] = useState(true)
+    const [newsDetailDebounce, setNewsDetailDebounce] = useState(true)
     const [infoAlertOpen, setInfoAlertOpen] = useState(false)
     const [infoAlertText, setInfoAlertText] = useState("")
     const listScrollRef = useRef(null)
+
+    const testFunc = (id) => {
+        console.log('我是霸霸！！！！')
+        setLoadingBox(true)
+        get("/instrument/newsDetail/", { uniqueKey: id }).then(res => {
+            if (res.code == 200) {
+                console.log('我是detail:', res)
+                setNewsDetails(res.data.result)
+                setOpenDrawer(true)
+                setTimeout(() => {
+                    setNewsDetailDebounce(true)
+                }, 5000);
+            } else {
+                setInfoAlertText("请求次数今日已达上限~")
+                setInfoAlertOpen(true)
+            }
+            setLoadingBox(false)
+        })
+    }
+
+    const openNewsDetailBox = (id = "") => {
+        console.log('我是新闻id:', id)
+        // setOpenDrawer(true)
+        if (newsDetailDebounce) {
+            testFunc(id)
+            setNewsDetailDebounce(false)
+        } else {
+            setInfoAlertText("请勿频繁请求~")
+            setInfoAlertOpen(true)
+        }
+        // console.log('我是openDrawerChange:', openDrawerChange[1])
+    }
+    const closeDrawer = () => {
+        setNewsDetails({})
+        setOpenDrawer(false)
+    }
 
     const closeInfoAlert = () => {
         setInfoAlertOpen(false)
@@ -30,11 +84,11 @@ const NewCom = () => {
             let element = event.target
             // 计算到底部的距离
             let distanceToBottom = element.scrollHeight - element.scrollTop - element.clientHeight
-            console.log('我是滚动事件监听，距离底部：',distanceToBottom)
-            if (distanceToBottom == 0 && newsDebounce) {
+            console.log('我是滚动事件监听，距离底部：', distanceToBottom)
+            if (distanceToBottom == 0 && !newsDebounce) {
                 setInfoAlertText("请勿频繁请求~")
                 setInfoAlertOpen(true)
-            } else if (distanceToBottom == 0 && !newsDebounce) {
+            } else if (distanceToBottom == 0 && newsDebounce) {
                 setPage(prevItems => prevItems + 1)
             }
         };
@@ -52,8 +106,8 @@ const NewCom = () => {
     // 监听page变化 滚动加载
     useEffect(() => {
         if (!newsAllowRequest) return
-        if (!newsDebounce) {
-            setNewsDebounce(true)
+        if (newsDebounce) {
+            setNewsDebounce(false)
             getNewList(newsType)
         }
         console.log('我是page:', page)
@@ -74,6 +128,9 @@ const NewCom = () => {
                     // 防抖关闭
                     setNewsDebounce(false)
                 }, 5000);
+            } else {
+                setInfoAlertText("请求次数今日已达上限~")
+                setInfoAlertOpen(true)
             }
         })
     }
@@ -105,27 +162,95 @@ const NewCom = () => {
             }, 1500);
         }
     }, [classifyHide])
-    const openUrl = (item) => {
-        window.open(item.url, '_blank')
+    const openUrl = (url) => {
+        window.open(url, '_blank')
     }
     return (
         <div className="news-box">
+            {loadingBox && <CircularProgress style={{ position: 'absolute', right: '20px', top: '20px', color: '#f12350' }} />}
             <InfoAlert alertOpen={infoAlertOpen} alertText={infoAlertText} handleClose={() => closeInfoAlert()} />
             <div className="news-box-title">{traditionalized('- 新闻板块 -')}</div>
             {
                 listCheck == 0 &&
                 <div className="news-classify-box">
-                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-1" : "news-classify-item-1-hide"].join(" ")} onClick={() => classifyCheck('top')}>{traditionalized('推荐')}</div>
-                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-2" : "news-classify-item-2-hide"].join(" ")} onClick={() => classifyCheck('guonei')}>{traditionalized('国内')}</div>
-                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-3" : "news-classify-item-3-hide"].join(" ")} onClick={() => classifyCheck('guoji')}>{traditionalized('国际')}</div>
-                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-4" : "news-classify-item-4-hide"].join(" ")} onClick={() => classifyCheck('yule')}>{traditionalized('娱乐')}</div>
-                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-5" : "news-classify-item-5-hide"].join(" ")} onClick={() => classifyCheck('tiyu')}>{traditionalized('体育')}</div>
-                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-6" : "news-classify-item-6-hide"].join(" ")} onClick={() => classifyCheck('junshi')}>{traditionalized('军事')}</div>
-                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-7" : "news-classify-item-7-hide"].join(" ")} onClick={() => classifyCheck('keji')}>{traditionalized('科技')}</div>
-                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-8" : "news-classify-item-8-hide"].join(" ")} onClick={() => classifyCheck('caijing')}>{traditionalized('财经')}</div>
-                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-9" : "news-classify-item-9-hide"].join(" ")} onClick={() => classifyCheck('youxi')}>{traditionalized('游戏')}</div>
-                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-10" : "news-classify-item-10-hide"].join(" ")} onClick={() => classifyCheck('qiche')}>{traditionalized('汽车')}</div>
-                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-11" : "news-classify-item-11-hide"].join(" ")} onClick={() => classifyCheck('jiankang')}>{traditionalized('健康')}</div>
+                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-1" : "news-classify-item-1-hide"].join(" ")} onClick={() => classifyCheck('top')}>
+                        <div className="news-classify-item-text-1">
+                            {traditionalized('推荐')}
+                            <RecommendIcon className="news-classify-item-icon" />
+                        </div>
+                        <div className="news-classify-item-text-2">RECOMMEND</div>
+                    </div>
+                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-2" : "news-classify-item-2-hide"].join(" ")} onClick={() => classifyCheck('guonei')}>
+                        <div className="news-classify-item-text-1">
+                            {traditionalized('国内')}
+                            <LocalActivityIcon className="news-classify-item-icon" />
+                        </div>
+                        <div className="news-classify-item-text-2">LOCAL</div>
+                    </div>
+                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-3" : "news-classify-item-3-hide"].join(" ")} onClick={() => classifyCheck('guoji')}>
+                        <div className="news-classify-item-text-1">
+                            {traditionalized('国际')}
+                            <PublicIcon className="news-classify-item-icon" />
+                        </div>
+                        <div className="news-classify-item-text-2">GLOBAL</div>
+                    </div>
+                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-4" : "news-classify-item-4-hide"].join(" ")} onClick={() => classifyCheck('yule')}>
+                        <div className="news-classify-item-text-1">
+                            {traditionalized('娱乐')}
+                            <AutoAwesomeIcon className="news-classify-item-icon" />
+                        </div>
+                        <div className="news-classify-item-text-2">RECREATION</div>
+                    </div>
+                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-5" : "news-classify-item-5-hide"].join(" ")} onClick={() => classifyCheck('tiyu')}>
+                        <div className="news-classify-item-text-1">
+                            {traditionalized('体育')}
+                            <SportsBasketballIcon className="news-classify-item-icon" />
+                        </div>
+                        <div className="news-classify-item-text-2">SPORTS</div>
+                    </div>
+                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-6" : "news-classify-item-6-hide"].join(" ")} onClick={() => classifyCheck('junshi')}>
+                        {/* MilitaryTechIcon */}
+                        <div className="news-classify-item-text-1">
+                            {traditionalized('军事')}
+                            <MilitaryTechIcon className="news-classify-item-icon" />
+                        </div>
+                        <div className="news-classify-item-text-2">MILITARY</div>
+                    </div>
+                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-7" : "news-classify-item-7-hide"].join(" ")} onClick={() => classifyCheck('keji')}>
+                        <div className="news-classify-item-text-1">
+                            {traditionalized('科技')}
+                            <DeveloperBoardIcon className="news-classify-item-icon" />
+                        </div>
+                        <div className="news-classify-item-text-2">TECHNOLOGY</div>
+                    </div>
+                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-8" : "news-classify-item-8-hide"].join(" ")} onClick={() => classifyCheck('caijing')}>
+                        <div className="news-classify-item-text-1">
+                            {traditionalized('财经')}
+                            <MonetizationOnIcon className="news-classify-item-icon" />
+                        </div>
+                        <div className="news-classify-item-text-2">FINANCE</div>
+                    </div>
+                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-9" : "news-classify-item-9-hide"].join(" ")} onClick={() => classifyCheck('youxi')}>
+                        <div className="news-classify-item-text-1">
+                            {traditionalized('游戏')}
+                            <SportsEsportsIcon className="news-classify-item-icon" />
+                        </div>
+                        <div className="news-classify-item-text-2">GAMES</div>
+                    </div>
+                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-10" : "news-classify-item-10-hide"].join(" ")} onClick={() => classifyCheck('qiche')}>
+                        <div className="news-classify-item-text-1">
+                            {traditionalized('汽车')}
+                            <DirectionsCarIcon className="news-classify-item-icon" />
+                        </div>
+                        <div className="news-classify-item-text-2">CAR</div>
+                    </div>
+                    <div className={["news-classify-item-base control-content-center", classifyHide == 0 ? "news-classify-item-11" : "news-classify-item-11-hide"].join(" ")} onClick={() => classifyCheck('jiankang')}>
+                        <div className="news-classify-item-text-1">
+                            {traditionalized('健康')}
+                            <MedicationLiquidIcon className="news-classify-item-icon" />
+                        </div>
+                        <div className="news-classify-item-text-2">HEALTH</div>
+                    </div>
                 </div>
             }
             {
@@ -158,13 +283,13 @@ const NewCom = () => {
 
                                     </div>
                                     <div className="news-list-item-content">
-                                        <div className="news-list-item-content-title">{item.title}</div>
+                                        <div className="news-list-item-content-title" onClick={() => { openNewsDetailBox(item.uniquekey) }}>{item.title}</div>
                                         <div>
                                             <div className="news-list-item-content-author">Author: {item.author_name}</div>
                                             <div className="news-list-item-content-time">Date: {item.date}</div>
                                         </div>
                                     </div>
-                                    <div className="news-list-item-jump" onClick={() => openUrl(item)}>
+                                    <div className="news-list-item-jump" onClick={() => openUrl(item.url)}>
                                         SOURCE
                                         <ShareIcon style={{ fontSize: '13px' }} />
                                     </div>
@@ -174,6 +299,26 @@ const NewCom = () => {
                     }
                 </div>
             }
+            {/* 新闻详情盒子 */}
+            <Drawer
+                anchor="top"
+                open={openDrawer}
+                onClose={() => closeDrawer()}
+            >
+                {
+                    Object.keys(newsDetail).length > 0 &&
+                    <div className="news-detail-box">
+                        <div className="news-detail-title">{newsDetail.detail.title}</div>
+                        <div className="news-detail-info" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            <div>Author：{newsDetail.detail.author_name}</div>
+                            <div>Category：{newsDetail.detail.category}</div>
+                            <div>Date：{newsDetail.detail.date}</div>
+                        </div>
+                        <RichTextEditor value={newsDetail.content} />
+                        <div className="news-detail-footer-jumpSource" onClick={() => openUrl(newsDetail.detail.url)}>来源<ShareIcon style={{ fontSize: '20px' }} />：{newsDetail.detail.url}</div>
+                    </div>
+                }
+            </Drawer>
         </div>
     )
 }
