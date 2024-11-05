@@ -40,11 +40,9 @@ const NewCom = () => {
     const listScrollRef = useRef(null)
 
     const testFunc = (id) => {
-        console.log('我是霸霸！！！！')
         setLoadingBox(true)
         get("/instrument/newsDetail/", { uniqueKey: id }).then(res => {
             if (res.code == 200) {
-                console.log('我是detail:', res)
                 setNewsDetails(res.data.result)
                 setOpenDrawer(true)
                 setTimeout(() => {
@@ -59,7 +57,6 @@ const NewCom = () => {
     }
 
     const openNewsDetailBox = (id = "") => {
-        console.log('我是新闻id:', id)
         // setOpenDrawer(true)
         if (newsDetailDebounce) {
             testFunc(id)
@@ -84,7 +81,6 @@ const NewCom = () => {
             let element = event.target
             // 计算到底部的距离
             let distanceToBottom = element.scrollHeight - element.scrollTop - element.clientHeight
-            console.log('我是滚动事件监听，距离底部：', distanceToBottom)
             if (distanceToBottom == 0 && !newsDebounce) {
                 setInfoAlertText("请勿频繁请求~")
                 setInfoAlertOpen(true)
@@ -110,7 +106,6 @@ const NewCom = () => {
             setNewsDebounce(false)
             getNewList(newsType)
         }
-        console.log('我是page:', page)
     }, [page])
     const getNewList = (type) => {
         // type[String]: top/推荐，默认 | guonei/国内 | guoji/国际 | yule/娱乐 | tiyu/体育 | junshi/军事 | keji/科技 | caijing/财经 | youxi/游戏 | qiche/汽车 | jiankang/健康
