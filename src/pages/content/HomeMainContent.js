@@ -191,7 +191,7 @@ function HomeMainContent() {
                         <img src={bcImage} className="weatherBackgroundImage" />
                         <WeatherCom ref={childRef} clickFun={openWeatherChose} />
                     </div>
-                    <div className="main-box-3 borderRadius" style={{ color: '#fff' }}>BOX3</div>
+                    <div className="main-box-3 borderRadius" style={{ color: '#fff' }}>{traditionalized("该模块构建中...")}</div>
                     <div className="main-box-4 borderRadius" style={{ color: '#fff' }}>
                         <SwiperCom />
                     </div>
