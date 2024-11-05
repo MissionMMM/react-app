@@ -17,9 +17,6 @@ function App() {
       window.removeEventListener('resize', resizeUpdate)
     }
   }, [])
-  useEffect(() => {
-    console.log('我是系统宽度：', systemWidth)
-  }, [systemWidth])
 
   return (
     <div className="App">

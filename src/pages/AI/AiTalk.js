@@ -38,7 +38,6 @@ function AiTalk() {
                 { role: "user", content: talkContent }
             ],
         })
-        // console.log(completion.choices[0].message)
         let aiReply = completion.choices[0].message
         let aiContentObj = {
             role: "GPT",
