@@ -86,6 +86,6 @@
     display: flex;
     flex-flow: column;
     flex-wrap: wrap;
-    background-image: linear-gradient(to right top, #885b32 10%, #fff 50%, #885b32);
+    background-image: linear-gradient(to right top, #885b32 10%, #000000 50%, #885b32);
     cursor: pointer;
 }
