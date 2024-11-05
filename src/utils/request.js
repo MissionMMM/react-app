@@ -5,7 +5,7 @@ import axios from 'axios'
 // 2、超时时间
 // 3、请求拦截器/响应拦截器
 
-let baseURL = 'http://serve.yqtmisn.top/'
+let baseURL = 'https://serve.yqtmisn.top/'
 
 axios.defaults.timeout = 5000
 axios.defaults.baseURL = baseURL
