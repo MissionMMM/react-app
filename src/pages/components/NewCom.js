@@ -167,6 +167,21 @@ const NewCom = () => {
     }
     return (
         <div className="news-box">
+            <div className="news-box-backgoundText">
+                {/* 圣经 诗篇 第一节 */}
+                <span>Blessed is the man that walketh not in the counsel of the ungodly, nor standeth in the way of sinners, nor sitteth in the seat of the scornful.
+                </span><br />
+                <span>But his delight is in the law of the LORD; and in his law doth he meditate day and night.
+                </span><br />
+                <span>And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.
+                </span><br />
+                <span>The ungodly are not so: but are like the chaff which the wind driveth away.
+                </span><br />
+                <span>Therefore the ungodly shall not stand in the judgment, nor sinners in the congregation of the righteous.
+                </span><br />
+                <span>For the LORD knoweth the way of the righteous: but the way of the ungodly shall perish.
+                </span><br />
+            </div>
             {loadingBox && <CircularProgress style={{ position: 'absolute', right: '20px', top: '20px', color: '#f12350' }} />}
             <InfoAlert alertOpen={infoAlertOpen} alertText={infoAlertText} handleClose={() => closeInfoAlert()} />
             <div className="news-box-title">{traditionalized('- 新闻板块 -')}</div>
@@ -264,7 +279,7 @@ const NewCom = () => {
                         newsList.length == 0 &&
                         <div className="news-list-nothing">
                             <DoDisturbAltIcon style={{ fontSize: '80px', marginBottom: '10px' }} />
-                            {traditionalized("数据请求次数已用尽")}
+                            {traditionalized("暂无数据")}
                         </div>
                     }
                     {
