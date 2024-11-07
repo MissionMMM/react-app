@@ -81,6 +81,8 @@ const NewCom = () => {
             let element = event.target
             // 计算到底部的距离
             let distanceToBottom = element.scrollHeight - element.scrollTop - element.clientHeight
+            console.log('我是到底部的距离：', distanceToBottom)
+            console.log('我是debounce：', newsDebounce)
             if (distanceToBottom == 0 && !newsDebounce) {
                 setInfoAlertText("请勿频繁请求~")
                 setInfoAlertOpen(true)
@@ -101,13 +103,14 @@ const NewCom = () => {
     }, [listScrollRef, listCheck, newsDebounce]); // 依赖于listScrollRef
     // 监听page变化 滚动加载
     useEffect(() => {
+        console.log('page变化啦：', page)
         if (!newsAllowRequest) return
         if (newsDebounce) {
-            setNewsDebounce(false)
             getNewList(newsType)
         }
     }, [page])
     const getNewList = (type) => {
+        setNewsDebounce(false)
         // type[String]: top/推荐，默认 | guonei/国内 | guoji/国际 | yule/娱乐 | tiyu/体育 | junshi/军事 | keji/科技 | caijing/财经 | youxi/游戏 | qiche/汽车 | jiankang/健康
         // page[Number]:当前页数,默认1,最大50
         // pageSize[Number]:每条返回条数,默认30,最大30
@@ -121,7 +124,7 @@ const NewCom = () => {
                 }
                 setTimeout(() => {
                     // 防抖关闭
-                    setNewsDebounce(false)
+                    setNewsDebounce(true)
                 }, 5000);
             } else {
                 setInfoAlertText("请求次数今日已达上限~")
