@@ -151,7 +151,7 @@ function MinesweeperGame() {
     const choseDifficulty = (e) => {
         setGameDifficulty(e)
     }
-
+    
     // 监听 board 变化
     useEffect(() => {
         // console.log('Board Updated:', board); // 添加日志

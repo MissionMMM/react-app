@@ -81,8 +81,6 @@ const NewCom = () => {
             let element = event.target
             // 计算到底部的距离
             let distanceToBottom = element.scrollHeight - element.scrollTop - element.clientHeight
-            console.log('我是到底部的距离：', distanceToBottom)
-            console.log('我是debounce：', newsDebounce)
             if (distanceToBottom == 0 && !newsDebounce) {
                 setInfoAlertText("请勿频繁请求~")
                 setInfoAlertOpen(true)
@@ -103,7 +101,6 @@ const NewCom = () => {
     }, [listScrollRef, listCheck, newsDebounce]); // 依赖于listScrollRef
     // 监听page变化 滚动加载
     useEffect(() => {
-        console.log('page变化啦：', page)
         if (!newsAllowRequest) return
         if (newsDebounce) {
             getNewList(newsType)

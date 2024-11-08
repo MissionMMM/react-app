@@ -1,39 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { request } from "../../utils";
 
-const userStore = createSlice({
-    name: "user",
+const counterStore = createSlice({
+    name: 'counter',
+    // 初始化state
     initialState: {
-        token: '',
-        isMobile: false,
+        userInfo: {}
     },
+    // 修改数据的方法 同步方法 支持直接修改
     reducers: {
-        setToken(state, action) {
-            state.token = action.payload
-        },
-        watchSystem(state, action) {
-            state.isMobile = action.payload
+        editUserInfo(state, action) {
+            state.userInfo = action.payload
         }
     }
 })
+// 解构出来actionCreater函数
+const { editUserInfo } = counterStore.actions
+// 获取reducer
+const userReducer = counterStore.reducer
 
-// 解构出actionCreater
-const { setToken, watchSystem } = userStore.actions
-
-// 获取reducer函数
-const userReducer = userStore.reducer
-
-// 异步方法 完成登录获取token
-/* const fetchLogin = (loginForm) => {
-    return async (dispatch) => {
-        // 1、发送异步请求
-        const res = await request.post('/authorizations', loginForm)
-        // 2、提交同步action进行token存入
-        dispatch(setToken(res.data.token))
-    }
-} */
-
-// export { setToken, fetchLogin }
-export { setToken, watchSystem }
-
-export default userReducer
+// 以按需导出的方式到处actionCreater
+export { editUserInfo }
+// 以默认导出的方式导出reducer
+export default userReducer;

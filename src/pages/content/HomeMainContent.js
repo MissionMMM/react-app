@@ -26,7 +26,7 @@ import InfoAlert from "../alert/infoAlert";
 
 import { traditionalized } from "../../utils/simpleTraditionalizedExchange";
 
-function HomeMainContent() {
+function HomeMainContent({ userInfo }) {
     const [box6Content, setBox6Content] = useState("")
     const [box6Switch, setBox6Switch] = useState(1)
     const [openDialog, setOpenDialog] = useState(false) // 打开dialog窗口
@@ -36,10 +36,13 @@ function HomeMainContent() {
     const [errorAlertText, setErrorAlertText] = useState("") // 报错弹窗提示文字
     const [infoAlertText, setInfoAlertText] = useState("") // 提示弹窗提示文字
     const [threeDJumpList, setThreeDJumpList] = useState(false)
+    const [homeMainUserInfo, setHomeMainUserInfo] = useState({})
     const [city, setCity] = useState("")
     // const navigate = useNavigate()
     let childRef = useRef(null)
-
+    useEffect(() => {
+        setHomeMainUserInfo(userInfo)
+    }, [userInfo])
     const cityList = [
         { label: '深圳' },
         { label: '吉安' },
@@ -169,7 +172,7 @@ function HomeMainContent() {
         setOpenInfoAlert(false)
     }
     const openMessageBorad = () => {
-        if (!localStorage.getItem('token')) {
+        if (Object.keys(homeMainUserInfo).length === 0) {
             setErrorAlertText("请先登陆")
             setOpenErrorAlert(true)
         }

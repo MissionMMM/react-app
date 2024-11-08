@@ -1,6 +1,24 @@
-.loginBackBtn:hover{
+@keyframes loginPageHide {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+
+.login-page-hide {
+    animation: 1.2s loginPageHide !important;
+    animation-fill-mode: forwards;
+}
+
+.loginBackBtn:hover {
     transform: scale(1.1);
 }
+
 .loginBackBtn {
     position: absolute;
     top: 30px;
@@ -270,12 +288,6 @@
     }
 }
 
-.loginAudio {
-    position: fixed;
-    right: 20px;
-    top: 20px;
-}
-
 .contentLogoBox {
     /* background-color: #000; */
     position: absolute;
@@ -292,6 +304,7 @@
     opacity: 0;
     animation: 3s inputbBoxShow;
     animation-fill-mode: forwards;
+    position: relative;
 }
 
 .inputbBox {

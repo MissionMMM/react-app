@@ -4,21 +4,24 @@ import './login.css'
 import { get } from "../../utils/request"
 import Logo from "../components/Logo"
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import backMusic from "../../static/Music/Coffee Date,GameChops - Great Fairy Fountain.mp3"
 import HomeIcon from '@mui/icons-material/Home';
 
-// import { useDispatch } from "react-redux"
-// import { fetchLogin } from "../../store/modules/user"
 import ErrorAlert from '../alert/errorAlert'
+import { generateKey, exportKey, encrypt } from "../../utils/webCryptoAPI"
+// import { useDispatch } from "react-redux"
+// import { editUserInfo } from "../../store/modules/user"
 
 function Form() {
-    // const dispatch = useDispatch()
     const navigate = useNavigate()
-    const [value, setValue] = useState('')
+    const [userName, setUserName] = useState('')
     const [keywords, setKewords] = useState('')
     const [openErrorAlert, setOpenErrorAlert] = useState(false)
     const [alertText, setAlertText] = useState('')
     const [systemWidth, setSystemWidth] = useState("") // 响应式处理
+    const [loginDebounce, setLoginDebounce] = useState(true)
+    const [pageHide, setPageHide] = useState(false)
+    // const storeDispatch = useDispatch()
+
     const resizeUpdate = (e) => {
         setSystemWidth(e.target.innerWidth)
     }
@@ -42,7 +45,7 @@ function Form() {
     const confirm = () => {
         // 测试账号 13888888888
         // 测试密码 246810
-        if (!value) {
+        if (!userName) {
             setAlertText("请输入账号")
             setOpenErrorAlert(true)
             return
@@ -52,20 +55,55 @@ function Form() {
             setOpenErrorAlert(true)
             return
         }
-        let form = {
-            id: value,
-            password: keywords
+        if (loginDebounce) {
+            setLoginDebounce(false)
+            get("/users/login/", { userName: userName, password: keywords }).then(res => {
+                if (res.code == 200) {
+                    // 用户信息
+                    // storeDispatch(editUserInfo(res.data[0]))
+                    // 开始加密
+                    let userInfo = JSON.stringify(res.data[0])
+                    // 生成密钥key
+                    generateKey().then(key => {
+                        // 导出密钥
+                        exportKey(key).then(exportKeyValue => {
+                            localStorage.setItem('key', JSON.stringify(exportKeyValue))
+                        })
+                        // 加密数据
+                        encrypt(userInfo, key).then(exportObj => {
+                            localStorage.setItem('userInfo', JSON.stringify(exportObj))
+                        })
+                    })
+
+                    setPageHide(true)
+                    setTimeout(() => {
+                        backHome()
+                    }, 1200);
+                } else {
+                    setAlertText(res.message)
+                    setOpenErrorAlert(true)
+                }
+                setTimeout(() => {
+                    setLoginDebounce(true)
+                }, 5000);
+            })
+        } else {
+            setAlertText("请勿频繁请求")
+            setOpenErrorAlert(true)
         }
-        navigate('/home')
+        // navigate('/home')
         // let res = get('/', form)
-        // dispatch(fetchLogin(form))
     }
     const backHome = () => {
         navigate('/home')
     }
     return (
         systemWidth >= 750 ? (
-            <div className="inputbBox">
+            <div className={["inputbBox", pageHide ? "login-page-hide" : ""].join(" ")}>
+                {
+                    pageHide &&
+                    <div style={{ position: 'absolute', left: '0', top: '0', zIndex: '11', width: '100%', height: '100%' }}></div>
+                }
                 <ErrorAlert alertOpen={openErrorAlert} alertText={alertText} handleClose={closeErrorAlert} />
                 <div className="loginBackBtn" onClick={() => backHome()}>
                     <HomeIcon style={{ fontSize: '30px' }} />
@@ -73,9 +111,6 @@ function Form() {
                 <div className="contentLogoBox">
                     <Logo />
                 </div>
-                {/* 音频 */}
-                <audio className="loginAudio" src={backMusic} controls preload="auto" loop>
-                </audio>
                 {/* 相机线 */}
                 <div className="line" style={{ top: '10px', left: '10px' }} />
                 <div className="line" style={{ top: '2px', left: '18px', transform: 'rotate(90deg)' }} />
@@ -124,7 +159,7 @@ function Form() {
                 </div>
                 <div className="inputItem">
                     <span>賬號：</span>
-                    <input type="text" value={value} onChange={(e) => { setValue(e.target.value) }} />
+                    <input type="text" value={userName} onChange={(e) => { setUserName(e.target.value) }} />
                 </div>
                 <div className="inputItem">
                     <span>密碼：</span>
@@ -136,7 +171,11 @@ function Form() {
                 </div>
             </div>
         ) : (
-            <div className="phoneBox">
+            <div className={["phoneBox", pageHide ? "login-page-hide" : ""].join(" ")}>
+                {
+                    pageHide &&
+                    <div style={{ position: 'absolute', left: '0', top: '0', zIndex: '11', width: '100%', height: '100%' }}></div>
+                }
                 <ErrorAlert alertOpen={openErrorAlert} alertText={alertText} handleClose={closeErrorAlert} />
                 <div className="loginBackBtn" onClick={() => backHome()}>
                     <HomeIcon style={{ fontSize: '30px' }} />
@@ -146,7 +185,7 @@ function Form() {
                 </div>
                 <div className="inputItem">
                     <span>賬號：</span>
-                    <input type="text" value={value} onChange={(e) => { setValue(e.target.value) }} />
+                    <input type="text" value={userName} onChange={(e) => { setUserName(e.target.value) }} />
                 </div>
                 <div className="inputItem">
                     <span>密碼：</span>
