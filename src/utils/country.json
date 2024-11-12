@@ -1,0 +1,2053 @@
+{
+    "countries": [
+        {
+            "id": 1,
+            "name": "Afghanistan",
+            "chineseName": "阿富汗",
+            "region": "亚洲"
+        },
+        {
+            "id": 2,
+            "name": "Bhutan",
+            "chineseName": "不丹",
+            "region": "亚洲"
+        },
+        {
+            "id": 3,
+            "name": "Cambodia",
+            "chineseName": "柬埔寨",
+            "region": "亚洲"
+        },
+        {
+            "id": 4,
+            "name": "China",
+            "chineseName": "中國",
+            "region": "亚洲",
+            "provinces": [
+                {
+                    "id": 1,
+                    "chineseName": "北京市"
+                },
+                {
+                    "id": 2,
+                    "chineseName": "天津市"
+                },
+                {
+                    "id": 3,
+                    "chineseName": "河北省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "石家莊市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "唐山市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "秦皇岛市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "邯郸市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "邢台市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "保定市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "张家口市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "承德市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "沧州市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "廊坊市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "衡水市"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "chineseName": "山西省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "太原市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "大同市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "阳泉市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "长治市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "晋城市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "朔州市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "晋中市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "运城市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "忻州市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "临汾市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "吕梁市"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "chineseName": "内蒙古自治区",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "呼和浩特市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "包头市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "乌海市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "赤峰市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "通辽市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "鄂尔多斯市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "呼伦贝尔市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "巴彦淖尔市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "乌兰察布市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "兴安盟"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "锡林郭勒盟"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "阿拉善盟"
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "chineseName": "辽宁省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "沈阳市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "大连市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "鞍山市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "抚顺市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "本溪市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "丹东市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "锦州市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "营口市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "阜新市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "辽阳市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "盘锦市"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "铁岭市"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "朝阳市"
+                        },
+                        {
+                            "id": 14,
+                            "chineseName": "葫芦岛市"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "chineseName": "吉林省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "长春市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "吉林市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "四平市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "辽源市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "通化市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "白山市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "松原市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "白城市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "延边朝鲜族自治州"
+                        }
+                    ]
+                },
+                {
+                    "id": 8,
+                    "chineseName": "黑龙江省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "哈尔滨市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "齐齐哈尔市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "鸡西市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "鹤岗市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "双鸭山市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "大庆市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "伊春市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "佳木斯市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "七台河市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "牡丹江市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "黑河市"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "绥化市"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "大兴安岭地区"
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "chineseName": "江苏省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "南京市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "无锡市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "徐州市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "常州市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "苏州市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "南通市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "连云港市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "淮安市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "盐城市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "扬州市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "镇江市"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "泰州市"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "宿迁市"
+                        }
+                    ]
+                },
+                {
+                    "id": 10,
+                    "chineseName": "浙江省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "杭州市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "宁波市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "温州市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "嘉兴市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "湖州市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "绍兴市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "金华市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "衢州市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "舟山市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "台州市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "丽水市"
+                        }
+                    ]
+                },
+                {
+                    "id": 11,
+                    "chineseName": "安徽省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "合肥市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "芜湖市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "蚌埠市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "淮南市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "马鞍山市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "淮北市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "铜陵市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "安庆市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "黄山市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "滁州市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "阜阳市"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "宿州市"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "巢湖市"
+                        },
+                        {
+                            "id": 14,
+                            "chineseName": "六安市"
+                        },
+                        {
+                            "id": 15,
+                            "chineseName": "亳州市"
+                        },
+                        {
+                            "id": 16,
+                            "chineseName": "池州市"
+                        },
+                        {
+                            "id": 17,
+                            "chineseName": "宣城市"
+                        }
+                    ]
+                },
+                {
+                    "id": 12,
+                    "chineseName": "福建省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "福州市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "厦门市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "莆田市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "三明市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "泉州市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "漳州市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "南平市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "龙岩市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "宁德市"
+                        }
+                    ]
+                },
+                {
+                    "id": 13,
+                    "chineseName": "江西省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "南昌市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "景德镇市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "萍乡市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "九江市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "新余市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "鹰潭市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "赣州市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "吉安市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "宜春市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "抚州市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "上饶市"
+                        }
+                    ]
+                },
+                {
+                    "id": 14,
+                    "chineseName": "山东省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "济南市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "青岛市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "淄博市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "枣庄市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "东营市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "烟台市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "潍坊市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "威海市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "日照市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "临沂市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "德州市"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "聊城市"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "滨州市"
+                        },
+                        {
+                            "id": 14,
+                            "chineseName": "菏泽市"
+                        }
+                    ]
+                },
+                {
+                    "id": 15,
+                    "chineseName": "河南省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "郑州市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "开封市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "洛阳市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "平顶山市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "安阳市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "鹤壁市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "新乡市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "焦作市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "濮阳市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "许昌市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "漯河市"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "三门峡市"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "南阳市"
+                        },
+                        {
+                            "id": 14,
+                            "chineseName": "商丘市"
+                        },
+                        {
+                            "id": 15,
+                            "chineseName": "信阳市"
+                        },
+                        {
+                            "id": 16,
+                            "chineseName": "周口市"
+                        },
+                        {
+                            "id": 17,
+                            "chineseName": "驻马店市"
+                        },
+                        {
+                            "id": 18,
+                            "chineseName": "济源市"
+                        }
+                    ]
+                },
+                {
+                    "id": 16,
+                    "chineseName": "湖北省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "武汉市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "黄石市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "十堰市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "宜昌市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "襄阳市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "鄂州市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "荆门市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "孝感市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "荆州市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "黄冈市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "咸宁市"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "随州市"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "恩施土家族苗族自治州"
+                        },
+                        {
+                            "id": 14,
+                            "chineseName": "仙桃市"
+                        },
+                        {
+                            "id": 15,
+                            "chineseName": "天门市"
+                        },
+                        {
+                            "id": 16,
+                            "chineseName": "潜江市"
+                        },
+                        {
+                            "id": 17,
+                            "chineseName": "神农架林区"
+                        }
+                    ]
+                },
+                {
+                    "id": 17,
+                    "chineseName": "湖南省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "长沙市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "株洲市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "湘潭市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "衡阳市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "邵阳市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "岳阳市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "常德市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "张家界市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "益阳市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "郴州市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "永州市"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "怀化市"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "娄底市"
+                        },
+                        {
+                            "id": 14,
+                            "chineseName": "湘西土家族苗族自治州"
+                        }
+                    ]
+                },
+                {
+                    "id": 18,
+                    "chineseName": "广东省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "广州市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "深圳市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "珠海市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "佛山市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "东莞市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "中山市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "惠州市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "汕头市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "韶关市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "河源市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "梅州市"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "汕尾市"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "江门市"
+                        },
+                        {
+                            "id": 14,
+                            "chineseName": "湛江市"
+                        },
+                        {
+                            "id": 15,
+                            "chineseName": "茂名市"
+                        },
+                        {
+                            "id": 16,
+                            "chineseName": "肇庆市"
+                        },
+                        {
+                            "id": 17,
+                            "chineseName": "清远市"
+                        },
+                        {
+                            "id": 18,
+                            "chineseName": "潮州市"
+                        },
+                        {
+                            "id": 19,
+                            "chineseName": "揭阳市"
+                        },
+                        {
+                            "id": 20,
+                            "chineseName": "云浮市"
+                        }
+                    ]
+                },
+                {
+                    "id": 19,
+                    "chineseName": "广西壮族自治区",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "南宁市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "柳州市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "桂林市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "梧州市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "北海市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "防城港市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "钦州市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "贵港市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "玉林市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "百色市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "贺州市"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "河池市"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "来宾市"
+                        },
+                        {
+                            "id": 14,
+                            "chineseName": "崇左市"
+                        }
+                    ]
+                },
+                {
+                    "id": 20,
+                    "chineseName": "海南省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "海口市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "三亚市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "三沙市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "儋州市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "琼海市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "文昌市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "万宁市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "东方市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "五指山市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "乐东黎族自治县"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "陵水黎族自治县"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "白沙黎族自治县"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "昌江黎族自治县"
+                        },
+                        {
+                            "id": 14,
+                            "chineseName": "保亭黎族苗族自治县"
+                        },
+                        {
+                            "id": 15,
+                            "chineseName": "琼中黎族苗族自治县"
+                        }
+                    ]
+                },
+                {
+                    "id": 21,
+                    "chineseName": "重庆市"
+                },
+                {
+                    "id": 22,
+                    "chineseName": "四川省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "成都市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "自贡市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "攀枝花市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "泸州市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "德阳市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "绵阳市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "广元市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "遂宁市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "内江市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "乐山市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "南充市"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "眉山市"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "宜宾市"
+                        },
+                        {
+                            "id": 14,
+                            "chineseName": "广安市"
+                        },
+                        {
+                            "id": 15,
+                            "chineseName": "达州市"
+                        },
+                        {
+                            "id": 16,
+                            "chineseName": "雅安市"
+                        },
+                        {
+                            "id": 17,
+                            "chineseName": "巴中市"
+                        },
+                        {
+                            "id": 18,
+                            "chineseName": "资阳市"
+                        },
+                        {
+                            "id": 19,
+                            "chineseName": "阿坝藏族羌族自治州"
+                        },
+                        {
+                            "id": 20,
+                            "chineseName": "甘孜藏族自治州"
+                        },
+                        {
+                            "id": 21,
+                            "chineseName": "凉山彝族自治州"
+                        }
+                    ]
+                },
+                {
+                    "id": 23,
+                    "chineseName": "贵州省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "贵阳市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "六盘水市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "遵义市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "安顺市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "毕节市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "铜仁市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "黔西南布依族苗族自治州"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "黔东南苗族侗族自治州"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "黔南布依族苗族自治州"
+                        }
+                    ]
+                },
+                {
+                    "id": 24,
+                    "chineseName": "云南省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "昆明市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "曲靖市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "玉溪市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "保山市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "昭通市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "丽江市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "普洱市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "临沧市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "楚雄彝族自治州"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "红河哈尼族彝族自治州"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "文山壮族苗族自治州"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "西双版纳傣族自治州"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "大理白族自治州"
+                        },
+                        {
+                            "id": 14,
+                            "chineseName": "德宏傣族景颇族自治州"
+                        },
+                        {
+                            "id": 15,
+                            "chineseName": "怒江傈僳族自治州"
+                        },
+                        {
+                            "id": 16,
+                            "chineseName": "迪庆藏族自治州"
+                        }
+                    ]
+                },
+                {
+                    "id": 25,
+                    "chineseName": "西藏自治区",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "拉萨市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "昌都市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "山南市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "日喀则市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "那曲市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "阿里地区"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "林芝市"
+                        }
+                    ]
+                },
+                {
+                    "id": 26,
+                    "chineseName": "陕西省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "西安市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "宝鸡市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "咸阳市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "铜川市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "渭南市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "延安市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "汉中市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "榆林市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "安康市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "商洛市"
+                        }
+                    ]
+                },
+                {
+                    "id": 27,
+                    "chineseName": "甘肃省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "兰州市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "嘉峪关市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "金昌市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "白银市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "天水市"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "武威市"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "张掖市"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "平凉市"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "酒泉市"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "庆阳市"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "定西市"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "陇南市"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "临夏回族自治州"
+                        },
+                        {
+                            "id": 14,
+                            "chineseName": "甘南藏族自治州"
+                        }
+                    ]
+                },
+                {
+                    "id": 28,
+                    "chineseName": "青海省",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "西宁市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "海东市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "海西蒙古族藏族自治州"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "海南藏族自治州"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "黄南藏族自治州"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "果洛藏族自治州"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "玉树藏族自治州"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "海北藏族自治州"
+                        }
+                    ]
+                },
+                {
+                    "id": 29,
+                    "chineseName": "宁夏回族自治区",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "银川市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "石嘴山市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "吴忠市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "固原市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "中卫市"
+                        }
+                    ]
+                },
+                {
+                    "id": 30,
+                    "chineseName": "新疆维吾尔自治区",
+                    "cities": [
+                        {
+                            "id": 1,
+                            "chineseName": "乌鲁木齐市"
+                        },
+                        {
+                            "id": 2,
+                            "chineseName": "克拉玛依市"
+                        },
+                        {
+                            "id": 3,
+                            "chineseName": "吐鲁番市"
+                        },
+                        {
+                            "id": 4,
+                            "chineseName": "哈密市"
+                        },
+                        {
+                            "id": 5,
+                            "chineseName": "昌吉回族自治州"
+                        },
+                        {
+                            "id": 6,
+                            "chineseName": "博尔塔拉蒙古自治州"
+                        },
+                        {
+                            "id": 7,
+                            "chineseName": "巴音郭楞蒙古自治州"
+                        },
+                        {
+                            "id": 8,
+                            "chineseName": "阿克苏地区"
+                        },
+                        {
+                            "id": 9,
+                            "chineseName": "克孜勒苏柯尔克孜自治州"
+                        },
+                        {
+                            "id": 10,
+                            "chineseName": "喀什地区"
+                        },
+                        {
+                            "id": 11,
+                            "chineseName": "和田地区"
+                        },
+                        {
+                            "id": 12,
+                            "chineseName": "伊犁哈萨克自治州"
+                        },
+                        {
+                            "id": 13,
+                            "chineseName": "塔城地区"
+                        },
+                        {
+                            "id": 14,
+                            "chineseName": "阿勒泰地区"
+                        },
+                        {
+                            "id": 15,
+                            "chineseName": "石河子市"
+                        },
+                        {
+                            "id": 16,
+                            "chineseName": "阿拉尔市"
+                        },
+                        {
+                            "id": 17,
+                            "chineseName": "图木舒克市"
+                        },
+                        {
+                            "id": 18,
+                            "chineseName": "五家渠市"
+                        },
+                        {
+                            "id": 19,
+                            "chineseName": "北屯市"
+                        },
+                        {
+                            "id": 20,
+                            "chineseName": "铁门关市"
+                        },
+                        {
+                            "id": 21,
+                            "chineseName": "双河市"
+                        },
+                        {
+                            "id": 22,
+                            "chineseName": "可克达拉市"
+                        },
+                        {
+                            "id": 23,
+                            "chineseName": "昆玉市"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Georgia",
+            "chineseName": "格魯吉亞",
+            "region": "亚洲"
+        },
+        {
+            "id": 6,
+            "name": "India",
+            "chineseName": "印度",
+            "region": "亚洲"
+        },
+        {
+            "id": 7,
+            "name": "Iran",
+            "chineseName": "伊朗",
+            "region": "亚洲"
+        },
+        {
+            "id": 8,
+            "name": "Kazakhstan",
+            "chineseName": "哈薩克",
+            "region": "亚洲"
+        },
+        {
+            "id": 9,
+            "name": "Kuwait",
+            "chineseName": "科威特",
+            "region": "亚洲"
+        },
+        {
+            "id": 10,
+            "name": "Mongolia",
+            "chineseName": "蒙古",
+            "region": "亚洲"
+        },
+        {
+            "id": 11,
+            "name": "Nepal",
+            "chineseName": "尼泊爾",
+            "region": "亚洲"
+        },
+        {
+            "id": 12,
+            "name": "Pakistan",
+            "chineseName": "巴基斯坦",
+            "region": "亚洲"
+        },
+        {
+            "id": 13,
+            "name": "Philippines",
+            "chineseName": "菲律賓",
+            "region": "亚洲"
+        },
+        {
+            "id": 14,
+            "name": "Qatar",
+            "chineseName": "卡達",
+            "region": "亚洲"
+        },
+        {
+            "id": 15,
+            "name": "Russia",
+            "chineseName": "俄羅斯",
+            "region": "亚洲"
+        },
+        {
+            "id": 16,
+            "name": "Saudi Arabia",
+            "chineseName": "沙烏地阿拉伯",
+            "region": "亚洲"
+        },
+        {
+            "id": 17,
+            "name": "Taiwan",
+            "chineseName": "台灣",
+            "region": "亚洲"
+        },
+        {
+            "id": 18,
+            "name": "Tajikistan",
+            "chineseName": "塔吉克斯坦",
+            "region": "亚洲"
+        },
+        {
+            "id": 19,
+            "name": "Thailand",
+            "chineseName": "泰國",
+            "region": "亚洲"
+        },
+        {
+            "id": 20,
+            "name": "Turkey",
+            "chineseName": "土耳其",
+            "region": "亚洲"
+        },
+        {
+            "id": 21,
+            "name": "Uzbekistan",
+            "chineseName": "烏茲別克斯坦",
+            "region": "亚洲"
+        },
+        {
+            "id": 22,
+            "name": "Vietnam",
+            "chineseName": "越南",
+            "region": "亚洲"
+        },
+        {
+            "id": 23,
+            "name": "Algeria",
+            "chineseName": "阿爾及利亞",
+            "region": "非洲"
+        },
+        {
+            "id": 24,
+            "name": "Burkina Faso",
+            "chineseName": "布基納法索",
+            "region": "非洲"
+        },
+        {
+            "id": 25,
+            "name": "Congo",
+            "chineseName": "剛果共和國",
+            "region": "非洲"
+        },
+        {
+            "id": 26,
+            "name": "Gambia",
+            "chineseName": "岡比亞",
+            "region": "非洲"
+        },
+        {
+            "id": 27,
+            "name": "Liberia",
+            "chineseName": "利比里亞",
+            "region": "非洲"
+        },
+        {
+            "id": 28,
+            "name": "Madagascar",
+            "chineseName": "馬達加斯加",
+            "region": "非洲"
+        },
+        {
+            "id": 29,
+            "name": "Mali",
+            "chineseName": "馬利",
+            "region": "非洲"
+        },
+        {
+            "id": 30,
+            "name": "Mauritania",
+            "chineseName": "毛里塔尼亞",
+            "region": "非洲"
+        },
+        {
+            "id": 31,
+            "name": "Mozambique",
+            "chineseName": "莫桑比克",
+            "region": "非洲"
+        },
+        {
+            "id": 32,
+            "name": "Nigeria",
+            "chineseName": "奈及利亞",
+            "region": "非洲"
+        },
+        {
+            "id": 33,
+            "name": "South Africa",
+            "chineseName": "南非",
+            "region": "非洲"
+        },
+        {
+            "id": 34,
+            "name": "Tanzania",
+            "chineseName": "坦桑尼亞",
+            "region": "非洲"
+        },
+        {
+            "id": 35,
+            "name": "Tunisia",
+            "chineseName": "突尼斯",
+            "region": "非洲"
+        },
+        {
+            "id": 36,
+            "name": "Uganda",
+            "chineseName": "烏干達",
+            "region": "非洲"
+        },
+        {
+            "id": 37,
+            "name": "Australia",
+            "chineseName": "澳大利亞",
+            "region": "大洋洲"
+        },
+        {
+            "id": 38,
+            "name": "New Zealand",
+            "chineseName": "新西蘭",
+            "region": "大洋洲"
+        },
+        {
+            "id": 39,
+            "name": "Palau",
+            "chineseName": "帛琉",
+            "region": "大洋洲"
+        },
+        {
+            "id": 40,
+            "name": "Solomon Islands",
+            "chineseName": "所羅門群島",
+            "region": "大洋洲"
+        },
+        {
+            "id": 41,
+            "name": "Tonga",
+            "chineseName": "湯加",
+            "region": "大洋洲"
+        },
+        {
+            "id": 42,
+            "name": "Antigua and Barbuda",
+            "chineseName": "安提瓜和巴布達",
+            "region": "北美洲"
+        },
+        {
+            "id": 43,
+            "name": "Belize",
+            "chineseName": "貝里斯",
+            "region": "北美洲"
+        },
+        {
+            "id": 44,
+            "name": "Canada",
+            "chineseName": "加拿大",
+            "region": "北美洲"
+        },
+        {
+            "id": 45,
+            "name": "Dominican Republic",
+            "chineseName": "多明尼加共和國",
+            "region": "北美洲"
+        },
+        {
+            "id": 46,
+            "name": "El Salvador",
+            "chineseName": "薩爾瓦多",
+            "region": "北美洲"
+        },
+        {
+            "id": 47,
+            "name": "Guatemala",
+            "chineseName": "瓜地馬拉",
+            "region": "北美洲"
+        },
+        {
+            "id": 48,
+            "name": "Honduras",
+            "chineseName": "宏都拉斯",
+            "region": "北美洲"
+        },
+        {
+            "id": 49,
+            "name": "Mexico",
+            "chineseName": "墨西哥",
+            "region": "北美洲"
+        },
+        {
+            "id": 50,
+            "name": "Nicaragua",
+            "chineseName": "尼加拉瓜",
+            "region": "北美洲"
+        },
+        {
+            "id": 51,
+            "name": "Saint Vincent and the Grenadines",
+            "chineseName": "聖文森及格瑞那丁",
+            "region": "北美洲"
+        },
+        {
+            "id": 52,
+            "name": "United States",
+            "chineseName": "美國",
+            "region": "北美洲"
+        },
+        {
+            "id": 53,
+            "name": "Argentina",
+            "chineseName": "阿根廷",
+            "region": "南美洲"
+        },
+        {
+            "id": 54,
+            "name": "Bolivia",
+            "chineseName": "玻利維亞",
+            "region": "南美洲"
+        },
+        {
+            "id": 55,
+            "name": "Brazil",
+            "chineseName": "巴西",
+            "region": "南美洲"
+        },
+        {
+            "id": 56,
+            "name": "Chile",
+            "chineseName": "智利",
+            "region": "南美洲"
+        },
+        {
+            "id": 57,
+            "name": "Colombia",
+            "chineseName": "哥倫比亞",
+            "region": "南美洲"
+        },
+        {
+            "id": 58,
+            "name": "Ecuador",
+            "chineseName": "厄瓜多",
+            "region": "南美洲"
+        },
+        {
+            "id": 59,
+            "name": "Guyana",
+            "chineseName": "蓋亞那",
+            "region": "南美洲"
+        },
+        {
+            "id": 60,
+            "name": "Paraguay",
+            "chineseName": "巴拉圭",
+            "region": "南美洲"
+        },
+        {
+            "id": 61,
+            "name": "Peru",
+            "chineseName": "秘魯",
+            "region": "南美洲"
+        },
+        {
+            "id": 62,
+            "name": "Suriname",
+            "chineseName": "蘇利南",
+            "region": "南美洲"
+        },
+        {
+            "id": 63,
+            "name": "Uruguay",
+            "chineseName": "烏拉圭",
+            "region": "南美洲"
+        },
+        {
+            "id": 64,
+            "name": "Venezuela",
+            "chineseName": "委內瑞拉",
+            "region": "南美洲"
+        },
+        {
+            "id": 65,
+            "name": "Denmark",
+            "chineseName": "丹麥",
+            "region": "欧洲"
+        },
+        {
+            "id": 66,
+            "name": "Finland",
+            "chineseName": "芬蘭",
+            "region": "欧洲"
+        },
+        {
+            "id": 67,
+            "name": "Germany",
+            "chineseName": "德國",
+            "region": "欧洲"
+        },
+        {
+            "id": 68,
+            "name": "Hungary",
+            "chineseName": "匈牙利",
+            "region": "欧洲"
+        },
+        {
+            "id": 69,
+            "name": "Italy",
+            "chineseName": "義大利",
+            "region": "欧洲"
+        },
+        {
+            "id": 70,
+            "name": "Latvia",
+            "chineseName": "拉脫維亞",
+            "region": "欧洲"
+        },
+        {
+            "id": 71,
+            "name": "Lithuania",
+            "chineseName": "立陶宛",
+            "region": "欧洲"
+        },
+        {
+            "id": 72,
+            "name": "Norway",
+            "chineseName": "挪威",
+            "region": "欧洲"
+        },
+        {
+            "id": 73,
+            "name": "Sweden",
+            "chineseName": "瑞典",
+            "region": "欧洲"
+        },
+        {
+            "id": 74,
+            "name": "United Kingdom",
+            "chineseName": "英國",
+            "region": "欧洲"
+        },
+        {
+            "id": 75,
+            "name": "Else Country",
+            "chineseName": "其他国家"
+        }
+    ]
+}
