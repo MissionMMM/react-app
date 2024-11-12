@@ -4,6 +4,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './WeatherCom.css';
+import { traditionalized } from "../../utils/simpleTraditionalizedExchange";
 
 const theme = createTheme({
     palette: {
@@ -32,8 +33,8 @@ const WeatherCom = forwardRef((props, ref) => {
         setWeatherInfoLoading(true)
         let city = e || "深圳市"
         get(`/instrument/weather/`, { city: city }).then(res => {
-            if (res.code==200) {
-                let resultData=res.data.data
+            if (res.code == 200) {
+                let resultData = res.data.data
                 setWeatherInfo(resultData)
                 setWeatherDetailInfo(resultData.forecasts[0])
                 setWeatherInfoLoading(false)
@@ -53,7 +54,7 @@ const WeatherCom = forwardRef((props, ref) => {
         <div className="weather-box">
             {Object.keys(weatherInfo).length > 0 &&
                 <div>
-                    <div className="weather-title" onClick={() => openFatherDialog()}>{weatherInfo.address}</div>
+                    <div className="weather-title" onClick={() => openFatherDialog()}>{traditionalized(weatherInfo.address)}</div>
                     <div className="weather-dateChoseBox">
                         {weatherInfo.forecasts.map((item, index) => {
                             return (
