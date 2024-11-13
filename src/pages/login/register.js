@@ -274,10 +274,8 @@ function Register() {
             invite: inviteNum
         }
 
-        console.log('我是请求前的data:', data)
         setLoadingState(1)
         get('/users/register', data).then(res => {
-            console.log('注册成功：', res)
             if (res.code === 200) {
                 setLoadingText("注册成功")
                 setTimeout(() => {
