@@ -1,13 +1,103 @@
-.register-birth-month{
+.register-loading-background{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #070707a6;
+}
+@keyframes registerLoadingRotate {
+    0% {
+        transform: rotateZ(0deg) scale(1);
+    }
+
+    100% {
+        transform: rotateZ(360deg) scale(1.05);
+    }
+}
+
+.register-loading-icon {
+    font-size: 200px !important;
+    color: #ffb428;
+    position: relative;
+    z-index: 2;
+    animation: 1.7s registerLoadingRotate;
+    animation-iteration-count: infinite;
+}
+
+.register-loading-text {
+    position: absolute;
+    z-index: 2;
+    /* width: 120px; */
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 0px 0px 8px #ff7b00;
+}
+
+@keyframes registerLoadingBoxShow {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.register-loading-box {
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    animation: 0.5s registerLoadingBoxShow;
+    animation-fill-mode: forwards;
+    /* background-color: #fff; */
+}
+
+.phoneConfirm {
+    width: 90%;
+    height: 50px;
+    box-sizing: border-box;
+    margin-left: 5%;
+    position: absolute;
+    bottom: -60px;
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: linear-gradient(to right, rgb(214, 62, 87), #ffb428 70%, rgb(226, 110, 129));
+}
+
+.register-birth-day {
     width: 36px !important;
     cursor: pointer;
     margin-left: 6px;
+    /* border: 1px solid; */
 }
-.register-birth-year{
+
+.register-birth-month {
     width: 36px !important;
     cursor: pointer;
-    margin-left: -118px;
+    margin-left: 6px;
+    /* border: 1px solid; */
 }
+
+.register-birth-year {
+    width: 36px !important;
+    cursor: pointer;
+    margin-left: -50px;
+    /* border: 1px solid; */
+}
+
 @keyframes showContent {
     0% {
         opacity: 0;
@@ -79,7 +169,7 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .register-content {
@@ -93,6 +183,83 @@
     position: relative;
     z-index: 10;
     padding: 20px;
+}
+
+.register-radio-text {
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #707070;
+    transition: 0.3s;
+}
+
+@keyframes showRadioActive {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        border-color: #000;
+        transform: scale(0.5);
+        box-shadow: 0px 0px 10px 5px #000;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.register-radio-active-circle {
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.register-radio-active {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: 0.3s linear showRadioActive;
+    /* animation-fill-mode: forwards; */
+}
+
+.register-radio {
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    border: 2px solid;
+    border-radius: 50%;
+    border-color: #707070;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.register-radio-item:hover .register-radio {
+    border-color: #000;
+}
+
+.register-radio-item:hover .register-radio-text {
+    color: #000;
+}
+
+.register-radio-item {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+
+.register-radio-group {
+    /* border: 1px solid; */
+    display: flex;
 }
 
 .register-item {
@@ -114,12 +281,14 @@
     align-items: center;
     cursor: pointer;
 }
-.register-selector-city{
+
+.register-selector-city {
     position: absolute !important;
     margin-left: 204px;
     width: 40px !important;
     cursor: pointer;
 }
+
 .register-selector-provinces {
     position: absolute !important;
     margin-left: 136px;
@@ -128,6 +297,11 @@
 }
 
 .register-selector-item:hover {
+    background-color: #707070;
+    color: #fff;
+}
+
+.register-selector-item-active {
     background-color: #707070;
     color: #fff;
 }
@@ -217,6 +391,7 @@
     padding: 30px 0;
     border-radius: 12px;
     background-color: #ffffffc2;
+    position: relative;
 }
 
 .register-selector-china {

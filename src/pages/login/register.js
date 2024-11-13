@@ -18,6 +18,9 @@ import AddReactionIcon from '@mui/icons-material/AddReaction';
 import ErrorAlert from '../alert/errorAlert';
 import country from "../../utils/country.json"
 import birthDate from "../../utils/birthDate.json"
+import AutoModeIcon from '@mui/icons-material/AutoMode';
+import { traditionalized } from '../../utils/simpleTraditionalizedExchange';
+import { get } from '../../utils/request';
 
 // 引入简体切繁体组件
 
@@ -26,6 +29,7 @@ function Register() {
     const [userId, setUserId] = useState('')
     const [userPassword, setUserPassword] = useState('')
     const [userNickname, setUserNickname] = useState('')
+    const [userGender, setUserGender] = useState(0)
     const [userPhone, setUserPhone] = useState('')
     const [userEmail, setUserEmail] = useState('')
     const [inviteNum, setInviteNum] = useState('')
@@ -42,6 +46,7 @@ function Register() {
     const [inputActived9, setInputActived9] = useState(false)
     const [inputActived10, setInputActived10] = useState(false)
     const [inputActived11, setInputActived11] = useState(false)
+    const [inputActived12, setInputActived12] = useState(false)
     const [systemWidth, setSystemWidth] = useState("") // 响应式处理
     const [openErrorAlert, setOpenErrorAlert] = useState(false) // 报错弹窗
     const [errorAlertText, setErrorAlertText] = useState("") // 报错弹窗文案
@@ -56,6 +61,8 @@ function Register() {
     const [month, setMonth] = useState("")
     const [dayList, setDayList] = useState([])
     const [day, setDay] = useState("")
+    const [loadingState, setLoadingState] = useState(0)
+    const [loadingText, setLoadingText] = useState("注册中")
 
     const resizeUpdate = (e) => {
         setSystemWidth(e.target.innerWidth)
@@ -98,6 +105,12 @@ function Register() {
     }
     const choseYear = (item) => {
         setYear(item)
+    }
+    const choseMonth = (item) => {
+        setMonth(item)
+    }
+    const choseDay = (item) => {
+        setDay(item)
     }
     const back = () => {
         navigate('/login')
@@ -144,6 +157,9 @@ function Register() {
             case 11:
                 setInputActived11(true)
                 break;
+            case 12:
+                setInputActived12(true)
+                break;
         }
     }
     const inputBlur = (e) => {
@@ -181,21 +197,99 @@ function Register() {
             case 11:
                 setInputActived11(false)
                 break;
+            case 12:
+                setInputActived12(false)
+                break;
         }
     }
+    const changeGenderRadio = (e) => {
+        setUserGender(e)
+    }
     const confirm = () => {
-        // console.log('我是用户名：', userId)
-        // console.log('我是密码：', userPassword)
-        // console.log('我是昵称：', userNickname)
-        // console.log('我是手机号：', userPhone)
-        // console.log('我是生日：', birthDate)
-        // console.log('我是地区：', city)
-        // console.log('我是邮箱：', userEmail)
-        // console.log('我是邀请码：', inviteNum)
         if (!userId) {
             setErrorAlertText("请输入用户名")
             setOpenErrorAlert(true)
+            return
         }
+        if (!userPassword) {
+            setErrorAlertText("请输入密码")
+            setOpenErrorAlert(true)
+            return
+        }
+        if (!userNickname) {
+            setErrorAlertText("请输入昵称")
+            setOpenErrorAlert(true)
+            return
+        }
+        if (!userPhone) {
+            setErrorAlertText("请输入手机号")
+            setOpenErrorAlert(true)
+            return
+        }
+        if (!year) {
+            setErrorAlertText("请选择生日年份")
+            setOpenErrorAlert(true)
+            return
+        }
+        if (!month) {
+            setErrorAlertText("请选择生日月份")
+            setOpenErrorAlert(true)
+            return
+        }
+        if (!day) {
+            setErrorAlertText("请选择生日日期")
+            setOpenErrorAlert(true)
+            return
+        }
+        if (Object.keys(countryItem).length === 0) {
+            setErrorAlertText("请选择所在地国家")
+            setOpenErrorAlert(true)
+            return
+        }
+        if (provincesList.length > 0 && Object.keys(provincesItem).length === 0) {
+            setErrorAlertText("请选择所在省份")
+            setOpenErrorAlert(true)
+            return
+        }
+        if (cityList.length > 0 && Object.keys(cityItem).length === 0) {
+            setErrorAlertText("请选择所在城市")
+            setOpenErrorAlert(true)
+            return
+        }
+        if (!userEmail) {
+            setErrorAlertText("请输入邮箱")
+            setOpenErrorAlert(true)
+            return
+        }
+        let adress = (`${countryItem.name}-${countryItem.chineseName}`) + (provincesItem.chineseName ? `-${provincesItem.chineseName}` : "") + (cityItem.chineseName ? `-${cityItem.chineseName}` : "")
+        let data = {
+            userName: userId,
+            userPassword: userPassword,
+            userNickname: userNickname,
+            gender: userGender === 0 ? "男" : "女",
+            userPhone: userPhone,
+            birthDate: year + "-" + month + "-" + day,
+            city: adress,
+            userEmail: userEmail,
+            invite: inviteNum
+        }
+
+        console.log('我是请求前的data:', data)
+        setLoadingState(1)
+        get('/users/register', data).then(res => {
+            console.log('注册成功：', res)
+            if (res.code === 200) {
+                setLoadingText("注册成功")
+                setTimeout(() => {
+                    navigate('/login')
+                }, 1500);
+            } else {
+                setLoadingText("注册失败")
+                setTimeout(() => {
+                    setLoadingState(0)
+                }, 1500);
+            }
+        })
     }
     const closeErrorAlert = () => {
         setOpenErrorAlert(false)
@@ -203,6 +297,14 @@ function Register() {
     return (
         systemWidth >= 750 ? (
             <div className='register-box'>
+                {
+                    loadingState &&
+                    <div className='register-loading-box'>
+                        <div className='register-loading-background'></div>
+                        <AutoModeIcon className='register-loading-icon' />
+                        <div className='register-loading-text'>{traditionalized(loadingText)}</div>
+                    </div>
+                }
                 <ErrorAlert alertOpen={openErrorAlert} alertText={errorAlertText} handleClose={closeErrorAlert} />
                 <Button color="secondary" className='register-siderbar left-animation' style={{ left: '10%', fontSize: '20px' }} onClick={() => { back() }}><ArrowBackIosNewIcon style={{ color: 'pink', fontSize: '20px', fontWeight: 'bold', cursor: 'pointer' }} onClick={() => back()} /><span className='register-text-1'>BACK</span></Button>
                 <div className='register-content'>
@@ -233,6 +335,28 @@ function Register() {
                             <input className='register-input' type='text' placeholder='請輸入昵稱' maxLength={10} value={userNickname} onChange={(e) => { setUserNickname(e.target.value) }} onClick={() => inputClick(8)} onBlur={() => inputBlur(8)} />
                         </div>
                     </div>
+                    <div className='register-item register-radio-group'>
+                        <div className='register-radio-item' style={{ marginRight: '30px' }} onClick={() => { changeGenderRadio(0) }}>
+                            {
+                                userGender === 0 &&
+                                <div className='register-radio-active'>
+                                    <div className='register-radio-active-circle'></div>
+                                </div>
+                            }
+                            {userGender != 0 && <div className='register-radio'></div>}
+                            <div className='register-radio-text'>男</div>
+                        </div>
+                        <div className='register-radio-item' onClick={() => { changeGenderRadio(1) }}>
+                            {
+                                userGender === 1 &&
+                                <div className='register-radio-active'>
+                                    <div className='register-radio-active-circle'></div>
+                                </div>
+                            }
+                            {userGender != 1 && <div className='register-radio'></div>}
+                            <div className='register-radio-text'>女</div>
+                        </div>
+                    </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <PhoneIcon className='register-icon-1' style={{ color: inputActived3 ? '#333' : 'gray' }} />
@@ -244,19 +368,29 @@ function Register() {
                             <CakeIcon className='register-icon-1' style={{ color: inputActived6 ? '#333' : 'gray' }} />
                             <input className='register-input register-birth-year' type='text' readOnly placeholder='年份' value={year} onClick={() => inputClick(6)} onBlur={() => inputBlur(6)} />
                             <input className='register-input register-birth-month' type='text' readOnly placeholder='月份' value={month} onClick={() => inputClick(11)} onBlur={() => inputBlur(11)} />
+                            <input className='register-input register-birth-day' type='text' readOnly placeholder='日期' value={day} onClick={() => inputClick(12)} onBlur={() => inputBlur(12)} />
                             <div className={['register-selector-box-base', inputActived6 ? 'register-selector-box-show' : 'register-selector-box-hide'].join(' ')}>
-                                {yearList.map((item) => {
+                                {yearList.map((item, index) => {
                                     return (
-                                        <div className='register-selector-item' key={item.id} onClick={() => { choseYear(item) }}>
+                                        <div className={['register-selector-item', item === year ? "register-selector-item-active" : ""].join(" ")} key={index} onClick={() => { choseYear(item) }}>
                                             {item}
                                         </div>
                                     )
                                 })}
                             </div>
                             <div className={['register-selector-box-base', inputActived11 ? 'register-selector-box-show' : 'register-selector-box-hide'].join(' ')}>
-                                {monthList.map((item) => {
+                                {monthList.map((item, index) => {
                                     return (
-                                        <div className='register-selector-item' key={item.id} onClick={() => { choseYear(item) }}>
+                                        <div className={['register-selector-item', item === month ? "register-selector-item-active" : ""].join(" ")} key={index} onClick={() => { choseMonth(item) }}>
+                                            {item}
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                            <div className={['register-selector-box-base', inputActived12 ? 'register-selector-box-show' : 'register-selector-box-hide'].join(' ')}>
+                                {dayList.map((item, index) => {
+                                    return (
+                                        <div className={['register-selector-item', item === day ? "register-selector-item-active" : ""].join(" ")} key={index} onClick={() => { choseDay(item) }}>
                                             {item}
                                         </div>
                                     )
@@ -317,7 +451,7 @@ function Register() {
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <PolylineIcon className='register-icon-1' style={{ color: inputActived5 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='請輸入邀請碼' value={inviteNum} onChange={(e) => { setInviteNum(e.target.value) }} onClick={() => inputClick(5)} onBlur={() => inputBlur(5)} />
+                            <input className='register-input' placeholder='請輸入邀請碼(非必選項)' value={inviteNum} onChange={(e) => { setInviteNum(e.target.value) }} onClick={() => inputClick(5)} onBlur={() => inputBlur(5)} />
                         </div>
                     </div>
                 </div>
@@ -328,6 +462,15 @@ function Register() {
                 <div className='phoneBackIcon' onClick={() => { back() }}>
                     <ArrowBackIosNewIcon />
                 </div>
+                {
+                    loadingState &&
+                    <div className='register-loading-box'>
+                        <div className='register-loading-background'></div>
+                        <AutoModeIcon className='register-loading-icon' />
+                        <div className='register-loading-text'>{traditionalized(loadingText)}</div>
+                    </div>
+                }
+                <ErrorAlert alertOpen={openErrorAlert} alertText={errorAlertText} handleClose={closeErrorAlert} />
                 <div className='phoneContentBox'>
                     <div className='register-item'>
                         <div className='register-input-box'>
@@ -351,6 +494,28 @@ function Register() {
                             <input className='register-input' placeholder='請輸入昵稱' maxLength={10} value={userNickname} onChange={(e) => { setUserNickname(e.target.value) }} onClick={() => inputClick(8)} onBlur={() => inputBlur(8)} />
                         </div>
                     </div>
+                    <div className='register-item register-radio-group'>
+                        <div className='register-radio-item' style={{ marginRight: '30px' }} onClick={() => { changeGenderRadio(0) }}>
+                            {
+                                userGender === 0 &&
+                                <div className='register-radio-active'>
+                                    <div className='register-radio-active-circle'></div>
+                                </div>
+                            }
+                            {userGender != 0 && <div className='register-radio'></div>}
+                            <div className='register-radio-text'>男</div>
+                        </div>
+                        <div className='register-radio-item' onClick={() => { changeGenderRadio(1) }}>
+                            {
+                                userGender === 1 &&
+                                <div className='register-radio-active'>
+                                    <div className='register-radio-active-circle'></div>
+                                </div>
+                            }
+                            {userGender != 1 && <div className='register-radio'></div>}
+                            <div className='register-radio-text'>女</div>
+                        </div>
+                    </div>
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <PhoneIcon className='register-icon-1' style={{ color: inputActived3 ? '#333' : 'gray' }} />
@@ -360,7 +525,36 @@ function Register() {
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <CakeIcon className='register-icon-1' style={{ color: inputActived6 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='請輸入生日日期用 - 號連接' value={year} onClick={() => inputClick(6)} onBlur={() => inputBlur(6)} />
+                            <input className='register-input register-birth-year' type='text' readOnly placeholder='年份' value={year} onClick={() => inputClick(6)} onBlur={() => inputBlur(6)} />
+                            <input className='register-input register-birth-month' type='text' readOnly placeholder='月份' value={month} onClick={() => inputClick(11)} onBlur={() => inputBlur(11)} />
+                            <input className='register-input register-birth-day' type='text' readOnly placeholder='日期' value={day} onClick={() => inputClick(12)} onBlur={() => inputBlur(12)} />
+                            <div className={['register-selector-box-base', inputActived6 ? 'register-selector-box-show' : 'register-selector-box-hide'].join(' ')}>
+                                {yearList.map((item, index) => {
+                                    return (
+                                        <div className={['register-selector-item', item === year ? "register-selector-item-active" : ""].join(" ")} key={index} onClick={() => { choseYear(item) }}>
+                                            {item}
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                            <div className={['register-selector-box-base', inputActived11 ? 'register-selector-box-show' : 'register-selector-box-hide'].join(' ')}>
+                                {monthList.map((item, index) => {
+                                    return (
+                                        <div className={['register-selector-item', item === month ? "register-selector-item-active" : ""].join(" ")} key={index} onClick={() => { choseMonth(item) }}>
+                                            {item}
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                            <div className={['register-selector-box-base', inputActived12 ? 'register-selector-box-show' : 'register-selector-box-hide'].join(' ')}>
+                                {dayList.map((item, index) => {
+                                    return (
+                                        <div className={['register-selector-item', item === day ? "register-selector-item-active" : ""].join(" ")} key={index} onClick={() => { choseDay(item) }}>
+                                            {item}
+                                        </div>
+                                    )
+                                })}
+                            </div>
                         </div>
                     </div>
                     <div className='register-item'>
@@ -416,9 +610,10 @@ function Register() {
                     <div className='register-item'>
                         <div className='register-input-box'>
                             <PolylineIcon className='register-icon-1' style={{ color: inputActived5 ? '#333' : 'gray' }} />
-                            <input className='register-input' placeholder='請輸入邀請碼' value={inviteNum} onChange={(e) => { setInviteNum(e.target.value) }} onClick={() => inputClick(5)} onBlur={() => inputBlur(5)} />
+                            <input className='register-input' placeholder='請輸入邀請碼(非必選項)' value={inviteNum} onChange={(e) => { setInviteNum(e.target.value) }} onClick={() => inputClick(5)} onBlur={() => inputBlur(5)} />
                         </div>
                     </div>
+                    <div className='phoneConfirm' onClick={() => { confirm() }}>Next Step</div>
                 </div>
             </div>
         )
