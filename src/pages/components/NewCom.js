@@ -1,6 +1,6 @@
 import "./NewCom.css"
 import { get } from "../../utils/request";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { traditionalized } from "../../utils/simpleTraditionalizedExchange";
 import ReplyAllIcon from '@mui/icons-material/ReplyAll';
 import ShareIcon from '@mui/icons-material/Share';
@@ -39,7 +39,7 @@ const NewCom = () => {
     const [infoAlertText, setInfoAlertText] = useState("")
     const listScrollRef = useRef(null)
 
-    const testFunc = (id) => {
+    const getNewsDetail = (id) => {
         setLoadingBox(true)
         get("/instrument/newsDetail/", { uniqueKey: id }).then(res => {
             if (res.code == 200) {
@@ -59,7 +59,7 @@ const NewCom = () => {
     const openNewsDetailBox = (id = "") => {
         // setOpenDrawer(true)
         if (newsDetailDebounce) {
-            testFunc(id)
+            getNewsDetail(id)
             setNewsDetailDebounce(false)
         } else {
             setInfoAlertText("请勿频繁请求~")
@@ -75,6 +75,29 @@ const NewCom = () => {
     const closeInfoAlert = () => {
         setInfoAlertOpen(false)
     }
+    const getNewList = useCallback((type) => {
+        setNewsDebounce(false)
+        // type[String]: top/推荐，默认 | guonei/国内 | guoji/国际 | yule/娱乐 | tiyu/体育 | junshi/军事 | keji/科技 | caijing/财经 | youxi/游戏 | qiche/汽车 | jiankang/健康
+        // page[Number]:当前页数,默认1,最大50
+        // pageSize[Number]:每条返回条数,默认30,最大30
+        setNewsType(type)
+        get("/instrument/news/", { type: type, page: page, pageSize: 20 }).then(res => {
+            if (res.code == 200) {
+                if (newsList.length == 0) {
+                    setNewsList(res.data.result.data)
+                } else {
+                    setNewsList(prevItems => [...prevItems, ...res.data.result.data])
+                }
+                setTimeout(() => {
+                    // 防抖关闭
+                    setNewsDebounce(true)
+                }, 5000);
+            } else {
+                setInfoAlertText("请求次数今日已达上限~")
+                setInfoAlertOpen(true)
+            }
+        })
+    }, [page, newsList.length])
     // 添加滚动事件监听器
     useEffect(() => {
         const handleScroll = (event) => {
@@ -105,34 +128,12 @@ const NewCom = () => {
         if (newsDebounce) {
             getNewList(newsType)
         }
-    }, [page])
-    const getNewList = (type) => {
-        setNewsDebounce(false)
-        // type[String]: top/推荐，默认 | guonei/国内 | guoji/国际 | yule/娱乐 | tiyu/体育 | junshi/军事 | keji/科技 | caijing/财经 | youxi/游戏 | qiche/汽车 | jiankang/健康
-        // page[Number]:当前页数,默认1,最大50
-        // pageSize[Number]:每条返回条数,默认30,最大30
-        setNewsType(type)
-        get("/instrument/news/", { type: type, page: page, pageSize: 20 }).then(res => {
-            if (res.code == 200) {
-                if (newsList.length == 0) {
-                    setNewsList(res.data.result.data)
-                } else {
-                    setNewsList(prevItems => [...prevItems, ...res.data.result.data])
-                }
-                setTimeout(() => {
-                    // 防抖关闭
-                    setNewsDebounce(true)
-                }, 5000);
-            } else {
-                setInfoAlertText("请求次数今日已达上限~")
-                setInfoAlertOpen(true)
-            }
-        })
-    }
+    }, [page, newsDebounce, newsAllowRequest, getNewList, newsType])
+
     const backClassify = () => {
         setNewsAllowRequest(false)
         setListHide(1)
-        setNewsDebounce(false) // 关闭防抖
+        setNewsDebounce(true) // 关闭防抖
     }
     useEffect(() => {
         if (listHide == 1) {
