@@ -1,6 +1,6 @@
 import "./NewCom.css"
 import { get } from "../../utils/request";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { traditionalized } from "../../utils/simpleTraditionalizedExchange";
 import ReplyAllIcon from '@mui/icons-material/ReplyAll';
 import ShareIcon from '@mui/icons-material/Share';
@@ -75,7 +75,7 @@ const NewCom = () => {
     const closeInfoAlert = () => {
         setInfoAlertOpen(false)
     }
-    const getNewList = useCallback((type) => {
+    const getNewList = (type) => {
         setNewsDebounce(false)
         // type[String]: top/推荐，默认 | guonei/国内 | guoji/国际 | yule/娱乐 | tiyu/体育 | junshi/军事 | keji/科技 | caijing/财经 | youxi/游戏 | qiche/汽车 | jiankang/健康
         // page[Number]:当前页数,默认1,最大50
@@ -97,7 +97,7 @@ const NewCom = () => {
                 setInfoAlertOpen(true)
             }
         })
-    }, [page, newsList.length])
+    }
     // 添加滚动事件监听器
     useEffect(() => {
         const handleScroll = (event) => {
@@ -128,7 +128,7 @@ const NewCom = () => {
         if (newsDebounce) {
             getNewList(newsType)
         }
-    }, [page, newsDebounce, newsAllowRequest, getNewList, newsType])
+    }, [page /*, newsDebounce, newsAllowRequest*/])// eslint-disable-line react-hooks/exhaustive-deps
 
     const backClassify = () => {
         setNewsAllowRequest(false)
