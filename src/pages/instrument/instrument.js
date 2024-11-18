@@ -7,6 +7,7 @@ import SuccessAlert from '../alert/successAlert.js'
 import InfoAlert from '../alert/infoAlert.js'
 import { ReactComponent as Test_1 } from './Components/test_1.svg'
 import CoPresentIcon from '@mui/icons-material/CoPresent';
+import { traditionalized } from "../../utils/simpleTraditionalizedExchange.js";
 
 function Instrument() {
     const [IDcardNumber, setIDcardNumber] = useState("") // 身份证号码
@@ -277,6 +278,9 @@ function Instrument() {
             case 17:
                 url = "https://www.ypppt.com/moban/zongjie/list-2.html"
                 break;
+            case 18:
+                url = "https://bravedown.com/bilibili-downloader"
+                break;
             default:
                 break;
         }
@@ -339,6 +343,7 @@ function Instrument() {
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(11) }}>ROLL天氣查詢API</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(12) }}>站長工具</div>
                 <div className="jumpSwitch" onClick={() => { jumpURLByHistory(17) }}>免費PPT模板</div>
+                <div className="jumpSwitch" onClick={() => { jumpURLByHistory(18) }}>{traditionalized('BiliBili网页转音视频')}</div>
             </div>
             <div className="flexBox">
                 <div className="jumpSwitch-2" onClick={() => { jumpURLByHistory(7) }}>Bucd梯子</div>
