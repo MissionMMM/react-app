@@ -285,7 +285,7 @@ const NewCom = () => {
                                     <div className="news-list-item-img">
                                         {
                                             item.thumbnail_pic_s ?
-                                                <img src={item.thumbnail_pic_s} /> :
+                                                <img alt="" src={item.thumbnail_pic_s} /> :
                                                 <div className="news-list-item-img-lose">
                                                     <ImageNotSupportedIcon />
                                                     Picture Lose
