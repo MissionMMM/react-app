@@ -246,7 +246,7 @@ function Instrument() {
                 url = "https://starloom.ai/#/"
                 break;
             case 7:
-                url = "https://bucd.pro/"
+                url = "https://532363.xyz/#/dashboard"
                 break;
             case 8:
                 url = "https://www.runoob.com/w3c/w3c-intro.html"
